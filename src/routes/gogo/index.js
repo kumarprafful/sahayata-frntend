@@ -3,6 +3,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 
 import start from './start';
 
+
 export default ({ match }) => (
     <Switch>
         <Redirect exact from={`${match.url}/`} to={`${match.url}/start`} />
