@@ -382,7 +382,6 @@ class Sidebar extends Component {
               </Nav>
 
               {/*sellCrop*/}
-              
 
             </PerfectScrollbar>
           </div>

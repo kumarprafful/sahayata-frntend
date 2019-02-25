@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { Row } from "reactstrap";
+import { Row, Card, CardBody, Col } from "reactstrap";
 
 import IntlMessages from "Util/IntlMessages";
 
@@ -10,16 +10,12 @@ export default class extends Component {
   render() {
     return (
       <Fragment>
-        {/*<Row>
-          <Colxx xxs="12">
-            <BreadcrumbContainer
-              heading={<IntlMessages id="menu.second" />}
-              match={this.props.match}
-            />
-            <Separator className="mb-5" />
-          </Colxx>
-        </Row>*/}
-        <div>farmer is here</div>
+        <Row>
+        <Col>.colftfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</Col>
+        <Col>.colftfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</Col>
+        <Col>.colftfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</Col>
+          <Col>.colftfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</Col>
+        </Row>
       </Fragment>
     );
   }

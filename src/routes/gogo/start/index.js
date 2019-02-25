@@ -51,6 +51,15 @@ class Home extends Component {
   render() {
     return (
       <Fragment>
+      <Row>
+        <Colxx xxs="12">
+          <BreadcrumbContainer
+            heading={<IntlMessages id="menu.second" />}
+            match={this.props.match}
+          />
+          <Separator className="mb-5" />
+        </Colxx>
+      </Row>
         <Row>
           {this.homeLoader()}
         </Row>
@@ -70,7 +79,8 @@ const mapStateToProps = ({ menu , authUser }) => {
     containerClassnames,
     subHiddenBreakpoint,
     menuHiddenBreakpoint,
-    menuClickCount,authUser
+    menuClickCount,
+    authUser
   };
 };
 
