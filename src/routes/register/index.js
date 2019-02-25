@@ -1,12 +1,14 @@
 import React, { Component, Fragment } from "react";
 import IntlMessages from "Util/IntlMessages";
-import { Row, Card, CardTitle, Form, Label, Input, Button } from "reactstrap";
+import { Alert, Row, Card, CardTitle, Form, Label, Input, Button } from "reactstrap";
 import { NavLink } from "react-router-dom";
 
 import { Colxx } from "Components/CustomBootstrap";
 
 import { connect } from "react-redux";
-import { registerUser } from "Redux/actions";
+import { registerUser, loginUserSuccess } from "Redux/actions";
+
+import axios from 'axios';
 
 class RegisterLayout extends Component {
   constructor(props) {
@@ -18,14 +20,24 @@ class RegisterLayout extends Component {
     };
   }
   onUserRegister() {
-    console.log(this.state);
-    if (this.state.email !== "" && this.state.password !== "") {
-      // This is for adding user to Firebase. Commented out for demo purpose.
-      // this.props.registerUser(this.state, this.props.history);
-      
-
-      this.props.history.push("/login");
+    if (this.state.email == "" || this.state.password == "") {
+      alert("Fill the credentials")
+      // this.props.history.push("/login");
     }
+    else{
+      axios.post("https://sahayata.herokuapp.com/register", this.state)
+      .then(res => {
+        console.log(res);
+        this.props.loginUserSuccess({...this.state, userType:res.data.type});
+        this.props.history.push("/");
+
+      })
+      .catch(error =>{
+        console.log(error);
+      })
+    }
+
+
   }
 
   componentDidMount() {
@@ -52,6 +64,7 @@ class RegisterLayout extends Component {
                         login
                       </NavLink>
                       .
+
                     </p>
                   </div>
                   <div className="form-side">
@@ -116,6 +129,7 @@ const mapStateToProps = ({ authUser }) => {
 export default connect(
   mapStateToProps,
   {
-    registerUser
+    registerUser,
+    loginUserSuccess
   }
 )(RegisterLayout);
