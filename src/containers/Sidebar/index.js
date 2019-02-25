@@ -202,7 +202,7 @@ class Sidebar extends Component {
     this.props.setContainerClassnames(0, nextClasses.join(" "));
   }
 
-  openSubMenuHome(e,selectedParent){
+  openDirectPage(e,selectedParent){
     const { containerClassnames, menuClickCount } = this.props;
     this.props.setContainerClassnames(3, containerClassnames);
 
@@ -270,7 +270,7 @@ class Sidebar extends Component {
                 >
                   <NavLink
                     to="/app/gogo"
-                    onClick={e => this.openSubMenuHome(e, "gogo")}
+                    onClick={e => this.openDirectPage(e, "gogo")}
                   >
                     <i className="simple-icon-home" />{" "}
                     <IntlMessages id="menu.first" />
@@ -301,10 +301,10 @@ class Sidebar extends Component {
                   })}
                 >
                   <NavLink
-                    to="/app/sellCrop"
-                    onClick={e => this.openSubMenu(e, "sellCrop")}
+                    to="/app/sellCrop/tomato"
+                    onClick={e => this.openDirectPage(e, "sellCrop")}
                   >
-                    <i className="simple-icon-map" />{" "}
+                    <i className="simple-icon-action-redo" />{" "}
                     <IntlMessages id="menu.sellCrop" />
                   </NavLink>
 
@@ -382,20 +382,7 @@ class Sidebar extends Component {
               </Nav>
 
               {/*sellCrop*/}
-
-              <Nav
-                className={classnames({
-                  "d-block": ((this.state.selectedParentMenu == "sellCrop" && this.state.viewingParentMenu=="" )|| this.state.viewingParentMenu=="sellCrop")
-                })}
-                data-parent="sellCrop"
-              >
-                <NavItem>
-                  <NavLink to="/app/sellCrop/tomato">
-                    <i className="simple-icon-paper-plane" />{" "}
-                    <IntlMessages id="submenu.second.tomato" />
-                  </NavLink>
-                </NavItem>
-              </Nav>
+              
 
             </PerfectScrollbar>
           </div>

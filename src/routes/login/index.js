@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 import { Colxx } from "Components/CustomBootstrap";
 
 import { connect } from "react-redux";
-import { loginUser } from "Redux/actions";
+import { loginUser, loginUserSuccess } from "Redux/actions";
 import axios from "axios";
 
 class LoginLayout extends Component {
@@ -21,13 +21,21 @@ class LoginLayout extends Component {
     this.handlepassword = this.handlepassword.bind(this);
     this.onUserLogin = this.onUserLogin.bind(this);
   }
-  onUserLogin() {
+  onUserLogin(e) {
+    e.preventDefault();
     console.log(this.state);
-    if (this.state.email !== "" && this.state.password !== "") {
-      this.props.loginUser(this.state, this.props.history);
+    if (this.state.username == "farmer" && this.state.password !== "") {
+      this.props.loginUserSuccess({...this.state , userType: 1} , this.props.history);
+      this.props.history.push("/");
     }
-    // <Redirect to={}
-    this.props.history.push("/");
+    else if(this.state.username == "storage" && this.state.password !== "") {
+      this.props.loginUserSuccess({...this.state, userType: 3}, this.props.history);
+      this.props.history.push("/");
+    }
+    else if(this.state.username == "transport" && this.state.password) {
+      this.props.loginUserSuccess({...this.state, userType: 2}, this.props.history);
+      this.props.history.push("/");
+    }
   }
 
   handleusername(event) {
@@ -75,7 +83,7 @@ class LoginLayout extends Component {
                         <Input
                           placeholder="Username"
                           type="text"
-                          onChange={this.handleUsername}
+                          onChange={this.handleusername}
                         />
                       </FormGroup>
                       <FormGroup>
@@ -83,7 +91,7 @@ class LoginLayout extends Component {
                         <Input
                           type="password"
                           placeholder="Password"
-                          onChange={this.handlePassword}
+                          onChange={this.handlepassword}
                         />
                       </FormGroup>
                       <div className="d-flex justify-content-between align-items-center">
@@ -116,6 +124,7 @@ const mapStateToProps = ({ authUser }) => {
 export default connect(
   mapStateToProps,
   {
-    loginUser
+    loginUser,
+    loginUserSuccess
   }
 )(LoginLayout);

@@ -7,8 +7,9 @@ import {
 } from "Constants/actionTypes";
 
 const INIT_STATE = {
-  user: localStorage.getItem("user_id"),
-  loading: false
+  user: localStorage.getItem("username"),
+  loading: false,
+  type: localStorage.getItem("userType")
 };
 
 export default (state = INIT_STATE, action) => {
@@ -17,14 +18,19 @@ export default (state = INIT_STATE, action) => {
       return { ...state, loading: true };
     case LOGIN_USER_SUCCESS:
       //notify.success('Login Success');
-      return { ...state, loading: false, user: action.payload };
+      localStorage.setItem("username", action.payload.username);
+      localStorage.setItem("userType", action.payload.userType);
+      return { ...state, loading: false, user: action.payload , type: action.payload.userType};
     case REGISTER_USER:
       return { ...state, loading: true };
+
     case REGISTER_USER_SUCCESS:
       //notify.success('Register User Success');
       return { ...state, loading: false, user: action.payload.uid };
+
     case LOGOUT_USER:
       return { ...state, user: null };
+
     default:
       return { ...state };
   }

@@ -29,7 +29,7 @@ const InitialPath = ({ component: Component, ...rest, authUser }) =>
 	<Route
 		{...rest}
 		render={props =>
-			!authUser 
+			authUser
 				? <Component {...props} />
 				: <Redirect
 					to={{

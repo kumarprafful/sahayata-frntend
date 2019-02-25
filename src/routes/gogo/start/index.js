@@ -7,6 +7,9 @@ import { Row, Card, CardBody, CardTitle, Button, Jumbotron } from "reactstrap";
 
 import { Colxx, Separator } from "Components/CustomBootstrap";
 import BreadcrumbContainer from "Components/BreadcrumbContainer";
+import FarmerView from "./farmerView"
+import StorageView from "./storageView"
+import TransportView from "./transportView"
 
 import {
   setContainerClassnames,
@@ -16,23 +19,47 @@ import {
 
 class Home extends Component {
 
+  constructor(props){
+    super(props);
+    this.homeLoader = this.homeLoader.bind(this);
+  }
+
   componentDidMount() {
     const { containerClassnames, menuClickCount } = this.props;
     this.props.setContainerClassnames(3, containerClassnames);
+  }
+
+  homeLoader(){
+    var type = this.props.authUser.type;
+    if(type == 1){
+      return (
+        <div><FarmerView/></div>
+      );
+    }
+    else if(type == 2){
+      return (
+        <div><TransportView/></div>
+      );
+    }
+    else if (type == 3){
+      return (
+        <div><StorageView/></div>
+      )
+    }
   }
 
   render() {
     return (
       <Fragment>
         <Row>
-          Image slider here
+          {this.homeLoader()}
         </Row>
       </Fragment>
     );
   }
 }
 
-const mapStateToProps = ({ menu }) => {
+const mapStateToProps = ({ menu , authUser }) => {
   const {
     containerClassnames,
     subHiddenBreakpoint,
@@ -43,7 +70,7 @@ const mapStateToProps = ({ menu }) => {
     containerClassnames,
     subHiddenBreakpoint,
     menuHiddenBreakpoint,
-    menuClickCount
+    menuClickCount,authUser
   };
 };
 
