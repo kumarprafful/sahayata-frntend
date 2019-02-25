@@ -12,16 +12,19 @@ class RegisterLayout extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "demo@gogo.com",
-      password: "gogo123",
-      name: "Sarah Kortney"
+      email: "",
+      password: "",
+      type: "farmer"
     };
   }
   onUserRegister() {
+    console.log(this.state);
     if (this.state.email !== "" && this.state.password !== "") {
-      // This is for adding user to Firebase. Commented out for demo purpose.  
+      // This is for adding user to Firebase. Commented out for demo purpose.
       // this.props.registerUser(this.state, this.props.history);
-      this.props.history.push("/");
+      
+
+      this.props.history.push("/login");
     }
   }
 
@@ -60,20 +63,30 @@ class RegisterLayout extends Component {
                     </CardTitle>
                     <Form>
                       <Label className="form-group has-float-label mb-4">
-                        <Input type="name" defaultValue={this.state.name} />
-                        <IntlMessages id="user.fullname" />
-                      </Label>
-                      <Label className="form-group has-float-label mb-4">
-                        <Input type="email" defaultValue={this.state.email} />
+                        <Input
+                         type="email"
+                         onChange={(e) => this.setState({email:e.target.value})}
+                       />
                         <IntlMessages id="user.email" />
                       </Label>
                       <Label className="form-group has-float-label mb-4">
-                        <Input type="password" />
-                        <IntlMessages
-                          id="user.password"
-                          defaultValue={this.state.password}
+                        <Input
+                         type="password"
+                         onChange={(e) => this.setState({password:e.target.value})}
                         />
+                        <IntlMessages id="user.password" />
                       </Label>
+                      <Label className="form-group has-float-label mb-4">
+                        <Input type="select" name="select" onChange={(e) => this.setState({type:e.target.value})}>
+                          <option selected value="farmer">Farmer</option>
+                          <option value="transport">Transport</option>
+                          <option value="storage">Storage</option>
+                        </Input>
+                        <IntlMessages id="user.type" />
+                      </Label>
+
+
+
                       <div className="d-flex justify-content-end align-items-center">
                         <Button
                           color="primary"
