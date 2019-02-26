@@ -61,7 +61,9 @@ class Home extends Component {
         </Colxx>
       </Row>
         <Row>
+        <Colxx xxs="12">
           {this.homeLoader()}
+          </Colxx>
         </Row>
       </Fragment>
     );
