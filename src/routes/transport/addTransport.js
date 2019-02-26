@@ -2,20 +2,17 @@ import React, {Component, Fragment} from 'react';
 import IntlMessages from "Util/IntlMessages";
 
 import { Row, Col, Card, CardBody, CardTitle, Button, Modal, ModalHeader, ModalBody, ModalFooter,Form, Label, Input } from "reactstrap";
+import axios from 'axios';
 
-export default class AddWarehouse extends Component {
+export default class AddTransport extends Component {
   constructor(props) {
     super(props);
     this.state = {
       modal: false,
-      name: "",
-      manager: "",
+      type: "",
+      vehicleNumber: "",
       capacity: "",
       price: "",
-      address: "",
-      district: "",
-      state: "",
-      pincode: ""
     };
     this.toggle = this.toggle.bind(this);
   }
@@ -26,31 +23,29 @@ export default class AddWarehouse extends Component {
    }));
  }
 
- onWarehouseRegister() {
-   if(this.state.name == "" || this.state.manager == "" || this.state.capacity == "" || this.state.price == "" || this.state.address == "" || this.state.district == "" || this.state.state == "" || this.state.pincode == "") {
+ onTransportRegister() {
+   if(this.state.type == "" || this.state.vehicleNumber == "" || this.state.capacity == "" || this.state.price == "") {
      alert("All fields are mandatory");
      console.log(this.state);
 
    }
    else{
-     axios.post("https://sahayata-farmer.herokuapp.com/sahayata/warehouse/5c74d1d20bbcfc16c0b79f01", this.state)
+     console.log(this.state);
+     const id =
+     axios.post("https://sahayata-farmer.herokuapp.com/sahayata/transport/5c74d1d20bbcfc16c0b79f01", this.state)
      .then(res => {
        console.log(res);
-       this.setState({name:""});
-       this.setState({manager:""});
+       this.setState({type:""});
+       this.setState({vehicleNumber:""});
        this.setState({capacity:""});
        this.setState({price:""});
-       this.setState({address:""});
-       this.setState({district:""});
-       this.setState({state:""});
-       this.setState({pincode:""});
-       
        this.toggle();
 
      })
      .catch(error => {
        console.log(error);
      })
+
    }
  }
 
@@ -59,26 +54,26 @@ export default class AddWarehouse extends Component {
     return (
     <CardBody>
     <div className="center-align">
-      <h2>Add warehouse</h2>
+      <h2>Add transport</h2>
       <h1 className="center" onClick={this.toggle}><i className="simple-icon-plus" /></h1>
       <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-         <ModalHeader toggle={this.toggle}>Add Warehouse</ModalHeader>
+         <ModalHeader toggle={this.toggle}>Add Transport</ModalHeader>
          <ModalBody>
          <Form>
            <Label className="form-group has-float-label mb-4">
              <Input
               type="text"
-              onChange={(e) => this.setState({name:e.target.value})}
+              onChange={(e) => this.setState({type:e.target.value})}
             />
-             <IntlMessages id="Warehouse name" />
+             <IntlMessages id="Vehicle Type" />
            </Label>
 
            <Label className="form-group has-float-label mb-4">
              <Input
               type="text"
-              onChange={(e) => this.setState({manager:e.target.value})}
+              onChange={(e) => this.setState({vehicleNumber:e.target.value})}
              />
-             <IntlMessages id="Manager" />
+             <IntlMessages id="Vehicle Number" />
            </Label>
 
            <Label className="form-group has-float-label mb-4">
@@ -97,48 +92,13 @@ export default class AddWarehouse extends Component {
              <IntlMessages id="Price" />
            </Label>
 
-           <Label className="form-group has-float-label mb-4">
-             <Input
-              type="text"
-              onChange={(e) => this.setState({address:e.target.value})}
-             />
-             <IntlMessages id="Address Line 1" />
-           </Label>
-
-           <Label className="form-group has-float-label mb-4">
-             <Input
-              type="text"
-              onChange={(e) => this.setState({district:e.target.value})}
-             />
-             <IntlMessages id="District" />
-           </Label>
-
-           <Label className="form-group has-float-label mb-4">
-             <Input
-              type="text"
-              onChange={(e) => this.setState({state:e.target.value})}
-             />
-             <IntlMessages id="State" />
-           </Label>
-
-           <Label className="form-group has-float-label mb-4">
-             <Input
-              type="text"
-              onChange={(e) => this.setState({pincode:e.target.value})}
-             />
-             <IntlMessages id="Pincode" />
-           </Label>
-
-
-
-
 
            <div className="d-flex justify-content-end align-items-center">
              <Button
                color="primary"
                className="btn-shadow"
                size="lg"
-               onClick={() => this.onWarehouseRegister()}
+               onClick={() => this.onTransportRegister()}
              >
                <IntlMessages id="user.register-button" />
              </Button>

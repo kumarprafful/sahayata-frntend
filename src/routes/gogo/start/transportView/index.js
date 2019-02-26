@@ -6,6 +6,9 @@ import IntlMessages from "Util/IntlMessages";
 import { Colxx, Separator } from "Components/CustomBootstrap";
 import BreadcrumbContainer from "Components/BreadcrumbContainer";
 
+import AddTransport from '../../../transport/addTransport';
+
+
 export default class extends Component {
   constructor(props){
     super(props);
@@ -20,10 +23,7 @@ export default class extends Component {
     if(this.state.transport == null){
       return (
         <CardBody>
-        <div className="center-align">
-          <h2>Add Transport</h2>
-          <h1 className="center"><i className="simple-icon-plus" /></h1>
-        </div>
+        <AddTransport />
         </CardBody>
       );
     }
