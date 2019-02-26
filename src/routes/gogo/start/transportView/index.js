@@ -10,7 +10,9 @@ export default class extends Component {
   constructor(props){
     super(props);
     this.state = {
-      transport: null
+      transport: null,
+      orders: null,
+      pastOrders: null
     }
   }
 
@@ -32,6 +34,36 @@ export default class extends Component {
     }
   }
 
+  renderOrders() {
+    if(this.state.orders == null) {
+      return (
+        <CardBody>
+        <div className="center-align">
+          <h2>Currently there are no orders</h2>
+        </div>
+        </CardBody>
+      );
+    }
+    else{
+      <CardBody>Orders</CardBody>
+    }
+  }
+
+  renderPastOrders(){
+    if(this.state.pastOrders == null) {
+      return (
+        <CardBody>
+        <div className="center-align">
+          <h2>Currently there are no orders</h2>
+        </div>
+        </CardBody>
+      );
+    }
+    else{
+      <CardBody>Orders</CardBody>
+    }
+  }
+
   render() {
     return (
       <Fragment>
@@ -42,8 +74,27 @@ export default class extends Component {
           {this.renderTransport()}
         </Card>
         </Colxx>
-
       </Row>
+      <br />
+      <Row>
+        <Colxx xxs="12">
+          <Card style={{'padding':'1em'}}>
+            <CardTitle><h1>Current orders</h1></CardTitle>
+            {this.renderOrders()}
+          </Card>
+          </Colxx>
+      </Row>
+      <br />
+
+      <Row>
+        <Colxx xxs="12">
+          <Card style={{'padding':'1em'}}>
+            <CardTitle><h1>Past orders</h1></CardTitle>
+            {this.renderPastOrders()}
+          </Card>
+          </Colxx>
+      </Row>
+      <br />
 
       </Fragment>
     );
