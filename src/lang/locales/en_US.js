@@ -41,7 +41,9 @@ module.exports = {
   "menu.warehouse": "Warehouse",
   "menu.mandi": "Mandi",
   "menu.transport": "Transport",
-  "menu.sellCrop": "Sell Crop",
+  "menu.sellCrop": "Market",
+  "menu.allwarehouse": "All Warehouse",
+  "menu.alltrasport": "All Transport",
 
   /* 04.Error Page */
   "layouts.error-title": "Ooops... looks like an error occurred!",

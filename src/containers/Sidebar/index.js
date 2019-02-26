@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import ReactDOM from "react-dom";
 import IntlMessages from "Util/IntlMessages";
 import { Nav, NavItem } from "reactstrap";
@@ -26,10 +26,11 @@ class Sidebar extends Component {
     this.getContainer = this.getContainer.bind(this);
     this.getMenuClassesForResize = this.getMenuClassesForResize.bind(this);
     this.setSelectedLiActive = this.setSelectedLiActive.bind(this);
+    this.view = this.view.bind(this);
 
     this.state = {
       selectedParentMenu: "",
-      viewingParentMenu:"",
+      viewingParentMenu: ""
     };
   }
 
@@ -78,8 +79,8 @@ class Sidebar extends Component {
     }
     this.toggle(e);
     this.setState({
-      viewingParentMenu:""
-    })
+      viewingParentMenu: ""
+    });
   }
 
   getMenuClassesForResize(classes) {
@@ -129,7 +130,7 @@ class Sidebar extends Component {
   }
 
   handleProps() {
-      this.addEvents();
+    this.addEvents();
   }
 
   addEvents() {
@@ -157,20 +158,19 @@ class Sidebar extends Component {
           "data-parent"
         )
       });
-    }else{
-      var selectedParentNoSubItem = document.querySelector(".main-menu  li a.active");
-      if(selectedParentNoSubItem!=null){
+    } else {
+      var selectedParentNoSubItem = document.querySelector(
+        ".main-menu  li a.active"
+      );
+      if (selectedParentNoSubItem != null) {
         this.setState({
-          selectedParentMenu: selectedParentNoSubItem.getAttribute(
-            "data-flag"
-          )
+          selectedParentMenu: selectedParentNoSubItem.getAttribute("data-flag")
         });
-      }else if (this.state.selectedParentMenu == "") {
+      } else if (this.state.selectedParentMenu == "") {
         this.setState({
           selectedParentMenu: "gogo"
         });
       }
-
     }
   }
 
@@ -202,7 +202,7 @@ class Sidebar extends Component {
     this.props.setContainerClassnames(0, nextClasses.join(" "));
   }
 
-  openDirectPage(e,selectedParent){
+  openDirectPage(e, selectedParent) {
     const { containerClassnames, menuClickCount } = this.props;
     this.props.setContainerClassnames(3, containerClassnames);
 
@@ -246,12 +246,121 @@ class Sidebar extends Component {
       viewingParentMenu: selectedParent
     });
   }
-  changeViewingParentMenu(menu){
+  changeViewingParentMenu(menu) {
     this.toggle();
-
     this.setState({
-      viewingParentMenu:menu
-    })
+      viewingParentMenu: menu
+    });
+  }
+
+  view() {
+    // console.log(this.props.authUser.type);
+    // var type = this.props.authUser.type;
+    // if(type ==)
+    return (
+      <Fragment>
+        <NavItem
+          className={classnames({
+            active:
+              (this.state.selectedParentMenu == "second-menu" &&
+                this.state.viewingParentMenu == "") ||
+              this.state.viewingParentMenu == "second-menu"
+          })}
+        >
+          <NavLink
+            to="/app/second-menu"
+            onClick={e => this.openSubMenu(e, "second-menu")}
+          >
+            <i className="simple-icon-map" /> <IntlMessages id="menu.second" />
+          </NavLink>
+        </NavItem>
+
+        <NavItem
+          className={classnames({
+            active:
+              (this.state.selectedParentMenu == "sellCrop" &&
+                this.state.viewingParentMenu == "") ||
+              this.state.viewingParentMenu == "sellCrop"
+          })}
+        >
+          <NavLink
+            to="/app/sellCrop"
+            onClick={e => this.openDirectPage(e, "sellCrop")}
+          >
+            <i className="simple-icon-action-redo" />{" "}
+            <IntlMessages id="menu.sellCrop" />
+          </NavLink>
+        </NavItem>
+
+        <NavItem
+          className={classnames({
+            active:
+              (this.state.selectedParentMenu == "transport" &&
+                this.state.viewingParentMenu == "") ||
+              this.state.viewingParentMenu == "transport"
+          })}
+        >
+          <NavLink
+            to="/app/transport"
+            onClick={e => this.openDirectPage(e, "transport")}
+          >
+            <i className="simple-icon-compass" />
+            <IntlMessages id="menu.transport" />
+          </NavLink>
+        </NavItem>
+
+        <NavItem
+          className={classnames({
+            active:
+              (this.state.selectedParentMenu == "warehouse" &&
+                this.state.viewingParentMenu == "") ||
+              this.state.viewingParentMenu == "warehouse"
+          })}
+        >
+          <NavLink
+            to="/app/warehouse"
+            onClick={e => this.openDirectPage(e, "warehouse")}
+          >
+            <i className="iconsmind-Warehouse" />
+            <IntlMessages id="menu.warehouse" />
+          </NavLink>
+        </NavItem>
+
+        <NavItem
+          className={classnames({
+            active:
+              (this.state.selectedParentMenu == "allwarehouse" &&
+                this.state.viewingParentMenu == "") ||
+              this.state.viewingParentMenu == "allwarehouse"
+          })}
+        >
+          <NavLink
+            to="/app/allwarehouse"
+            onClick={e => this.openDirectPage(e, "allwarehouse")}
+          >
+            <i className="iconsmind-Warehouse" />
+            <IntlMessages id="menu.allwarehouse" />
+          </NavLink>
+        </NavItem>
+
+        <NavItem
+          className={classnames({
+            active:
+              (this.state.selectedParentMenu == "alltrasport" &&
+                this.state.viewingParentMenu == "") ||
+              this.state.viewingParentMenu == "alltrasport"
+          })}
+        >
+          <NavLink
+            to="/app/alltransport"
+            onClick={e => this.openDirectPage(e, "alltrasport")}
+          >
+            <i className="iconsmind-Truck" />
+            <IntlMessages id="menu.alltrasport" />
+          </NavLink>
+        </NavItem>
+      </Fragment>
+    );
   }
 
   render() {
@@ -265,7 +374,10 @@ class Sidebar extends Component {
               <Nav vertical className="list-unstyled">
                 <NavItem
                   className={classnames({
-                    active: ((this.state.selectedParentMenu == "gogo" && this.state.viewingParentMenu=="" )|| this.state.viewingParentMenu=="gogo")
+                    active:
+                      (this.state.selectedParentMenu == "gogo" &&
+                        this.state.viewingParentMenu == "") ||
+                      this.state.viewingParentMenu == "gogo"
                   })}
                 >
                   <NavLink
@@ -277,45 +389,11 @@ class Sidebar extends Component {
                   </NavLink>
                 </NavItem>
 
-
-
-                <NavItem
-                  className={classnames({
-                    active: ((this.state.selectedParentMenu == "second-menu" && this.state.viewingParentMenu=="" )|| this.state.viewingParentMenu=="second-menu")
-                  })}
-                >
-                  <NavLink
-                    to="/app/second-menu"
-                    onClick={e => this.openSubMenu(e, "second-menu")}
-                  >
-                    <i className="simple-icon-map" />{" "}
-                    <IntlMessages id="menu.second" />
-                  </NavLink>
-
-                </NavItem>
-
-
-                <NavItem
-                  className={classnames({
-                    active: ((this.state.selectedParentMenu == "sellCrop" && this.state.viewingParentMenu=="" )|| this.state.viewingParentMenu=="sellCrop")
-                  })}
-                >
-                  <NavLink
-                    to="/app/sellCrop/tomato"
-                    onClick={e => this.openDirectPage(e, "sellCrop")}
-                  >
-                    <i className="simple-icon-action-redo" />{" "}
-                    <IntlMessages id="menu.sellCrop" />
-                  </NavLink>
-
-                </NavItem>
-
-
+                {this.view()}
               </Nav>
             </PerfectScrollbar>
           </div>
         </div>
-
 
         {/*god view*/}
 
@@ -324,24 +402,29 @@ class Sidebar extends Component {
             <PerfectScrollbar
               option={{ suppressScrollX: true, wheelPropagation: false }}
             >
-
               <Nav
                 className={classnames({
-                  "d-block": ((this.state.selectedParentMenu == "second-menu" && this.state.viewingParentMenu=="" )|| this.state.viewingParentMenu=="second-menu")
+                  "d-block":
+                    (this.state.selectedParentMenu == "second-menu" &&
+                      this.state.viewingParentMenu == "") ||
+                    this.state.viewingParentMenu == "second-menu"
                 })}
-              data-parent="second-menu"
-            >
+                data-parent="second-menu"
+              >
                 <NavItem>
                   <NavLink to="/app/second-menu/all">
-                  <i className="simple-icon-paper-plane" />{" "}
-                  <IntlMessages id="submenu.second.zero" />
-                </NavLink>
+                    <i className="simple-icon-paper-plane" />{" "}
+                    <IntlMessages id="submenu.second.zero" />
+                  </NavLink>
                 </NavItem>
               </Nav>
 
               <Nav
                 className={classnames({
-                  "d-block": ((this.state.selectedParentMenu == "second-menu" && this.state.viewingParentMenu=="" )|| this.state.viewingParentMenu=="second-menu")
+                  "d-block":
+                    (this.state.selectedParentMenu == "second-menu" &&
+                      this.state.viewingParentMenu == "") ||
+                    this.state.viewingParentMenu == "second-menu"
                 })}
                 data-parent="second-menu"
               >
@@ -355,7 +438,10 @@ class Sidebar extends Component {
 
               <Nav
                 className={classnames({
-                  "d-block": ((this.state.selectedParentMenu == "second-menu" && this.state.viewingParentMenu=="" )|| this.state.viewingParentMenu=="second-menu")
+                  "d-block":
+                    (this.state.selectedParentMenu == "second-menu" &&
+                      this.state.viewingParentMenu == "") ||
+                    this.state.viewingParentMenu == "second-menu"
                 })}
                 data-parent="second-menu"
               >
@@ -369,7 +455,10 @@ class Sidebar extends Component {
 
               <Nav
                 className={classnames({
-                  "d-block": ((this.state.selectedParentMenu == "second-menu" && this.state.viewingParentMenu=="" )|| this.state.viewingParentMenu=="second-menu")
+                  "d-block":
+                    (this.state.selectedParentMenu == "second-menu" &&
+                      this.state.viewingParentMenu == "") ||
+                    this.state.viewingParentMenu == "second-menu"
                 })}
                 data-parent="second-menu"
               >
@@ -382,17 +471,15 @@ class Sidebar extends Component {
               </Nav>
 
               {/*sellCrop*/}
-
             </PerfectScrollbar>
           </div>
         </div>
-
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ menu }) => {
+const mapStateToProps = ({ menu ,authUser}) => {
   const {
     containerClassnames,
     subHiddenBreakpoint,
@@ -403,7 +490,8 @@ const mapStateToProps = ({ menu }) => {
     containerClassnames,
     subHiddenBreakpoint,
     menuHiddenBreakpoint,
-    menuClickCount
+    menuClickCount,
+    authUser
   };
 };
 export default withRouter(
