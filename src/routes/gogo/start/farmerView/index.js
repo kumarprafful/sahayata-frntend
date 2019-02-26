@@ -36,19 +36,10 @@ export default class extends Component {
     return (
       <Fragment>
         <Row>
-<<<<<<< HEAD
-          <Colxx xxs="12">
-            <Row>
-              <Colxx xxs="6">Prince</Colxx>
-              <Colxx xxs="6">Prince</Colxx>
-            </Row>
-          </Colxx>
-=======
           <Card style={{'padding':'1em'}}>
             <CardTitle><h1>Crops being produced</h1></CardTitle>
             {this.renderCrops()}
           </Card>
->>>>>>> ce5ed1bf89d0a0a7151629092757cac1eae37683
         </Row>
       </Fragment>
     );
