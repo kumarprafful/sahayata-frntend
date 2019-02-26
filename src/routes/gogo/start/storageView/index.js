@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { Row } from "reactstrap";
+import { Row, Col } from "reactstrap";
 
 import IntlMessages from "Util/IntlMessages";
 
@@ -10,16 +10,11 @@ export default class extends Component {
   render() {
     return (
       <Fragment>
-        {/*<Row>
-          <Colxx xxs="12">
-            <BreadcrumbContainer
-              heading={<IntlMessages id="menu.second" />}
-              match={this.props.match}
-            />
-            <Separator className="mb-5" />
-          </Colxx>
-        </Row>*/}
-        <div >storage is here</div>
+      <Row>
+        <Col style={{'background':'red'}} xs="6">.col-6</Col>
+        <Col style={{'background':'green'}} xs="6">.col-6</Col>
+      </Row>
+        <div>storage is here</div>
       </Fragment>
     );
   }

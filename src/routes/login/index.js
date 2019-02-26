@@ -13,7 +13,7 @@ class LoginLayout extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
+      email: "",
       password: "",
       index: 1
     };
@@ -24,22 +24,37 @@ class LoginLayout extends Component {
   onUserLogin(e) {
     e.preventDefault();
     console.log(this.state);
-    if (this.state.username == "farmer" && this.state.password !== "") {
-      this.props.loginUserSuccess({...this.state , userType: 1} , this.props.history);
-      this.props.history.push("/");
-    }
-    else if(this.state.username == "storage" && this.state.password !== "") {
-      this.props.loginUserSuccess({...this.state, userType: 3}, this.props.history);
-      this.props.history.push("/");
-    }
-    else if(this.state.username == "transport" && this.state.password) {
-      this.props.loginUserSuccess({...this.state, userType: 2}, this.props.history);
-      this.props.history.push("/");
-    }
+    axios.post("https://sahayata.herokuapp.com/login", this.state)
+    .then(res => {
+      console.log(res);
+      if(res.status == 200){
+        this.props.loginUserSuccess({...this.state, userType:res.data.type});
+        
+        this.props.history.push("/");
+      }
+    })
+    .catch(error => {
+      console.log(error);
+      alert("FUCK OFF");
+
+    });
+
+    // if (this.state.username == "farmer" && this.state.password !== "") {
+    //   this.props.loginUserSuccess({...this.state , userType: 1} , this.props.history);
+    //   this.props.history.push("/");
+    // }
+    // else if(this.state.username == "storage" && this.state.password !== "") {
+    //   this.props.loginUserSuccess({...this.state, userType: 3}, this.props.history);
+    //   this.props.history.push("/");
+    // }
+    // else if(this.state.username == "transport" && this.state.password) {
+    //   this.props.loginUserSuccess({...this.state, userType: 2}, this.props.history);
+    //   this.props.history.push("/");
+    // }
   }
 
   handleusername(event) {
-    this.setState({ username: event.target.value });
+    this.setState({ email: event.target.value });
   }
   handlepassword(event) {
     this.setState({ password: event.target.value });

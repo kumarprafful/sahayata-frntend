@@ -31,17 +31,17 @@ class Home extends Component {
 
   homeLoader(){
     var type = this.props.authUser.type;
-    if(type == 1){
+    if(type == 'farmer'){
       return (
         <div><FarmerView/></div>
       );
     }
-    else if(type == 2){
+    else if(type == 'transport'){
       return (
         <div><TransportView/></div>
       );
     }
-    else if (type == 3){
+    else if (type == 'storage'){
       return (
         <div><StorageView/></div>
       )
