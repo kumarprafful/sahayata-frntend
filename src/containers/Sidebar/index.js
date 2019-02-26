@@ -254,11 +254,10 @@ class Sidebar extends Component {
   }
 
   view() {
-    // console.log(this.props.authUser.type);
-    // var type = this.props.authUser.type;
-    // if(type ==)
-    return (
-      <Fragment>
+    var type = this.props.authUser.type;
+    if(type == "farmer"){
+      return (
+        <Fragment>
         <NavItem
           className={classnames({
             active:
@@ -274,7 +273,6 @@ class Sidebar extends Component {
             <i className="simple-icon-map" /> <IntlMessages id="menu.second" />
           </NavLink>
         </NavItem>
-
         <NavItem
           className={classnames({
             active:
@@ -291,7 +289,6 @@ class Sidebar extends Component {
             <IntlMessages id="menu.sellCrop" />
           </NavLink>
         </NavItem>
-
         <NavItem
           className={classnames({
             active:
@@ -308,7 +305,6 @@ class Sidebar extends Component {
             <IntlMessages id="menu.transport" />
           </NavLink>
         </NavItem>
-
         <NavItem
           className={classnames({
             active:
@@ -325,42 +321,128 @@ class Sidebar extends Component {
             <IntlMessages id="menu.warehouse" />
           </NavLink>
         </NavItem>
+        </Fragment>
+      );
+    }
+    else if(type == "transport"){
+      return (
+        <Fragment>
 
+            <NavItem
+              className={classnames({
+                active:
+                  (this.state.selectedParentMenu == "alltrasport" &&
+                    this.state.viewingParentMenu == "") ||
+                  this.state.viewingParentMenu == "alltrasport"
+              })}
+            >
+              <NavLink
+                to="/app/alltransport"
+                onClick={e => this.openDirectPage(e, "alltrasport")}
+              >
+                <i className="iconsmind-Truck" />
+                <IntlMessages id="menu.alltrasport" />
+              </NavLink>
+            </NavItem>
+
+            <NavItem
+                  className={classnames({
+                    active:
+                      (this.state.selectedParentMenu == "alltransaction" &&
+                        this.state.viewingParentMenu == "") ||
+                      this.state.viewingParentMenu == "alltransaction"
+                  })}
+                >
+                  <NavLink
+                    to="/app/alltransaction"
+                    onClick={e => this.openDirectPage(e, "alltransaction")}
+                  >
+                    <i className="iconsmind-Mail-Money" />
+                    <IntlMessages id="menu.alltransaction" />
+                  </NavLink>
+                </NavItem>
+
+        </Fragment>
+      );
+    }
+    else if(type == "storage"){
+      return (
+        <Fragment>
         <NavItem
           className={classnames({
             active:
-              (this.state.selectedParentMenu == "allwarehouse" &&
+              (this.state.selectedParentMenu == "warehouse" &&
                 this.state.viewingParentMenu == "") ||
-              this.state.viewingParentMenu == "allwarehouse"
+              this.state.viewingParentMenu == "warehouse"
           })}
         >
           <NavLink
-            to="/app/allwarehouse"
-            onClick={e => this.openDirectPage(e, "allwarehouse")}
+            to="/app/warehouse"
+            onClick={e => this.openDirectPage(e, "warehouse")}
           >
             <i className="iconsmind-Warehouse" />
-            <IntlMessages id="menu.allwarehouse" />
+            <IntlMessages id="menu.warehouse" />
           </NavLink>
         </NavItem>
-
         <NavItem
-          className={classnames({
-            active:
-              (this.state.selectedParentMenu == "alltrasport" &&
-                this.state.viewingParentMenu == "") ||
-              this.state.viewingParentMenu == "alltrasport"
-          })}
-        >
-          <NavLink
-            to="/app/alltransport"
-            onClick={e => this.openDirectPage(e, "alltrasport")}
-          >
-            <i className="iconsmind-Truck" />
-            <IntlMessages id="menu.alltrasport" />
-          </NavLink>
-        </NavItem>
-      </Fragment>
-    );
+              className={classnames({
+                active:
+                  (this.state.selectedParentMenu == "allwarehouse" &&
+                    this.state.viewingParentMenu == "") ||
+                  this.state.viewingParentMenu == "allwarehouse"
+              })}
+            >
+              <NavLink
+                to="/app/allwarehouse"
+                onClick={e => this.openDirectPage(e, "allwarehouse")}
+              >
+                <i className="iconsmind-The-WhiteHouse" />
+                <IntlMessages id="menu.allwarehouse" />
+              </NavLink>
+            </NavItem>
+
+            <NavItem
+                  className={classnames({
+                    active:
+                      (this.state.selectedParentMenu == "alltransaction" &&
+                        this.state.viewingParentMenu == "") ||
+                      this.state.viewingParentMenu == "alltransaction"
+                  })}
+                >
+                  <NavLink
+                    to="/app/alltransaction"
+                    onClick={e => this.openDirectPage(e, "alltransaction")}
+                  >
+                    <i className="iconsmind-Mail-Money" />
+                    <IntlMessages id="menu.alltransaction" />
+                  </NavLink>
+                </NavItem>
+
+        </Fragment>
+      );
+    }
+
+    // return (
+    //   <Fragment>
+    //     <NavItem
+    //       className={classnames({
+    //         active:
+    //           (this.state.selectedParentMenu == "allwarehouse" &&
+    //             this.state.viewingParentMenu == "") ||
+    //           this.state.viewingParentMenu == "allwarehouse"
+    //       })}
+    //     >
+    //       <NavLink
+    //         to="/app/allwarehouse"
+    //         onClick={e => this.openDirectPage(e, "allwarehouse")}
+    //       >
+    //         <i className="iconsmind-Warehouse" />
+    //         <IntlMessages id="menu.allwarehouse" />
+    //       </NavLink>
+    //     </NavItem>
+    //
+    //   </Fragment>
+    // );
   }
 
   render() {

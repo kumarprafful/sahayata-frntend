@@ -11,6 +11,7 @@ import transport from './transport';
 import warehouse from './warehouse';
 import allwarehouse from './allwarehouse';
 import alltransport from './alltransport';
+import alltransaction from './alltransaction';
 
 import { connect } from 'react-redux';
 
@@ -35,6 +36,7 @@ class MainApp extends Component {
 							<Route path={`${match.url}/warehouse`} component={warehouse} />
 							<Route path={`${match.url}/allwarehouse`} component={allwarehouse} />
 							<Route path={`${match.url}/alltransport`} component={alltransport} />
+							<Route path={`${match.url}/alltransaction`} component={alltransaction} />
 							<Redirect to="/error" />
 						</Switch>
 					</div>
