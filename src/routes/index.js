@@ -7,6 +7,10 @@ import Sidebar from 'Containers/Sidebar';
 import gogo from './gogo';
 import secondMenu from './second-menu';
 import sellCrop from './sellCrop';
+import transport from './transport';
+import warehouse from './warehouse';
+import allwarehouse from './allwarehouse';
+import alltransport from './alltransport';
 
 import { connect } from 'react-redux';
 
@@ -27,6 +31,10 @@ class MainApp extends Component {
 							<Route path={`${match.url}/gogo`} component={gogo} />
 							<Route path={`${match.url}/second-menu`} component={secondMenu} />
 							<Route path={`${match.url}/sellCrop`} component={sellCrop} />
+							<Route path={`${match.url}/transport`} component={transport} />
+							<Route path={`${match.url}/warehouse`} component={warehouse} />
+							<Route path={`${match.url}/allwarehouse`} component={allwarehouse} />
+							<Route path={`${match.url}/alltransport`} component={alltransport} />
 							<Redirect to="/error" />
 						</Switch>
 					</div>

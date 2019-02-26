@@ -11,10 +11,12 @@ export default class extends Component {
     return (
       <Fragment>
         <Row>
-        <Col>.colftfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</Col>
-        <Col>.colftfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</Col>
-        <Col>.colftfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</Col>
-          <Col>.colftfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</Col>
+          <Colxx xxs="12">
+            <Row>
+              <Colxx xxs="6">Prince</Colxx>
+              <Colxx xxs="6">Prince</Colxx>
+            </Row>
+          </Colxx>
         </Row>
       </Fragment>
     );
