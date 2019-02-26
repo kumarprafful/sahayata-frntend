@@ -15,6 +15,7 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { Colxx, Separator } from "Components/CustomBootstrap";
 import BreadcrumbContainer from "Components/BreadcrumbContainer";
+import AddWarehouse from './addWarehouse';
 
 import {
   setContainerClassnames,
@@ -48,6 +49,8 @@ class SellCrop extends Component {
             />
             <Separator className="mb-5" />
             warehouse here
+            <AddWarehouse />
+
           </Colxx>
         </Row>
       </Fragment>
