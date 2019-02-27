@@ -18,12 +18,13 @@ import {
   setContainerClassnames,
   clickOnMobileMenu,
   logoutUser,
-  changeLocale
+  changeLocale,
+  changeLang
 } from "Redux/actions";
 
 import notifications from "Data/topnav.notifications.json";
 
-import { menuHiddenBreakpoint,searchPath,localeOptions } from "Constants/defaultValues";
+import { menuHiddenBreakpoint,searchPath,localeOptions ,Language} from "Constants/defaultValues";
 
 
 class TopNav extends Component {
@@ -54,7 +55,8 @@ class TopNav extends Component {
   };
 
   handleChangeLocale = locale => {
-    this.props.changeLocale(locale);
+    localStorage.currentLanguage = locale;
+    location.reload();
   };
 
   handleSearchIconClick = e => {
@@ -189,6 +191,12 @@ class TopNav extends Component {
     const { containerClassnames, menuClickCount } = this.props;
     const {messages} = this.props.intl;
     // console.log(this.props.authUser.user);
+    var lang = localStorage.currentLanguage;
+    console.log("lang",lang);
+    if(lang === undefined){
+      lang = 'en';
+    }
+
     var username = this.props.authUser.user;
     return (
       <nav className="navbar fixed-top">
@@ -252,11 +260,11 @@ class TopNav extends Component {
               size="sm"
               className="language-button"
             >
-              <span className="name">{this.props.locale.toUpperCase()}</span>
+              <span className="name">{lang.toUpperCase()}</span>
             </DropdownToggle>
             <DropdownMenu className="mt-3" right>
             {
-              localeOptions.map((l)=>{
+              Language.map((l)=>{
                 return(
                   <DropdownItem onClick={() => this.handleChangeLocale(l.id)} key={l.id}>
                   {l.name}
@@ -402,10 +410,10 @@ class TopNav extends Component {
 const mapStateToProps = ({ menu, settings,authUser }) => {
   const { containerClassnames, menuClickCount } = menu;
   const { locale } = settings;
-  
+
   return { containerClassnames, menuClickCount,locale , authUser};
 };
 export default injectIntl(connect(
   mapStateToProps,
-  { setContainerClassnames, clickOnMobileMenu, logoutUser,changeLocale }
+  { setContainerClassnames, clickOnMobileMenu, logoutUser,changeLocale,changeLang }
 )(TopNav));

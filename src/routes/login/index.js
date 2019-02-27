@@ -33,7 +33,6 @@ class LoginLayout extends Component {
     .catch(error => {
       console.log(error);
     });
-
   }
 
   handleusername(event) {

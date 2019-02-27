@@ -1,5 +1,6 @@
 /* SETTINGS */
 export const CHANGE_LOCALE = 'CHANGE_LOCALE';
+export const CHANGE_LANG = 'CHANGE_LANG';
 
 /* AUTH */
 export const LOGIN_USER = 'LOGIN_USER';

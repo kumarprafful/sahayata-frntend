@@ -5,6 +5,7 @@ import IntlMessages from "Util/IntlMessages";
 
 import { Colxx, Separator } from "Components/CustomBootstrap";
 import BreadcrumbContainer from "Components/BreadcrumbContainer";
+import LanguageChanger from "Components/LanguageChanger";
 
 import AddCrops from './addCrops';
 
@@ -36,7 +37,7 @@ export default class extends Component {
       <Fragment>
         <Row>
           <Card style={{'padding':'1em'}}>
-            <CardTitle><h1>Crops being produced</h1></CardTitle>
+            <CardTitle><h1><LanguageChanger text="Crops being produced"/></h1></CardTitle>
             {this.renderCrops()}
           </Card>
         </Row>
