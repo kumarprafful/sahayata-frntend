@@ -7,6 +7,8 @@ import { Colxx, Separator } from "Components/CustomBootstrap";
 import BreadcrumbContainer from "Components/BreadcrumbContainer";
 import LanguageChanger from "Components/LanguageChanger";
 
+import AddCrops from './addCrops';
+
 export default class extends Component {
   constructor(props) {
     super(props);
@@ -19,10 +21,7 @@ export default class extends Component {
     if(this.state.crops == null) {
       return (
         <CardBody>
-        <div className="center-align">
-          <h2><LanguageChanger text="Add crops"/></h2>
-          <h1 className="center"><i className="simple-icon-plus" /></h1>
-        </div>
+          <AddCrops />
         </CardBody>
       );
     }
