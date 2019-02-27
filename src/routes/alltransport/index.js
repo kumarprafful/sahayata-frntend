@@ -24,6 +24,8 @@ import {
 
 import axios from "axios";
 
+import ShowTransport from '../transport/showTransport';
+
 class SellCrop extends Component {
   constructor(props) {
     super(props);
@@ -47,7 +49,7 @@ class SellCrop extends Component {
               match={this.props.match}
             />
             <Separator className="mb-5" />
-            All transport here
+              <ShowTransport />
           </Colxx>
         </Row>
       </Fragment>

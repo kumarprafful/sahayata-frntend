@@ -6,6 +6,8 @@ import IntlMessages from "Util/IntlMessages";
 import { Colxx, Separator } from "Components/CustomBootstrap";
 import BreadcrumbContainer from "Components/BreadcrumbContainer";
 
+import axios from 'axios';
+
 import AddTransport from '../../../transport/addTransport';
 
 
@@ -20,6 +22,17 @@ export default class extends Component {
   }
 
   renderTransport(){
+    const userId = localStorage.userId;
+    const apiURL = `https://sahayata-farmer.herokuapp.com/sahayata/transport/${userId}`;
+    console.log('userId - ', apiURL);
+    axios.get(apiURL)
+    .then(res => {
+      console.log(res);
+    })
+    .catch(error => {
+      console.log(error);
+    })
+
     if(this.state.transport == null){
       return (
         <CardBody>

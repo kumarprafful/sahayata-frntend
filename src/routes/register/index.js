@@ -16,16 +16,21 @@ class RegisterLayout extends Component {
     this.state = {
       email: "",
       password: "",
-      type: "farmer"
+      type: "farmer",
+      firstName: "",
+      mobileNo: "",
+      sex: "Male",
+      district: "",
+      state: ""
     };
   }
   onUserRegister() {
-    if (this.state.email == "" || this.state.password == "") {
+    if (this.state.email == "" || this.state.password == "" || this.state.firstName == "" || this.state.mobileNo == "" || this.state.sex == "" || this.state.district == "" || this.state.state == "") {
       alert("Fill the credentials")
       // this.props.history.push("/login");
     }
     else{
-      axios.post("https://sahayata.herokuapp.com/register", this.state)
+      axios.post("https://sahayata-farmer.herokuapp.com/register", this.state)
       .then(res => {
         console.log(res);
         this.props.loginUserSuccess({...this.state, userType:res.data.type});
@@ -97,7 +102,42 @@ class RegisterLayout extends Component {
                         </Input>
                         <IntlMessages id="user.type" />
                       </Label>
-
+                      <Label className="form-group has-float-label mb-4">
+                        <Input
+                         type="text"
+                         onChange={(e) => this.setState({firstName:e.target.value})}
+                        />
+                        <IntlMessages id="Full name" />
+                      </Label>
+                      <Label className="form-group has-float-label mb-4">
+                        <Input
+                         type="text"
+                         onChange={(e) => this.setState({mobileNo:e.target.value})}
+                        />
+                        <IntlMessages id="Mobile number" />
+                      </Label>
+                      <Label className="form-group has-float-label mb-4">
+                      <Input type="select" name="select" onChange={(e) => this.setState({sex:e.target.value})}>
+                        <option selected value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="others">Others</option>
+                      </Input>
+                        <IntlMessages id="Gender" />
+                      </Label>
+                      <Label className="form-group has-float-label mb-4">
+                        <Input
+                         type="text"
+                         onChange={(e) => this.setState({district:e.target.value})}
+                        />
+                        <IntlMessages id="District" />
+                      </Label>
+                      <Label className="form-group has-float-label mb-4">
+                        <Input
+                         type="text"
+                         onChange={(e) => this.setState({state:e.target.value})}
+                        />
+                        <IntlMessages id="State" />
+                      </Label>
 
 
                       <div className="d-flex justify-content-end align-items-center">
