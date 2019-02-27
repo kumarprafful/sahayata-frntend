@@ -5,6 +5,7 @@ import IntlMessages from "Util/IntlMessages";
 
 import { Colxx, Separator } from "Components/CustomBootstrap";
 import BreadcrumbContainer from "Components/BreadcrumbContainer";
+import LanguageChanger from "Components/LanguageChanger";
 
 export default class extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ export default class extends Component {
       return (
         <CardBody>
         <div className="center-align">
-          <h2>Add crops</h2>
+          <h2><LanguageChanger text="Add crops"/></h2>
           <h1 className="center"><i className="simple-icon-plus" /></h1>
         </div>
         </CardBody>
@@ -37,7 +38,7 @@ export default class extends Component {
       <Fragment>
         <Row>
           <Card style={{'padding':'1em'}}>
-            <CardTitle><h1>Crops being produced</h1></CardTitle>
+            <CardTitle><h1><LanguageChanger text="Crops being produced"/></h1></CardTitle>
             {this.renderCrops()}
           </Card>
         </Row>

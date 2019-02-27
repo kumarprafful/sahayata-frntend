@@ -23,7 +23,7 @@ class LoginLayout extends Component {
   }
   onUserLogin(e) {
     e.preventDefault();
-    axios.post("http://localhost:3000/login", this.state)
+    axios.post("https://sahayata-farmer.herokuapp.com/login", this.state)
     .then(res => {
       if(res.status == 200){
         this.props.loginUserSuccess({...this.state, username: res.data.email ,userType:res.data.type, userId: res.data.userId });
@@ -33,7 +33,6 @@ class LoginLayout extends Component {
     .catch(error => {
       console.log(error);
     });
-
   }
 
   handleusername(event) {

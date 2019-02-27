@@ -15,6 +15,7 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { Colxx, Separator } from "Components/CustomBootstrap";
 import BreadcrumbContainer from "Components/BreadcrumbContainer";
+import LanguageChanger from "Components/LanguageChanger";
 
 import {
   setContainerClassnames,
@@ -47,7 +48,9 @@ class SellCrop extends Component {
               match={this.props.match}
             />
             <Separator className="mb-5" />
-            transport here
+
+            <LanguageChanger text="kunal" />
+
           </Colxx>
         </Row>
       </Fragment>

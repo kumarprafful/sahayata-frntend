@@ -10,6 +10,7 @@ import BreadcrumbContainer from "Components/BreadcrumbContainer";
 import FarmerView from "./farmerView"
 import StorageView from "./storageView"
 import TransportView from "./transportView"
+import LanguageChanger from "Components/LanguageChanger";
 
 import {
   setContainerClassnames,
@@ -23,7 +24,7 @@ class Home extends Component {
     super(props);
     this.homeLoader = this.homeLoader.bind(this);
   }
-  
+
   componentDidMount() {
     const { containerClassnames, menuClickCount } = this.props;
     this.props.setContainerClassnames(3, containerClassnames);
@@ -54,7 +55,7 @@ class Home extends Component {
       <Row>
         <Colxx xxs="12">
           <BreadcrumbContainer
-            heading={<IntlMessages id="menu.second" />}
+            heading={<LanguageChanger text="God view" />}
             match={this.props.match}
           />
           <Separator className="mb-5" />
