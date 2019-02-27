@@ -9,7 +9,7 @@ import {
 const INIT_STATE = {
   user: localStorage.getItem("username"),
   loading: false,
-  type: localStorage.getItem("userType")
+  type: localStorage.getItem("userType"),
 };
 
 export default (state = INIT_STATE, action) => {
@@ -17,10 +17,10 @@ export default (state = INIT_STATE, action) => {
     case LOGIN_USER:
       return { ...state, loading: true };
     case LOGIN_USER_SUCCESS:
-      //notify.success('Login Success');
       localStorage.setItem("username", action.payload.username);
       localStorage.setItem("userType", action.payload.userType);
-      return { ...state, loading: false, user: action.payload , type: action.payload.userType};
+      localStorage.setItem("userId", action.payload.userId);
+      return { ...state, loading: false, username: action.payload.username, type: action.payload.userType};
     case REGISTER_USER:
       return { ...state, loading: true };
 

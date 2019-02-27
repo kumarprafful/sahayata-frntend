@@ -23,34 +23,17 @@ class LoginLayout extends Component {
   }
   onUserLogin(e) {
     e.preventDefault();
-    console.log(this.state);
-    axios.post("https://sahayata.herokuapp.com/login", this.state)
+    axios.post("http://localhost:3000/login", this.state)
     .then(res => {
-      console.log(res);
       if(res.status == 200){
-        this.props.loginUserSuccess({...this.state, userType:res.data.type});
-        
+        this.props.loginUserSuccess({...this.state, username: res.data.email ,userType:res.data.type, userId: res.data.userId });
         this.props.history.push("/");
       }
     })
     .catch(error => {
       console.log(error);
-      alert("FUCK OFF");
-
     });
 
-    // if (this.state.username == "farmer" && this.state.password !== "") {
-    //   this.props.loginUserSuccess({...this.state , userType: 1} , this.props.history);
-    //   this.props.history.push("/");
-    // }
-    // else if(this.state.username == "storage" && this.state.password !== "") {
-    //   this.props.loginUserSuccess({...this.state, userType: 3}, this.props.history);
-    //   this.props.history.push("/");
-    // }
-    // else if(this.state.username == "transport" && this.state.password) {
-    //   this.props.loginUserSuccess({...this.state, userType: 2}, this.props.history);
-    //   this.props.history.push("/");
-    // }
   }
 
   handleusername(event) {

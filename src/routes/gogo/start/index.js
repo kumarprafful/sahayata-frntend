@@ -23,7 +23,7 @@ class Home extends Component {
     super(props);
     this.homeLoader = this.homeLoader.bind(this);
   }
-
+  
   componentDidMount() {
     const { containerClassnames, menuClickCount } = this.props;
     this.props.setContainerClassnames(3, containerClassnames);
@@ -61,8 +61,8 @@ class Home extends Component {
         </Colxx>
       </Row>
         <Row>
-        <Colxx xxs="12">
-          {this.homeLoader()}
+          <Colxx xxs="12">
+            {this.homeLoader()}
           </Colxx>
         </Row>
       </Fragment>
