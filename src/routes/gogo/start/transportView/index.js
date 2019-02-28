@@ -9,6 +9,7 @@ import BreadcrumbContainer from "Components/BreadcrumbContainer";
 import axios from 'axios';
 
 import AddTransport from '../../../transport/addTransport';
+import ShowTransport from '../../../transport/showTransport';
 
 
 export default class extends Component {
@@ -42,7 +43,10 @@ export default class extends Component {
     }
     else{
       return (
-        <CardBody>THey are here</CardBody>
+        <div>
+        <ShowTransport />
+        <div>sdf</div>
+        </div>
       );
     }
   }

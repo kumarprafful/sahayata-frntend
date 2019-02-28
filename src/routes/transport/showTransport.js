@@ -32,17 +32,23 @@ class ShowTransport extends Component {
     console.log(this.state.data);
     if(this.state.data){
       console.log("yeah");
-      this.state.data.map(element => {
+      return this.state.data.map(element => {
         console.log(element);
         return (
-        <div>YESSS</div>
+          <Card>
+          <CardBody>
+            <h3>{element.type}</h3>
+            <h6>Capacity: {element.capacity}</h6>
+            <h5>Price: {element.price}</h5>
+          </CardBody>
+          </Card>
         );
-      })
+      });
     }
     else{
       console.log("NO");
       return (
-      <div>NOOOOOO</div>
+      <div>Spinner</div>
       );
     }
 
@@ -53,9 +59,11 @@ class ShowTransport extends Component {
   render() {
     return (
     <div>
-    {this.renderTransports()}
-    sd
+      <Row>
+        {this.renderTransports()}
+      </Row>
      </div>
+
     );
   }
 }

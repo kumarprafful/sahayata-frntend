@@ -23,7 +23,7 @@ import {
 } from "Redux/actions";
 
 import axios from "axios";
-
+import AddTransport from '../transport/addTransport';
 import ShowTransport from '../transport/showTransport';
 
 class SellCrop extends Component {
@@ -49,8 +49,8 @@ class SellCrop extends Component {
               match={this.props.match}
             />
             <Separator className="mb-5" />
+              <AddTransport />
               <ShowTransport />
-              <div>sdsf</div>
           </Colxx>
         </Row>
       </Fragment>
