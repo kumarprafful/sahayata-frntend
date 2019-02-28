@@ -14,15 +14,13 @@ class ShowTransport extends Component {
     }
   }
 
-  componentWillMount(){
+  componentWillMount() {
     const userId = localStorage.userId;
     const apiURL = `https://sahayata-farmer.herokuapp.com/sahayata/transport/${userId}`;
-    console.log("HET");
     axios.get(apiURL)
     .then(res => {
-      // console.log(res);
       this.setState({data:res.data});
-      // console.log(this.state);
+      console.log(this.state);
     })
     .catch(error => {
       console.log(error);
@@ -31,22 +29,28 @@ class ShowTransport extends Component {
 
   renderTransports() {
 
-
-    // var data = [
-    //   {"_id":"5c759ceb07ac51001769ff67","type":"sdkj","vehicleNumber":"lkj","capacity":"jkl","price":"lkj","__v":0},
-    //   {"_id":"5c759d7107ac51001769ff69","type":"sdkj","vehicleNumber":"lkj","capacity":"jkl","price":"lkj","__v":0},
-    //   {"_id":"5c759d7307ac51001769ff6a","type":"sdkj","vehicleNumber":"lkj","capacity":"jkl","price":"lkj","__v":0},
-    //   {"_id":"5c759e7807ac51001769ff6b","type":"sd,","vehicleNumber":"lkjv","capacity":"slkdj","price":"lkj","__v":0},
-    //   {"_id":"5c759f2507ac51001769ff6c","type":"df","vehicleNumber":"fe","capacity":"wdfh","price":"dhdfh","__v":0}
-    // ]
-
-    // this.setState({data:data});
-    // console.log(this.state.data);
-
-
-    // this.state.data.map(element => {
-    //   console.log(element);
-    // })
+    console.log(this.state.data);
+    if(this.state.data){
+      console.log("yeah");
+      return this.state.data.map(element => {
+        console.log(element);
+        return (
+          <Card>
+          <CardBody>
+            <h3>{element.type}</h3>
+            <h6>Capacity: {element.capacity}</h6>
+            <h5>Price: {element.price}</h5>
+          </CardBody>
+          </Card>
+        );
+      });
+    }
+    else{
+      console.log("NO");
+      return (
+      <div>Spinner</div>
+      );
+    }
 
 
   }
@@ -55,9 +59,12 @@ class ShowTransport extends Component {
   render() {
     console.log(this.state.data);
     return (
-    <CardBody>
-      // {this.renderTransports};
-    </CardBody>
+    <div>
+      <Row>
+        {this.renderTransports()}
+      </Row>
+     </div>
+
     );
   }
 }
