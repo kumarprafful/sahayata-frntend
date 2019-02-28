@@ -20,9 +20,9 @@ export default class extends Component {
   renderCrops(){
     if(this.state.crops == null) {
       return (
-        <CardBody>
+
           <AddCrops />
-        </CardBody>
+      
       );
     }
     else{
