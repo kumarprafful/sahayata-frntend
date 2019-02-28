@@ -50,6 +50,7 @@ class SellCrop extends Component {
             />
             <Separator className="mb-5" />
               <ShowTransport />
+              <div>sdsf</div>
           </Colxx>
         </Row>
       </Fragment>
