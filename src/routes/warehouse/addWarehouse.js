@@ -2,6 +2,7 @@ import React, {Component, Fragment} from 'react';
 import IntlMessages from "Util/IntlMessages";
 
 import { Row, Col, Card, CardBody, CardTitle, Button, Modal, ModalHeader, ModalBody, ModalFooter,Form, Label, Input } from "reactstrap";
+import LanguageChanger from "Components/LanguageChanger";
 
 export default class AddWarehouse extends Component {
   constructor(props) {
@@ -44,7 +45,7 @@ export default class AddWarehouse extends Component {
        this.setState({district:""});
        this.setState({state:""});
        this.setState({pincode:""});
-       
+
        this.toggle();
 
      })
@@ -59,10 +60,10 @@ export default class AddWarehouse extends Component {
     return (
     <CardBody>
     <div className="center-align">
-      <h2>Add warehouse</h2>
+      <h2><LanguageChanger text="Add warehouse"/></h2>
       <h1 className="center" onClick={this.toggle}><i className="simple-icon-plus" /></h1>
       <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-         <ModalHeader toggle={this.toggle}>Add Warehouse</ModalHeader>
+         <ModalHeader toggle={this.toggle}><LanguageChanger text="Add Warehouse"/></ModalHeader>
          <ModalBody>
          <Form>
            <Label className="form-group has-float-label mb-4">
@@ -70,15 +71,15 @@ export default class AddWarehouse extends Component {
               type="text"
               onChange={(e) => this.setState({name:e.target.value})}
             />
-             <IntlMessages id="Warehouse name" />
-           </Label>
+              <LanguageChanger text="Warehouse name"/>
+          </Label>
 
            <Label className="form-group has-float-label mb-4">
              <Input
               type="text"
               onChange={(e) => this.setState({manager:e.target.value})}
              />
-             <IntlMessages id="Manager" />
+             <LanguageChanger id="Manager"/>
            </Label>
 
            <Label className="form-group has-float-label mb-4">
@@ -86,7 +87,7 @@ export default class AddWarehouse extends Component {
               type="text"
               onChange={(e) => this.setState({capacity:e.target.value})}
              />
-             <IntlMessages id="Capacity" />
+             <LanguageChanger text="Capacity"/>
            </Label>
 
            <Label className="form-group has-float-label mb-4">
@@ -94,7 +95,7 @@ export default class AddWarehouse extends Component {
               type="text"
               onChange={(e) => this.setState({price:e.target.value})}
              />
-             <IntlMessages id="Price" />
+             <LanguageChanger text="Price"/>
            </Label>
 
            <Label className="form-group has-float-label mb-4">
@@ -102,7 +103,7 @@ export default class AddWarehouse extends Component {
               type="text"
               onChange={(e) => this.setState({address:e.target.value})}
              />
-             <IntlMessages id="Address Line 1" />
+             <LanguageChanger text="Address Line 1"/>
            </Label>
 
            <Label className="form-group has-float-label mb-4">
@@ -110,7 +111,7 @@ export default class AddWarehouse extends Component {
               type="text"
               onChange={(e) => this.setState({district:e.target.value})}
              />
-             <IntlMessages id="District" />
+             <LanguageChanger text="District"/>
            </Label>
 
            <Label className="form-group has-float-label mb-4">
@@ -118,7 +119,7 @@ export default class AddWarehouse extends Component {
               type="text"
               onChange={(e) => this.setState({state:e.target.value})}
              />
-             <IntlMessages id="State" />
+             <LanguageChanger text="State"/>
            </Label>
 
            <Label className="form-group has-float-label mb-4">
@@ -126,11 +127,8 @@ export default class AddWarehouse extends Component {
               type="text"
               onChange={(e) => this.setState({pincode:e.target.value})}
              />
-             <IntlMessages id="Pincode" />
+             <LanguageChanger id="Pincode"/>
            </Label>
-
-
-
 
 
            <div className="d-flex justify-content-end align-items-center">
@@ -140,7 +138,7 @@ export default class AddWarehouse extends Component {
                size="lg"
                onClick={() => this.onWarehouseRegister()}
              >
-               <IntlMessages id="user.register-button" />
+               <LanguageChanger text="REGISTER"/>
              </Button>
            </div>
          </Form>
