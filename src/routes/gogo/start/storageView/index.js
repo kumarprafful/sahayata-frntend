@@ -7,6 +7,8 @@ import { Colxx, Separator } from "Components/CustomBootstrap";
 import BreadcrumbContainer from "Components/BreadcrumbContainer";
 
 import AddWarehouse from '../../../warehouse/addWarehouse';
+import LanguageChanger from "Components/LanguageChanger";
+
 
 export default class extends Component {
   constructor(props){
@@ -30,7 +32,7 @@ export default class extends Component {
       return (
         <CardBody>
         <div className="center-align">
-          <h2>Currently there are no orders</h2>
+          <h2><LanguageChanger text="Currently there are no orders"/></h2>
         </div>
         </CardBody>
       );
@@ -43,7 +45,7 @@ export default class extends Component {
       <Row>
       <Colxx xxs="12">
         <Card style={{'padding':'1em'}}>
-          <CardTitle><h1>Registered Warehouses</h1></CardTitle>
+          <CardTitle><h1><LanguageChanger text="Registered Warehouses"/></h1></CardTitle>
           {this.renderWarehouses()}
         </Card>
         </Colxx>
@@ -53,7 +55,7 @@ export default class extends Component {
       <Row>
         <Colxx xxs="12">
           <Card style={{'padding':'1em'}}>
-            <CardTitle><h1>Current orders</h1></CardTitle>
+            <CardTitle><h1><LanguageChanger text="Current orders"/></h1></CardTitle>
             {this.renderCurrentOrders()}
           </Card>
           </Colxx>

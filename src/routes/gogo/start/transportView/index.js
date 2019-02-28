@@ -10,7 +10,7 @@ import axios from 'axios';
 
 import AddTransport from '../../../transport/addTransport';
 import ShowTransport from '../../../transport/showTransport';
-
+import LanguageChanger from "Components/LanguageChanger";
 
 export default class extends Component {
   constructor(props){
@@ -56,13 +56,13 @@ export default class extends Component {
       return (
         <CardBody>
         <div className="center-align">
-          <h2>Currently there are no orders</h2>
+          <h2><LanguageChanger text="Currently there are no orders"/></h2>
         </div>
         </CardBody>
       );
     }
     else{
-      <CardBody>Orders</CardBody>
+      <CardBody><LanguageChanger text="Orders"/></CardBody>
     }
   }
 
@@ -71,13 +71,13 @@ export default class extends Component {
       return (
         <CardBody>
         <div className="center-align">
-          <h2>Currently there are no orders</h2>
+          <h2><LanguageChanger text="Currently there are no orders"/></h2>
         </div>
         </CardBody>
       );
     }
     else{
-      <CardBody>Orders</CardBody>
+      <CardBody><LanguageChanger text="Orders"/></CardBody>
     }
   }
 
@@ -87,7 +87,7 @@ export default class extends Component {
       <Row>
       <Colxx xxs="12">
         <Card style={{'padding':'1em'}}>
-          <CardTitle><h1>Registered transport</h1></CardTitle>
+          <CardTitle><h1><LanguageChanger text="Registered transport"/></h1></CardTitle>
           {this.renderTransport()}
         </Card>
         </Colxx>
@@ -96,7 +96,7 @@ export default class extends Component {
       <Row>
         <Colxx xxs="12">
           <Card style={{'padding':'1em'}}>
-            <CardTitle><h1>Current orders</h1></CardTitle>
+            <CardTitle><h1><LanguageChanger text="Current orders"/></h1></CardTitle>
             {this.renderOrders()}
           </Card>
           </Colxx>
@@ -106,13 +106,12 @@ export default class extends Component {
       <Row>
         <Colxx xxs="12">
           <Card style={{'padding':'1em'}}>
-            <CardTitle><h1>Past orders</h1></CardTitle>
+            <CardTitle><h1><LanguageChanger text="Past orders"/></h1></CardTitle>
             {this.renderPastOrders()}
           </Card>
-          </Colxx>
+        </Colxx>
       </Row>
       <br />
-
       </Fragment>
     );
   }

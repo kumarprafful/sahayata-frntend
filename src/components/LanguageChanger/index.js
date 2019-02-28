@@ -28,7 +28,7 @@ class LanguageChanger extends Component {
   }
 
   render() {
-    return <Fragment>{this.state.text}</Fragment>;
+    return <span>{this.state.text}</span>;
   }
 }
 

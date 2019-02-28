@@ -3,6 +3,7 @@ import IntlMessages from "Util/IntlMessages";
 
 import { Row, Col, Card, CardBody, CardTitle, Button, Modal, ModalHeader, ModalBody, ModalFooter,Form, Label, Input } from "reactstrap";
 import axios from 'axios';
+import LanguageChanger from "Components/LanguageChanger";
 
 export default class AddTransport extends Component {
   constructor(props) {
@@ -55,10 +56,10 @@ export default class AddTransport extends Component {
     return (
     <CardBody>
     <div className="center-align">
-      <h2>Add transport</h2>
+      <h2><LanguageChanger text="Add Transport"/></h2>
       <h1 className="center" onClick={this.toggle}><i className="simple-icon-plus" /></h1>
       <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-         <ModalHeader toggle={this.toggle}>Add Transport</ModalHeader>
+         <ModalHeader toggle={this.toggle}><LanguageChanger text="Add transport"/></ModalHeader>
          <ModalBody>
          <Form>
            <Label className="form-group has-float-label mb-4">
@@ -66,7 +67,7 @@ export default class AddTransport extends Component {
               type="text"
               onChange={(e) => this.setState({type:e.target.value})}
             />
-             <IntlMessages id="Vehicle Type" />
+             <LanguageChanger text="Vehicle Type" />
            </Label>
 
            <Label className="form-group has-float-label mb-4">
@@ -74,7 +75,7 @@ export default class AddTransport extends Component {
               type="text"
               onChange={(e) => this.setState({vehicleNumber:e.target.value})}
              />
-             <IntlMessages id="Vehicle Number" />
+             <LanguageChanger text="Vehicle Number" />
            </Label>
 
            <Label className="form-group has-float-label mb-4">
@@ -82,7 +83,7 @@ export default class AddTransport extends Component {
               type="text"
               onChange={(e) => this.setState({capacity:e.target.value})}
              />
-             <IntlMessages id="Capacity" />
+             <LanguageChanger text="Capacity" />
            </Label>
 
            <Label className="form-group has-float-label mb-4">
@@ -90,7 +91,7 @@ export default class AddTransport extends Component {
               type="text"
               onChange={(e) => this.setState({price:e.target.value})}
              />
-             <IntlMessages id="Price" />
+             <LanguageChanger text="Price" />
            </Label>
 
 
@@ -101,7 +102,7 @@ export default class AddTransport extends Component {
                size="lg"
                onClick={() => this.onTransportRegister()}
              >
-               <IntlMessages id="user.register-button" />
+               <LanguageChanger text="REGISTER" />
              </Button>
            </div>
          </Form>

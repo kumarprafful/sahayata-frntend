@@ -20,6 +20,7 @@ import { connect } from "react-redux";
 import { Colxx, Separator } from "Components/CustomBootstrap";
 import BreadcrumbContainer from "Components/BreadcrumbContainer";
 import Drop from "./dropdown";
+import LanguageChanger from "Components/LanguageChanger";
 
 import {
   setContainerClassnames,
@@ -88,19 +89,19 @@ class SellCrop extends Component {
                 <Row>
                   <Colxx xxs="11">
                     <CardTitle>
-                      <b>{element.crop}</b>
+                      <b><LanguageChanger text={element.crop}/></b>
                     </CardTitle>
                     <CardText>
-                      Minimum price: ₹{element.min_price} ,<br/> Maximum Price:{" "}
-                      ₹{element.max_price} ,<br/> Modal Price: ₹{element.modal_price}
+                      <LanguageChanger text="Minimum price"/><LanguageChanger text="Minimum price:"/> ₹<LanguageChanger text={element.min_price}/> ,<br/> <LanguageChanger text="Maximum Price:"/>
+                      ₹<LanguageChanger text={element.max_price}/> ,<br/> <LanguageChanger text="Modal Price: ₹"/><LanguageChanger text={element.modal_price}/>
                     </CardText>
                     <CardText>
-                      Market: {element.market}, District: {element.district},
-                      State: {element.state}
+                      <LanguageChanger text="Market: "/><LanguageChanger text={element.market}/>, <LanguageChanger text="District: "/><LanguageChanger text={element.district}/>,
+                      <LanguageChanger text="State: "/><LanguageChanger text={element.state}/>
                     </CardText>
                   </Colxx>
                   <Colxx xxs="1">
-                    distance: {element.route.length / 1000} km
+                    <LanguageChanger  text="distance: "/><LanguageChanger text={element.route.length / 1000}/> km
                   </Colxx>
                 </Row>
               </CardBody>

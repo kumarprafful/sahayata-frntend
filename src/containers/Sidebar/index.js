@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom";
 import classnames from "classnames";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import { withRouter } from "react-router-dom";
+import LanguageChanger from "Components/LanguageChanger";
 
 import { connect } from "react-redux";
 import {
@@ -270,7 +271,7 @@ class Sidebar extends Component {
             to="/app/second-menu"
             onClick={e => this.openSubMenu(e, "second-menu")}
           >
-            <i className="simple-icon-map" /> <IntlMessages id="menu.second" />
+            <i className="simple-icon-map" /> <LanguageChanger text="God view" />
           </NavLink>
         </NavItem>
         <NavItem
@@ -286,7 +287,7 @@ class Sidebar extends Component {
             onClick={e => this.openDirectPage(e, "sellCrop")}
           >
             <i className="simple-icon-action-redo" />{" "}
-            <IntlMessages id="menu.sellCrop" />
+            <LanguageChanger text="Market" />
           </NavLink>
         </NavItem>
         <NavItem
@@ -302,7 +303,7 @@ class Sidebar extends Component {
             onClick={e => this.openDirectPage(e, "transport")}
           >
             <i className="simple-icon-compass" />
-            <IntlMessages id="menu.transport" />
+            <LanguageChanger text="Transport" />
           </NavLink>
         </NavItem>
         <NavItem
@@ -318,7 +319,7 @@ class Sidebar extends Component {
             onClick={e => this.openDirectPage(e, "warehouse")}
           >
             <i className="iconsmind-Warehouse" />
-            <IntlMessages id="menu.warehouse" />
+            <LanguageChanger text="Warehouse" />
           </NavLink>
         </NavItem>
         </Fragment>
@@ -341,7 +342,7 @@ class Sidebar extends Component {
                 onClick={e => this.openDirectPage(e, "alltrasport")}
               >
                 <i className="iconsmind-Truck" />
-                <IntlMessages id="menu.alltrasport" />
+                <LanguageChanger text="All transport" />
               </NavLink>
             </NavItem>
 
@@ -358,7 +359,7 @@ class Sidebar extends Component {
                     onClick={e => this.openDirectPage(e, "alltransaction")}
                   >
                     <i className="iconsmind-Mail-Money" />
-                    <IntlMessages id="menu.alltransaction" />
+                    <LanguageChanger text="All transaction" />
                   </NavLink>
                 </NavItem>
 
@@ -381,7 +382,7 @@ class Sidebar extends Component {
             onClick={e => this.openDirectPage(e, "warehouse")}
           >
             <i className="iconsmind-Warehouse" />
-            <IntlMessages id="menu.warehouse" />
+            <LanguageChanger text="Warehouse" />
           </NavLink>
         </NavItem>
         <NavItem
@@ -397,7 +398,7 @@ class Sidebar extends Component {
                 onClick={e => this.openDirectPage(e, "allwarehouse")}
               >
                 <i className="iconsmind-The-WhiteHouse" />
-                <IntlMessages id="menu.allwarehouse" />
+                <LanguageChanger text="All warehouse" />
               </NavLink>
             </NavItem>
 
@@ -414,35 +415,13 @@ class Sidebar extends Component {
                     onClick={e => this.openDirectPage(e, "alltransaction")}
                   >
                     <i className="iconsmind-Mail-Money" />
-                    <IntlMessages id="menu.alltransaction" />
+                    <LanguageChanger text="All transaction" />
                   </NavLink>
                 </NavItem>
 
         </Fragment>
       );
     }
-
-    // return (
-    //   <Fragment>
-    //     <NavItem
-    //       className={classnames({
-    //         active:
-    //           (this.state.selectedParentMenu == "allwarehouse" &&
-    //             this.state.viewingParentMenu == "") ||
-    //           this.state.viewingParentMenu == "allwarehouse"
-    //       })}
-    //     >
-    //       <NavLink
-    //         to="/app/allwarehouse"
-    //         onClick={e => this.openDirectPage(e, "allwarehouse")}
-    //       >
-    //         <i className="iconsmind-Warehouse" />
-    //         <IntlMessages id="menu.allwarehouse" />
-    //       </NavLink>
-    //     </NavItem>
-    //
-    //   </Fragment>
-    // );
   }
 
   render() {
@@ -467,7 +446,7 @@ class Sidebar extends Component {
                     onClick={e => this.openDirectPage(e, "gogo")}
                   >
                     <i className="simple-icon-home" />{" "}
-                    <IntlMessages id="menu.first" />
+                    <LanguageChanger text="Home" />
                   </NavLink>
                 </NavItem>
 
@@ -496,7 +475,7 @@ class Sidebar extends Component {
                 <NavItem>
                   <NavLink to="/app/second-menu/all">
                     <i className="simple-icon-paper-plane" />{" "}
-                    <IntlMessages id="submenu.second.zero" />
+                    <LanguageChanger text="All" />
                   </NavLink>
                 </NavItem>
               </Nav>
@@ -513,7 +492,7 @@ class Sidebar extends Component {
                 <NavItem>
                   <NavLink to="/app/second-menu/warehouse">
                     <i className="simple-icon-paper-plane" />{" "}
-                    <IntlMessages id="submenu.second.one" />
+                    <LanguageChanger text="Warehouse" />
                   </NavLink>
                 </NavItem>
               </Nav>
@@ -530,7 +509,7 @@ class Sidebar extends Component {
                 <NavItem>
                   <NavLink to="/app/second-menu/mandi">
                     <i className="simple-icon-paper-plane" />{" "}
-                    <IntlMessages id="submenu.second.two" />
+                    <LanguageChanger text="Mandi" />
                   </NavLink>
                 </NavItem>
               </Nav>
@@ -547,7 +526,7 @@ class Sidebar extends Component {
                 <NavItem>
                   <NavLink to="/app/second-menu/transport">
                     <i className="simple-icon-paper-plane" />{" "}
-                    <IntlMessages id="submenu.second.three" />
+                    <LanguageChanger text="Transport" />
                   </NavLink>
                 </NavItem>
               </Nav>
