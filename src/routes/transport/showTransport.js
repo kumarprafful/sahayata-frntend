@@ -14,22 +14,23 @@ class ShowTransport extends Component {
     }
   }
 
-
-
-
-  renderTransports() {
+  componentWillMount(){
     const userId = localStorage.userId;
     const apiURL = `https://sahayata-farmer.herokuapp.com/sahayata/transport/${userId}`;
     console.log("HET");
     axios.get(apiURL)
     .then(res => {
-      console.log(res);
-      this.setState({data:res});
-      console.log(this.state);
+      // console.log(res);
+      this.setState({data:res.data});
+      // console.log(this.state);
     })
     .catch(error => {
       console.log(error);
     })
+  }
+
+  renderTransports() {
+
 
     // var data = [
     //   {"_id":"5c759ceb07ac51001769ff67","type":"sdkj","vehicleNumber":"lkj","capacity":"jkl","price":"lkj","__v":0},
@@ -52,9 +53,10 @@ class ShowTransport extends Component {
 
 
   render() {
+    console.log(this.state.data);
     return (
     <CardBody>
-      {this.renderTransports};
+      // {this.renderTransports};
     </CardBody>
     );
   }
