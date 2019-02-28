@@ -30,8 +30,14 @@ class HomeStorage extends Component {
             </NavLink>
           </Colxx>
         </Row>
-      </Fragment>
 
+        <br />
+      <Card>
+      <CardBody>
+        <div>lorem ispsum doremlorem ispsum doremlorem ispsum doremlorem ispsum doremlorem ispsum doremlorem ispsum dorem</div>
+      </CardBody>
+      </Card>
+      </Fragment>
     );
   }
 }
