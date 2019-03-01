@@ -34,6 +34,19 @@ class Transport extends Component {
     }
   }
 
+  componentWillMount() {
+    const id = localStorage.userId;
+    const apiURL = `https://sahayata-farmer.herokuapp.com/sahayata/transportall/${id}`;
+    console.log("yes");
+    axios.get(apiURL)
+    .then(res => {
+      console.log(res);
+    })
+    .catch(error => {
+      console.log(error);
+      console.error(error);
+    })
+  }
 
   componentDidMount() {
     const { containerClassnames, menuClickCount } = this.props;
@@ -50,7 +63,10 @@ class Transport extends Component {
             />
             <Separator className="mb-5" />
 
-            <LanguageChanger text="prince" />
+
+
+
+
 
           </Colxx>
         </Row>

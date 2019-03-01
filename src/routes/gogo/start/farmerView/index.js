@@ -9,6 +9,7 @@ import BreadcrumbContainer from "Components/BreadcrumbContainer";
 import LanguageChanger from "Components/LanguageChanger";
 
 import AddCrops from './addCrops';
+import ShowCrops from './showCrops';
 
 export default class extends Component {
   constructor(props) {
@@ -21,12 +22,19 @@ export default class extends Component {
   renderCrops(){
     if(this.state.crops == null) {
       return (
+        <div>
           <AddCrops />
+          <ShowCrops />
+        </div>
+
       );
     }
     else{
       return (
+        <div>
         <CardBody>crops</CardBody>
+
+        </div>
       );
     }
   }

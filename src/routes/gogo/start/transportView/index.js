@@ -34,8 +34,7 @@ export default class extends Component {
     else{
       return (
         <div>
-        <ShowTransport data={this.state.transport} />
-        <div>sdf</div>
+        <ShowTransport />
         </div>
       );
     }

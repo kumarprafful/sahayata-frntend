@@ -9,6 +9,8 @@ import { connect } from "react-redux";
 import { registerUser, loginUserSuccess } from "Redux/actions";
 
 import axios from 'axios';
+import LanguageChanger from "Components/LanguageChanger";
+
 
 class RegisterLayout extends Component {
   constructor(props) {
@@ -21,7 +23,9 @@ class RegisterLayout extends Component {
       mobileNo: "",
       sex: "Male",
       district: "",
-      state: ""
+      state: "",
+      loading: false,
+      errorMessage: ""
     };
   }
   onUserRegister() {
@@ -30,15 +34,22 @@ class RegisterLayout extends Component {
       // this.props.history.push("/login");
     }
     else{
+      this.setState({loading:true});
       axios.post("https://sahayata-farmer.herokuapp.com/register", this.state)
       .then(res => {
         console.log(res);
         this.props.loginUserSuccess({...this.state, userType:res.data.type});
         this.props.history.push("/");
+        this.setState({loading:false});
 
       })
       .catch(error =>{
         console.log(error);
+        this.setState({
+          loading:false,
+          errorMessage: "Invalid credentials"
+        });
+
       })
     }
 
@@ -52,6 +63,17 @@ class RegisterLayout extends Component {
     document.body.classList.remove("background");
   }
   render() {
+    var logo = "../../assets/img/icon/output-onlinepngtools.png";
+    let content, error;
+    if (this.state.loading) {
+      content = <div className="loading" />;
+    }
+    else{
+      content = <div></div>;
+    }
+    if(this.state.errorMessage){
+      error = <Alert color="danger"><h1>{this.state.errorMessage}</h1></Alert>
+    }
     return (
       <Fragment>
         <div className="fixed-background" />
@@ -63,9 +85,10 @@ class RegisterLayout extends Component {
                   <div className="position-relative image-side ">
                     <p className="text-white h2">MAGIC IS IN THE DETAILS</p>
                     <p className="white">
-                      Please use this form to register. <br />
+                    <LanguageChanger text="A fertile soil alone does not carry agriculture to perfection" />
+
                       If you are a member, please{" "}
-                      <NavLink to={`/login`} className="white">
+                      <NavLink to={`/login`} className="yellow" >
                         login
                       </NavLink>
                       .
@@ -73,8 +96,10 @@ class RegisterLayout extends Component {
                     </p>
                   </div>
                   <div className="form-side">
+                  {content}
+                  {error}
                     <NavLink to={`/`} className="white">
-                      <span className="logo-single" />
+                      <span><img src={logo} /></span>
                     </NavLink>
                     <CardTitle className="mb-4">
                       <IntlMessages id="user.register" />
