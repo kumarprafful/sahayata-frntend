@@ -26,7 +26,7 @@ import {
 
 import axios from "axios";
 
-class SellCrop extends Component {
+class Transport extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -77,5 +77,5 @@ export default withRouter(
   connect(
     mapStateToProps,
     { setContainerClassnames, addContainerClassname, changeDefaultClassnames }
-  )(SellCrop)
+  )(Transport)
 );

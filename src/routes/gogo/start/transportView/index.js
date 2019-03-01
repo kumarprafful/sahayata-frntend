@@ -22,24 +22,16 @@ export default class extends Component {
     }
   }
 
-  componentWillMount(){
-    const userId = localStorage.userId;
-    const apiURL = `https://sahayata-farmer.herokuapp.com/sahayata/transport/${userId}`;
-    axios.get(apiURL).then((res)=>{
-      // console.log(res.data);
-      this.setState({transport:res.data});
-    })
-    .catch((error)=>{
-      console.log(error);
-    })
-  }
-
   renderTransport(){
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6a530f3f8e894d2b7de2876b83c750a0b5dff2cb
     if(this.state.transport == null){
       return (
         <CardBody>
           <AddTransport />
+          <ShowTransport />
         </CardBody>
       );
     }
