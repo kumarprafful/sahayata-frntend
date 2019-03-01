@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Row, Card, CardTitle, CardBody, Col } from "reactstrap";
+import {NavLink} from 'react-router-dom';
 
 import IntlMessages from "Util/IntlMessages";
 
@@ -20,9 +21,7 @@ export default class extends Component {
   renderCrops(){
     if(this.state.crops == null) {
       return (
-        <CardBody>
           <AddCrops />
-        </CardBody>
       );
     }
     else{
@@ -36,11 +35,26 @@ export default class extends Component {
     return (
       <Fragment>
         <Row>
+          <Colxx>
           <Card style={{'padding':'1em'}}>
             <CardTitle><h1><LanguageChanger text="Crops being produced"/></h1></CardTitle>
             {this.renderCrops()}
           </Card>
+          </Colxx>
         </Row>
+        <br />
+        <Row>
+          <Colxx xxs="4">
+          <NavLink to="home-storage">
+            <Card>
+              <CardBody>
+                <h2>Home storage ideas</h2>
+              </CardBody>
+            </Card>
+            </NavLink>
+          </Colxx>
+        </Row>
+
       </Fragment>
     );
   }
