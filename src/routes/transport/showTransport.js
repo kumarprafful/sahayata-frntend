@@ -29,18 +29,28 @@ class ShowTransport extends Component {
     this.renderTransports = this.renderTransports.bind(this);
   }
 
+  componentWillMount(){
+    const userId = localStorage.userId;
+    const apiURL = `https://sahayata-farmer.herokuapp.com/sahayata/transport/${userId}`;
+    axios.get(apiURL).then((res)=>{
+      console.log(res.data);
+      this.setState({data:res.data});
+    })
+    .catch((error)=>{
+      console.log(error);
+    })
+  }
+
+
   renderTransports() {
-    if (this.props.data) {
-      return this.props.data.map(element => {
+    console.log(this.state.data);
+    if (this.state.data!=null) {
+      return this.state.data.map(element => {
         return (
-          <Colxx xxs="2">
-            <Card
-              inversive
-              body
-              style={{ backgroundColor: "#5850508c", borderColor: "#5850508c" }}
-            >
-              <CardBody >
-                <h3 >{element.type}</h3>
+          <Colxx xxs="4">
+            <Card>
+              <CardBody>
+                <h3>{element.type}</h3>
                 <h6>Capacity: {element.capacity}</h6>
                 <h5>Price: {element.price}</h5>
               </CardBody>
@@ -48,8 +58,14 @@ class ShowTransport extends Component {
           </Colxx>
         );
       });
-    } else {
-      return <div className="loading" />;
+    } else if (this.state.data == null) {
+      return <div className="loading" />
+;
+    }
+    else{
+      return (
+        <div><h3> no data available</h3></div>
+      );
     }
   }
 

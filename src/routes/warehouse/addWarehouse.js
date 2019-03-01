@@ -3,6 +3,7 @@ import IntlMessages from "Util/IntlMessages";
 
 import { Row, Col, Card, CardBody, CardTitle, Button, Modal, ModalHeader, ModalBody, ModalFooter,Form, Label, Input } from "reactstrap";
 import LanguageChanger from "Components/LanguageChanger";
+import axios from 'axios';
 
 export default class AddWarehouse extends Component {
   constructor(props) {
@@ -34,7 +35,9 @@ export default class AddWarehouse extends Component {
 
    }
    else{
-     axios.post("https://sahayata-farmer.herokuapp.com/sahayata/warehouse/5c74d1d20bbcfc16c0b79f01", this.state)
+     const id = localStorage.userId;
+     const apiURL = `https://sahayata-farmer.herokuapp.com/sahayata/storage/${id}`;
+     axios.post(apiURL, this.state)
      .then(res => {
        console.log(res);
        this.setState({name:""});
@@ -79,7 +82,7 @@ export default class AddWarehouse extends Component {
               type="text"
               onChange={(e) => this.setState({manager:e.target.value})}
              />
-             <LanguageChanger id="Manager"/>
+             <LanguageChanger text="Manager"/>
            </Label>
 
            <Label className="form-group has-float-label mb-4">
@@ -127,7 +130,7 @@ export default class AddWarehouse extends Component {
               type="text"
               onChange={(e) => this.setState({pincode:e.target.value})}
              />
-             <LanguageChanger id="Pincode"/>
+             <LanguageChanger text="Pincode"/>
            </Label>
 
 
