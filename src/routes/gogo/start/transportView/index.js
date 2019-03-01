@@ -22,29 +22,41 @@ export default class extends Component {
     }
   }
 
-  renderTransport(){
+  componentWillMount(){
     const userId = localStorage.userId;
     const apiURL = `https://sahayata-farmer.herokuapp.com/sahayata/transport/${userId}`;
-    console.log('userId - ', apiURL);
-    axios.get(apiURL)
-    .then(res => {
-      console.log(res);
+    axios.get(apiURL).then((res)=>{
+      // console.log(res.data);
+      this.setState({transport:res.data});
     })
-    .catch(error => {
+    .catch((error)=>{
       console.log(error);
     })
+  }
+
+  renderTransport(){
+    // const userId = localStorage.userId;
+    // const apiURL = `https://sahayata-farmer.herokuapp.com/sahayata/transport/${userId}`;
+    // console.log('userId - ', apiURL);
+    // axios.get(apiURL)
+    // .then(res => {
+    //   console.log(res);
+    // })
+    // .catch(error => {
+    //   console.log(error);
+    // })
 
     if(this.state.transport == null){
       return (
         <CardBody>
-        <AddTransport />
+          <AddTransport />
         </CardBody>
       );
     }
     else{
       return (
         <div>
-        <ShowTransport />
+        <ShowTransport data={this.state.transport} />
         <div>sdf</div>
         </div>
       );
