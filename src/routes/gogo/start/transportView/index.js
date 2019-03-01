@@ -23,10 +23,6 @@ export default class extends Component {
   }
 
   renderTransport(){
-<<<<<<< HEAD
-
-=======
->>>>>>> 6a530f3f8e894d2b7de2876b83c750a0b5dff2cb
     if(this.state.transport == null){
       return (
         <CardBody>

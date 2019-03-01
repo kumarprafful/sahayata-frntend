@@ -10,6 +10,8 @@ import { registerUser, loginUserSuccess } from "Redux/actions";
 
 import axios from 'axios';
 
+import LanguageChanger from "Components/LanguageChanger";
+
 class RegisterLayout extends Component {
   constructor(props) {
     super(props);
@@ -61,7 +63,6 @@ class RegisterLayout extends Component {
               <Colxx xxs="12" md="10" className="mx-auto my-auto">
                 <Card className="auth-card">
                   <div className="position-relative image-side ">
-                    <p className="text-white h2">MAGIC IS IN THE DETAILS</p>
                     <p className="white">
                       Please use this form to register. <br />
                       If you are a member, please{" "}
@@ -77,7 +78,7 @@ class RegisterLayout extends Component {
                       <span className="logo-single" />
                     </NavLink>
                     <CardTitle className="mb-4">
-                      <IntlMessages id="user.register" />
+                      <LanguageChanger text="Register" />
                     </CardTitle>
                     <Form>
                       <Label className="form-group has-float-label mb-4">
@@ -85,14 +86,14 @@ class RegisterLayout extends Component {
                          type="email"
                          onChange={(e) => this.setState({email:e.target.value})}
                        />
-                        <IntlMessages id="user.email" />
+                        <LanguageChanger text="Username"/>
                       </Label>
                       <Label className="form-group has-float-label mb-4">
                         <Input
                          type="password"
                          onChange={(e) => this.setState({password:e.target.value})}
                         />
-                        <IntlMessages id="user.password" />
+                        <LanguageChanger text="Password"/>
                       </Label>
                       <Label className="form-group has-float-label mb-4">
                         <Input type="select" name="select" onChange={(e) => this.setState({type:e.target.value})}>
