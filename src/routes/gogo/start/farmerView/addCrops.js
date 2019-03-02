@@ -4,6 +4,8 @@ import IntlMessages from "Util/IntlMessages";
 import { Row, Col, Card, CardBody, CardTitle, Button, Modal, ModalHeader, ModalBody, ModalFooter,Form, Label, Input } from "reactstrap";
 import axios from 'axios';
 
+import LanguageChanger from "Components/LanguageChanger";
+
 export default class AddCrops extends Component {
   constructor(props) {
     super(props);
@@ -51,10 +53,10 @@ export default class AddCrops extends Component {
     return (
     <CardBody>
     <div className="center-align">
-      <h2>Add crop</h2>
+      <h2><LanguageChanger text="Add Crop" /></h2>
       <h1 className="center" onClick={this.toggle}><i className="simple-icon-plus" /></h1>
       <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-         <ModalHeader toggle={this.toggle}>Add Crop</ModalHeader>
+         <ModalHeader toggle={this.toggle}><LanguageChanger text="Add Crop" /></ModalHeader>
          <ModalBody>
          <Form>
            <Label className="form-group has-float-label mb-4">
@@ -62,7 +64,7 @@ export default class AddCrops extends Component {
               type="text"
               onChange={(e) => this.setState({crop:e.target.value})}
             />
-             <IntlMessages id="Crop name" />
+             <LanguageChanger text="Crop name" />
            </Label>
 
            <Label className="form-group has-float-label mb-4">
@@ -70,7 +72,7 @@ export default class AddCrops extends Component {
               type="text"
               onChange={(e) => this.setState({quantity:e.target.value})}
              />
-             <IntlMessages id="Quantity" />
+             <LanguageChanger text="Quantity" />
            </Label>
 
 
@@ -81,7 +83,7 @@ export default class AddCrops extends Component {
                size="lg"
                onClick={() => this.onCropRegister()}
              >
-               <IntlMessages id="user.register-button" />
+               <LanguageChanger text="Add" />
              </Button>
            </div>
          </Form>
