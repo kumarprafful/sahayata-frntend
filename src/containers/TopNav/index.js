@@ -198,6 +198,7 @@ class TopNav extends Component {
     }
 
     var username = this.props.authUser.user;
+    var logo = "../../assets/img/icon/logo.png";
     return (
       <nav className="navbar fixed-top">
         <NavLink
@@ -265,7 +266,7 @@ class TopNav extends Component {
 
 
         <a className="navbar-logo" href="/">
-          <h1 ><b><IntlMessages id="menu.gogo" /></b></h1>
+          <span><img src={logo} style={{'height': '5em', 'marginTop':'-1em'}} /> </span>
         </a>
 
         <div className="ml-auto">

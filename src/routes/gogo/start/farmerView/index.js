@@ -32,8 +32,7 @@ export default class extends Component {
     else{
       return (
         <div>
-        <CardBody>crops</CardBody>
-
+          <CardBody>crops</CardBody>
         </div>
       );
     }
@@ -42,6 +41,7 @@ export default class extends Component {
   render() {
     return (
       <Fragment>
+
         <Row>
           <Colxx>
           <Card style={{'padding':'1em'}}>
@@ -62,7 +62,7 @@ export default class extends Component {
             </NavLink>
           </Colxx>
         </Row>
-
+        
       </Fragment>
     );
   }

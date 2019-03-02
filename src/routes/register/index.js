@@ -82,8 +82,9 @@ class RegisterLayout extends Component {
               <Colxx xxs="12" md="10" className="mx-auto my-auto">
                 <Card className="auth-card">
                   <div className="position-relative image-side ">
-                    <p className="white">
+                    <p className="" style={{'fontSize':'3em', 'lineHeight': '1em', 'color': 'orange', '-webkit-text-stroke-width': '0.5px', '-webkit-text-stroke-color': 'black'}}>
                     <LanguageChanger text="A fertile soil alone does not carry agriculture to perfection" />
+<<<<<<< HEAD
 
                       <LanguageChanger text = "If you are a member, please " />
                       <NavLink to={`/login`} style={{'color': 'yellow'}} >
@@ -91,14 +92,17 @@ class RegisterLayout extends Component {
                       </NavLink>
                       .
 
+=======
+>>>>>>> 0822bc2600591b704f4016c9fa4749b80a1a7277
                     </p>
                   </div>
                   <div className="form-side">
                   {content}
                   {error}
                     <NavLink to={`/`} className="white">
-                      <span><img src={logo} /></span>
+                      <span><img src={logo} style={{"marginTop": "-5em", "marginLeft": "-2em"}} /></span>
                     </NavLink>
+                    <br /><br />
                     <CardTitle className="mb-4">
                       <LanguageChanger text="Register" />
                     </CardTitle>
@@ -173,7 +177,10 @@ class RegisterLayout extends Component {
                           <LanguageChanger text="Register" />
                         </Button>
                       </div>
+
                     </Form>
+                    <br />
+                    <h4 style={{'textAlign':'center'}}>Already a member. <NavLink to="/login" style={{'color':'blue'}}>Login</NavLink> </h4>
                   </div>
                 </Card>
               </Colxx>
