@@ -197,7 +197,7 @@ class TopNav extends Component {
       lang = 'en';
     }
 
-    var username = this.props.authUser.user;
+    var username = this.props.authUser.username;
     var logo = "../../assets/img/icon/logo.png";
     return (
       <nav className="navbar fixed-top">

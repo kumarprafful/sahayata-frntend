@@ -41,7 +41,7 @@ const InitialPath = ({ component: Component, ...rest, authUser }) =>
 
 class App extends Component {
 	render() {
-		const { location, match, user, locale } = this.props;
+		const { location, match, username, locale } = this.props;
 		const currentAppLocale = AppLocale[locale];
 		if (location.pathname === '/'  || location.pathname==='/app'|| location.pathname==='/app/') {
 			return (<Redirect to={defaultStartPath} />);
@@ -57,7 +57,7 @@ class App extends Component {
 						<Switch>
 							<InitialPath
 								path={`${match.url}app`}
-								authUser={user}
+								authUser={username}
 								component={MainRoute}
 							/>
 							<Route path={`/login`} component={login} />
@@ -74,9 +74,11 @@ class App extends Component {
 }
 
 const mapStateToProps = ({ authUser, settings }) => {
-	const { user } = authUser;
+	
+	console.log(authUser,settings);
+	const { username } = authUser;
 	const { locale } = settings;
-	return { user, locale };
+	return { username, locale };
 };
 
 export default connect(mapStateToProps,{  })(App);
