@@ -54,6 +54,7 @@ class SellCrop extends Component {
         <Row>
           <Colxx xxs="12">
             <ShowStorageFarmer />
+            
          </Colxx>
         </Row>
       </Fragment>
