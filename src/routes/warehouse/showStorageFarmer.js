@@ -59,8 +59,7 @@ class ShowStorageFarmer extends Component {
         );
       });
     } else if (this.state.data == null) {
-      return <div className="loading" />
-;
+      return <div className="loading" />;
     }
     else{
       return (
@@ -79,4 +78,4 @@ class ShowStorageFarmer extends Component {
   }
 }
 
-export default connect(null)(ShowTransport);
+export default connect(null)(ShowStorageFarmer);

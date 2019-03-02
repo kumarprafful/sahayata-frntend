@@ -27,7 +27,7 @@ export default class extends Component {
     console.log(this.state.data);
     if (this.state.data == null) {
       return <div className="loading" />;
-    } else if (this.state.data[0] == undefined) {
+    } else if (this.state.data[0] == undefined && localStorage.userType=="storage") {
       return <AddWarehouse />;
     } else {
       return this.state.data.map(res => {
