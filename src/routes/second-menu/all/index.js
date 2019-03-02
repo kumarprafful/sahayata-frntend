@@ -6,6 +6,8 @@ import IntlMessages from "Util/IntlMessages";
 import { Colxx, Separator } from "Components/CustomBootstrap";
 import BreadcrumbContainer from "Components/BreadcrumbContainer";
 
+import MapContainer from '../map';
+
 export default class extends Component {
   render() {
     return (
@@ -19,7 +21,9 @@ export default class extends Component {
             <Separator className="mb-5" />
           </Colxx>
         </Row>
-        all map here
+        <Row>
+        <h1>sdd</h1>
+        </Row>
       </Fragment>
     );
   }

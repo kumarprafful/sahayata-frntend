@@ -83,10 +83,10 @@ class ShowCrops extends Component {
     var userId = localStorage.userId;
     var quantity = this.state.quantity;
     var storageId = this.state.storageId;
-    axios.post(`https://sahayata-farmer.herokuapp.com/order/${userId}/transport/${transportId}`, {quantity: quantity}).then((res)=>{
+    axios.post(`https://sahayata-farmer.herokuapp.com/order/${userId}/storage/${storageId}`, {quantity: quantity}).then((res)=>{
       console.log(res);
     })
-    axios.post(`https://sahayata-farmer.herokuapp.com/order/${userId}/transport/${storageId}`, {quantity: quantity}).then((res)=>{
+    axios.post(`https://sahayata-farmer.herokuapp.com/order/${userId}/transport/${transportId}`, {quantity: quantity}).then((res)=>{
       console.log(res);
     })
   }
