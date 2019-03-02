@@ -39,10 +39,8 @@ export default class extends Component {
       return this.state.warehouses.map((element)=>{
         console.log(element);
         return (
-          <Colxx xxs="2">
-            <Card
-              style={{ backgroundColor: "#5850508c", borderColor: "#5850508c" }}
-            >
+          <Colxx xxs="4">
+            <Card>
               <CardBody >
                 <h2 >{element.name}</h2>
                 <p>Capacity: {element.capacity}</p>

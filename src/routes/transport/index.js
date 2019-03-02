@@ -25,6 +25,7 @@ import {
 } from "Redux/actions";
 
 import axios from "axios";
+import ShowTransportFarmer from "./showTransportFarmer";
 
 class Transport extends Component {
   constructor(props) {
@@ -33,21 +34,6 @@ class Transport extends Component {
       data: null
     }
   }
-
-  componentWillMount() {
-    const id = localStorage.userId;
-    const apiURL = `https://sahayata-farmer.herokuapp.com/sahayata/transportall/${id}`;
-    console.log("yes");
-    axios.get(apiURL)
-    .then(res => {
-      console.log(res);
-    })
-    .catch(error => {
-      console.log(error);
-      console.error(error);
-    })
-  }
-
   componentDidMount() {
     const { containerClassnames, menuClickCount } = this.props;
     this.props.setContainerClassnames(3, containerClassnames);
@@ -63,6 +49,7 @@ class Transport extends Component {
               match={this.props.match}
             />
             <Separator className="mb-5" />
+            <ShowTransportFarmer />
           </Colxx>
         </Row>
       </Fragment>

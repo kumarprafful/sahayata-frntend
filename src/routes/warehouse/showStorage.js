@@ -11,21 +11,24 @@ export default class extends Component {
     this.state = { data: null };
   }
 
-  componentWillMount() {
-    var userId = localStorage.userId;
-    axios
-      .get(`https://sahayata-farmer.herokuapp.com/sahayata/storage/${userId}`)
-      .then(res => {
-        // console.log(res);
-        this.setState({ data: res.data });
-      });
+  componentWillMount(){
+    const userId = localStorage.userId;
+    const apiURL = `https://sahayata-farmer.herokuapp.com/sahayata/storage/${userId}`;
+    axios.get(apiURL).then((res)=>{
+      console.log(res.data);
+      this.setState({data:res.data});
+    })
+    .catch((error)=>{
+      console.log(error);
+    })
   }
 
   loadMyWarehouse() {
+    console.log(this.state.data);
     if (this.state.data == null) {
-      <div className="loading" />;
+      return <div className="loading" />;
     } else if (this.state.data[0] == undefined) {
-      <AddWarehouse />;
+      return <AddWarehouse />;
     } else {
       return this.state.data.map(res => {
         // console.log(res);
