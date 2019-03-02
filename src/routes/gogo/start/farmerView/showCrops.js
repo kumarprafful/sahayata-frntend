@@ -19,14 +19,25 @@ import {
   Input
 } from "reactstrap";
 import axios from "axios";
+import BookStorageLevel from "./BookStorageLevel";
 
 class ShowCrops extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: null
+      data: null,
+      storage: null,
+      modal: false
     };
     this.renderCrops = this.renderCrops.bind(this);
+    // this.toggle = this.toggle.bind(this);
+    this.nearbyStorage = this.nearbyStorage.bind(this);
+
+  }
+  toggle() {
+    this.setState(prevState => ({
+      modal: !prevState.modal
+    }));
   }
 
   componentWillMount(){
@@ -41,6 +52,22 @@ class ShowCrops extends Component {
     })
   }
 
+  nearbyStorage() {
+    const userId = localStorage.userId;
+    const apiURL = `https://sahayata-farmer.herokuapp.com/sahayata/storageall/${userId}`;
+    axios.get(apiURL).then((res)=>{
+      console.log(res.data);
+      this.setState({storage:res.data});
+    })
+    .catch((error)=>{
+      console.log(error);
+    })
+  }
+  renderNearbyStorage() {
+    if(this.state.storage == null){
+      return <div className="loading" />;
+    }
+  }
 
   renderCrops() {
     console.log(this.state.data);
@@ -52,6 +79,16 @@ class ShowCrops extends Component {
               <CardBody>
                 <h3>{element.crop}</h3>
                 <h6>Quantity: {element.quantity}</h6>
+                <Button className="" size="sm" onClick={this.toggle}}>
+                        <i className="iconsmind-Warehouse" />
+                </Button>
+                <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+                  <ModalHeader toggle={this.toggle}>Nearby Storage</ModalHeader>
+                  <ModalBody>
+
+                  </ModalBody>
+
+                </Modal>
               </CardBody>
             </Card>
           </Colxx>
