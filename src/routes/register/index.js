@@ -170,7 +170,7 @@ class RegisterLayout extends Component {
 
                     </Form>
                     <br />
-                    <h4 style={{'textAlign':'center'}}>Already a member. <NavLink to="/login" style={{'color':'blue'}}>Login</NavLink> </h4>
+                    <h4 style={{'textAlign':'center'}}><LanguageChanger text="Already a member."/> <NavLink to="/login" style={{'color':'blue'}}><LanguageChanger text ="Login" /> </NavLink>  </h4>
                   </div>
                 </Card>
               </Colxx>
