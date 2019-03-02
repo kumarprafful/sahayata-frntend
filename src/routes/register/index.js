@@ -7,6 +7,7 @@ import { Colxx } from "Components/CustomBootstrap";
 
 import { connect } from "react-redux";
 import { registerUser, loginUserSuccess } from "Redux/actions";
+import LanguageChanger from "Components/LanguageChanger";
 
 import axios from 'axios';
 
@@ -68,8 +69,6 @@ class RegisterLayout extends Component {
                       <NavLink to={`/login`} className="white">
                         login
                       </NavLink>
-                      .
-
                     </p>
                   </div>
                   <div className="form-side">
@@ -85,7 +84,7 @@ class RegisterLayout extends Component {
                          type="email"
                          onChange={(e) => this.setState({email:e.target.value})}
                        />
-                        <IntlMessages id="user.email" />
+                        <LanguageChanger text="username"/>
                       </Label>
                       <Label className="form-group has-float-label mb-4">
                         <Input
