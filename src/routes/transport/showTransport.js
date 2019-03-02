@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import IntlMessages from "Util/IntlMessages";
 import { connect } from "react-redux";
 import { Colxx, Separator } from "Components/CustomBootstrap";
+import LanguageChanger from "Components/LanguageChanger";
 
 import {
   Row,
