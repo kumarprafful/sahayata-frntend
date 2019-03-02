@@ -105,7 +105,7 @@ class LoginLayout extends Component {
 
                         <Label className="form-group has-float-label mb-4" />
                         <Input
-                          placeholder="Username"
+                          placeholder="Email address"
                           type="text"
                           onChange={this.handleusername}
                         />

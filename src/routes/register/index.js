@@ -85,9 +85,9 @@ class RegisterLayout extends Component {
                     <p className="white">
                     <LanguageChanger text="A fertile soil alone does not carry agriculture to perfection" />
 
-                      If you are a member, please{" "}
-                      <NavLink to={`/login`} className="yellow" >
-                        login
+                      <LanguageChanger text = "If you are a member, please " />
+                      <NavLink to={`/login`} style={{'color': 'yellow'}} >
+                        <LanguageChanger text="login" />
                       </NavLink>
                       .
 
@@ -108,7 +108,7 @@ class RegisterLayout extends Component {
                          type="email"
                          onChange={(e) => this.setState({email:e.target.value})}
                        />
-                        <LanguageChanger text="Username"/>
+                        <LanguageChanger text="Email address"/>
                       </Label>
                       <Label className="form-group has-float-label mb-4">
                         <Input
@@ -123,21 +123,21 @@ class RegisterLayout extends Component {
                           <option value="transport">Transport</option>
                           <option value="storage">Storage</option>
                         </Input>
-                        <IntlMessages id="user.type" />
+                        <LanguageChanger text = "User type"/>
                       </Label>
                       <Label className="form-group has-float-label mb-4">
                         <Input
                          type="text"
                          onChange={(e) => this.setState({firstName:e.target.value})}
                         />
-                        <IntlMessages id="Full name" />
+                        <LanguageChanger text="Full name" />
                       </Label>
                       <Label className="form-group has-float-label mb-4">
                         <Input
                          type="text"
                          onChange={(e) => this.setState({mobileNo:e.target.value})}
                         />
-                        <IntlMessages id="Mobile number" />
+                        <LanguageChanger text="Mobile number" />
                       </Label>
                       <Label className="form-group has-float-label mb-4">
                       <Input type="select" name="select" onChange={(e) => this.setState({sex:e.target.value})}>
@@ -145,21 +145,21 @@ class RegisterLayout extends Component {
                         <option value="female">Female</option>
                         <option value="others">Others</option>
                       </Input>
-                        <IntlMessages id="Gender" />
+                        <LanguageChanger text="Gender" />
                       </Label>
                       <Label className="form-group has-float-label mb-4">
                         <Input
                          type="text"
                          onChange={(e) => this.setState({district:e.target.value})}
                         />
-                        <IntlMessages id="District" />
+                        <LanguageChanger text="District" />
                       </Label>
                       <Label className="form-group has-float-label mb-4">
                         <Input
                          type="text"
                          onChange={(e) => this.setState({state:e.target.value})}
                         />
-                        <IntlMessages id="State" />
+                        <LanguageChanger text="State" />
                       </Label>
 
 
@@ -170,7 +170,7 @@ class RegisterLayout extends Component {
                           size="lg"
                           onClick={() => this.onUserRegister()}
                         >
-                          <IntlMessages id="user.register-button" />
+                          <LanguageChanger text="Register" />
                         </Button>
                       </div>
                     </Form>
