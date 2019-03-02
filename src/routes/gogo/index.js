@@ -5,7 +5,7 @@ import start from './start';
 import HomeStorage from './start/farmerView/homeStorage';
 import Grains from './start/farmerView/grains';
 import FVegies from './start/farmerView/fVegies';
-
+import Capacity from './start/farmerView/capacity';
 
 export default ({ match }) => (
     <Switch>

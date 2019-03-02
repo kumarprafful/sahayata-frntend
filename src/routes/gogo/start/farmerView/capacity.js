@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component,Fragment} from 'react';
 import {Card, CardBody} from 'reactstrap';
 
 class Capacity extends Component {
@@ -9,28 +9,28 @@ class Capacity extends Component {
     //   var ventilated = "../../../../assets/img/Home-storage/ventilated.jpg";
     //   var potinpot = "../../../../assets/img/Home-storage/pot-in-pot.jpg";
       return (
-          <View style={{flex: 1}}>
+          <Fragment>
         <Card>
           <CardTitle>Low Capacity</CardTitle>
           <CardBody>
             <p>
-          1. Pusa Bin : 
+          1. Pusa Bin :
           It comes under category of small storage(1.5 to 15 quintals).
     Developed by the Indian  Agricultural Research Institute (I.A.R.I.),having a durability of an year, these silos are made of earth or sun-dried bricks; they are rectangular in shape and have a capacity of   1   to   3   tonnes.   A   typical   "Pusa"   bin   has   a   foundation   of   bricks,   compacted   earth,   or stabilized earth. A polyethylene sheet is laid on this, followed by a concrete slab floor 10 cm thick. An internal wall of the desired height (usually 1.5 to 2 metres) is constructed of bricks or compacted earth, with a sheet of polyethylene wrapped around it. This sheet is heat-sealed  to the basal sheet, and the external wall is then erected. During the construction of the wall an outlet pipe is built into its base. The concrete slab roof is supported by a wooden frame and, like  the  floor,   is  constructed  of   two  layers  separated   by  a  polyethylene  sheet. During  its construction, a man-hole measuring 60 x 60 cm is built into one corner. The "Pusa" bin has been widely adopted in India, and has been demonstrated in some African countries. It gives good results when loaded with well dried grain.
   </p>
-  <p><img src={pusa}/></p>
+  <p></p>
   <p>
-  2. Hapur-Tekka : 
+  2. Hapur-Tekka :
   It is a cylindrical rubberised cloth structure supported by bamboo poles on a metal tube base, and has a small hole in the bottom through which grain can be removed.
   </p>
-  <p><img src={}/></p>
+  <p></p>
   <p>
-  3. PAU Bin : 
+  3. PAU Bin :
   This is a galvanized metal iron structure. Its capacity ranges from 1.5 to 15 quintals. Designed by Punjab Agricultural University.
   </p>
-  <p><img src={ventilated}/></p>
+  <p></p>
   <p>
-  4. Steel-bin : 
+  4. Steel-bin :
   Steel bins are improved method as compared to Kuthilas. It is more
     scientific and safe method ofstorage. Steel bins are made up ofsteel sheets turned
     in round shape providing a covered mouth of upper side for filling grain and one
@@ -56,9 +56,9 @@ class Capacity extends Component {
     <p>
     (ii) Steel bins are economical still marginal/small fanners cannot purchase these
     bins at subsidised rate.</p>
-      <p><img src={potinpot} class="pot"/></p> 
-      
-      
+      <p></p>
+
+
           </CardBody>
         </Card>
         <Card>
@@ -73,9 +73,9 @@ class Capacity extends Component {
     </p>
             </CardBody>
             </Card>
-            </View>);
+            </Fragment>
+          );
     }
   }
-  
+
   export default Capacity;
-  

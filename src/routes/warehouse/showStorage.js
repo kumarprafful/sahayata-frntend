@@ -34,6 +34,8 @@ export default class extends Component {
         // console.log(res);
         return (
           <Fragment>
+          <Row>
+          <Colxx xxs="3">
             <Card style={{ padding: "1em" }}>
               <CardTitle>
                 <b>{res.name}</b>
@@ -46,6 +48,7 @@ export default class extends Component {
                 address: {res.address}
               </CardBody>
             </Card>
+            </Colxx></Row>
             <br />
           </Fragment>
         );

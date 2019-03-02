@@ -98,12 +98,12 @@ class ShowCrops extends Component {
         <Fragment >
           <Card onClick={()=>{this.setState({Cstate: 2});this.setState({storageId: element._id })}} >
             <h3>
-              <b>{element.name}</b>
+              <b>Storage name: {element.name}</b>
             </h3>
-            <CardText>{element.price}</CardText>
-            <CardText>{element.manager}</CardText>
+            <CardText>Price/kg: {element.price}</CardText>
+            <CardText>Manager: {element.manager}</CardText>
             <CardText>
-              {element.address} {element.district} {element.pincode}
+              Address: {element.address} {element.district} {element.pincode}
             </CardText>
           </Card>
           <br />
@@ -122,10 +122,10 @@ class ShowCrops extends Component {
             NotificationManager.success("Your order has been Succesfully booked",null,5000,null,null,"filled");
             this.sendOrder(element._id);
           }}>
-            <CardText><h3><b>{element.firstName}</b></h3></CardText>
-            <CardText><h3>{element.type}</h3></CardText>
-            <CardText><h3>{element.mobileNo}</h3></CardText>
-            <CardText><h3>{element.district} {element.state}</h3></CardText>
+            <CardText><h3><b>Full name: {element.firstName}</b></h3></CardText>
+            <CardText><h3>Vehicle type: {element.type}</h3></CardText>
+            <CardText><h3>Contact: {element.mobileNo}</h3></CardText>
+            <CardText><h3>District: {element.district} {element.state}</h3></CardText>
           </Card>
         </Fragment>
       )
@@ -155,7 +155,7 @@ class ShowCrops extends Component {
           <Colxx xxs="4">
             <Card>
               <CardBody>
-                <h3>{element.crop}</h3>
+                <h3>Crop: {element.crop}</h3>
                 <h6>Quantity: {element.quantity}</h6>
 
                 <Button className="" size="sm" onClick={()=>{this.toggle();this.setState({quantity: element.quantity})}}>
