@@ -30,7 +30,7 @@ class ShowCrops extends Component {
       modal: false
     };
     this.renderCrops = this.renderCrops.bind(this);
-    // this.toggle = this.toggle.bind(this);
+    this.toggle = this.toggle.bind(this);
     this.nearbyStorage = this.nearbyStorage.bind(this);
 
   }
@@ -79,7 +79,7 @@ class ShowCrops extends Component {
               <CardBody>
                 <h3>{element.crop}</h3>
                 <h6>Quantity: {element.quantity}</h6>
-                <Button className="" size="sm" onClick={this.toggle}}>
+                <Button className="" size="sm" onClick={this.toggle}>
                         <i className="iconsmind-Warehouse" />
                 </Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>

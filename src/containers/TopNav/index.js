@@ -253,7 +253,7 @@ class TopNav extends Component {
             {
               Language.map((l)=>{
                 return(
-                  <DropdownItem onClick={() => this.handleChsangeLocale(l.id)} key={l.id}>
+                  <DropdownItem onClick={() => this.handleChangeLocale(l.id)} key={l.id}>
                   {l.name}
                 </DropdownItem>
                 )
