@@ -51,7 +51,6 @@ class ShowStorageFarmer extends Component {
           <Colxx xxs="4">
             <Card>
               <CardBody>
-<<<<<<< HEAD
                 <h3><b>{element.name}</b></h3>
                 <h5><b>Price:</b> {element.price} Rs/km</h5>
                 <h6><b>Capacity:</b> {element.quantity} tonnes</h6>
@@ -61,11 +60,6 @@ class ShowStorageFarmer extends Component {
                 <h5><b>State:</b> {element.state}</h5>
 
 
-=======
-                <h3><LanguageChanger text ={element.type}/></h3>
-                <h6><LanguageChanger text="Capacity: "/><LanguageChanger text={element.capacity}/></h6>
-                <h5><LanguageChanger text="Price: "/><LanguageChanger text={element.price}/></h5>
->>>>>>> 8bbdb1940828c0cd501433c72fa524122d8efe3e
               </CardBody>
             </Card>
           </Colxx>
