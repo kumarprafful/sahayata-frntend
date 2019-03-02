@@ -52,6 +52,7 @@ class Transport extends Component {
     const { containerClassnames, menuClickCount } = this.props;
     this.props.setContainerClassnames(3, containerClassnames);
   }
+
   render() {
     return (
       <Fragment>
@@ -62,12 +63,6 @@ class Transport extends Component {
               match={this.props.match}
             />
             <Separator className="mb-5" />
-
-
-
-
-
-
           </Colxx>
         </Row>
       </Fragment>
