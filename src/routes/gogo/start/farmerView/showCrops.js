@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import IntlMessages from "Util/IntlMessages";
 import { connect } from "react-redux";
 import { Colxx, Separator } from "Components/CustomBootstrap";
+import LanguageChanger from "Components/LanguageChanger"
 
 import {
   Row,
@@ -98,7 +99,7 @@ class ShowCrops extends Component {
         <Fragment >
           <Card onClick={()=>{this.setState({Cstate: 2});this.setState({storageId: element._id })}} >
             <h3>
-              <b>Storage name: {element.name}</b>
+              <b> name: {element.name}</b>
             </h3>
             <CardText>Price/kg: {element.price}</CardText>
             <CardText>Manager: {element.manager}</CardText>
@@ -155,8 +156,8 @@ class ShowCrops extends Component {
           <Colxx xxs="4">
             <Card>
               <CardBody>
-                <h3>Crop: {element.crop}</h3>
-                <h6>Quantity: {element.quantity}</h6>
+                <h3><LanguageChanger text="Crop:  " /> <LanguageChanger text={element.crop} /></h3>
+                <h6><LanguageChanger text="Quantity:  "/> <LanguageChanger text= {element.quantity}/> <LanguageChanger text="  kg"/></h6>
 
                 <Button className="" size="sm" onClick={()=>{this.toggle();this.setState({quantity: element.quantity})}}>
                   <i className="iconsmind-Warehouse" />
