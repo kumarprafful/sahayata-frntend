@@ -5,7 +5,7 @@ export default class BookStorageLevel extends Component {
   render() {
     console.log(this.state.data);
     return (
-    
+      <div/>
     );
   }
 }
