@@ -173,7 +173,7 @@ class ShowCrops extends Component {
     } else {
       return (
         <div>
-          <h3> no data available</h3>
+          <h3> <LanguageChanger text="no data available"/> </h3>
         </div>
       );
     }
@@ -197,7 +197,7 @@ class ShowCrops extends Component {
           toggle={this.toggle}
           className={this.props.className}
         >
-          <ModalHeader toggle={this.toggle}>Nearby {text}</ModalHeader>
+          <ModalHeader toggle={this.toggle}><LanguageChanger text="Nearby"/> <LanguageChanger text={text}/> </ModalHeader>
           <ModalBody>{this.renderNearbyStorage()}</ModalBody>
         </Modal>
       </div>
