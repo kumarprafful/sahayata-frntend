@@ -61,8 +61,28 @@ export default class extends Component {
             </Card>
             </NavLink>
           </Colxx>
+
+
+          <Colxx xxs="4">
+          <NavLink to="women-schemes">
+            <Card>
+              <CardBody>
+                <h2>Women Schemes</h2>
+              </CardBody>
+            </Card>
+            </NavLink>
+          </Colxx>
+          <Colxx xxs="4">
+          <NavLink to="general-schemes">
+            <Card>
+              <CardBody>
+                <h2>General Schemes</h2>
+              </CardBody>
+            </Card>
+            </NavLink>
+          </Colxx>
         </Row>
-        
+
       </Fragment>
     );
   }
