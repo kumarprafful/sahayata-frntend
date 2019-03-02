@@ -157,8 +157,13 @@ class ShowCrops extends Component {
               <CardBody>
                 <h3>{element.crop}</h3>
                 <h6>Quantity: {element.quantity}</h6>
+<<<<<<< HEAD
                 <Button className="" size="sm" onClick={()=>{this.toggle();this.setState({quantity: element.quantity})}}>
                   <i className="iconsmind-Warehouse" />
+=======
+                <Button className="" size="sm" onClick={this.toggle}>
+                        <i className="iconsmind-Warehouse" />
+>>>>>>> badbb149b1d842c065d306bc8d3f32be9b16fb8f
                 </Button>
               </CardBody>
             </Card>
