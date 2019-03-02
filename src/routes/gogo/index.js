@@ -13,6 +13,7 @@ export default ({ match }) => (
         <Route path={`${match.url}/start`} component={start} />
         <Route path={`${match.url}/home-storage`} component={HomeStorage} />
         <Route path={`${match.url}/grains`} component={Grains} />
+        <Route path={`${match.url}/capacity`} component={Capacity} />
         <Route path={`${match.url}/fruits-vegetables`} component={FVegies} />
 
         <Redirect to="/error" />
