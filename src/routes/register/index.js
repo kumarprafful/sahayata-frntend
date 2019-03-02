@@ -84,16 +84,6 @@ class RegisterLayout extends Component {
                   <div className="position-relative image-side ">
                     <p className="" style={{'fontSize':'3em', 'lineHeight': '1em', 'color': 'orange', '-webkit-text-stroke-width': '0.5px', '-webkit-text-stroke-color': 'black'}}>
                     <LanguageChanger text="A fertile soil alone does not carry agriculture to perfection" />
-<<<<<<< HEAD
-
-                      <LanguageChanger text = "If you are a member, please " />
-                      <NavLink to={`/login`} style={{'color': 'yellow'}} >
-                        <LanguageChanger text="login" />
-                      </NavLink>
-                      .
-
-=======
->>>>>>> 0822bc2600591b704f4016c9fa4749b80a1a7277
                     </p>
                   </div>
                   <div className="form-side">
