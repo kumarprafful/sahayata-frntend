@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import IntlMessages from "Util/IntlMessages";
 import { connect } from "react-redux";
 import { Colxx, Separator } from "Components/CustomBootstrap";
+import LanguageChanger from "Components/LanguageChanger";
 
 import {
   Row,
@@ -50,11 +51,11 @@ class ShowTransportFarmer extends Component {
           <Colxx xxs="4">
             <Card>
               <CardBody>
-                <h3>{element.firstName}</h3>
-                <h6>Email: <p>{element.email}</p></h6>
-                <h5>Contact: {element.mobileNo}</h5>
-                <h5>District: {element.district}</h5>
-                <h5>State: {element.state}</h5>
+                <h3><LanguageChanger text={element.firstName}/></h3>
+                <h5><LanguageChanger text="Email: "/>{element.email}</h5>
+                <h5><LanguageChanger text="Contact: "/>{element.mobileNo}</h5>
+                <h5><LanguageChanger text="District: "/><LanguageChanger text={element.district}/></h5>
+                <h5><LanguageChanger text="State: "/><LanguageChanger text={element.state}/></h5>
 
               </CardBody>
             </Card>
@@ -67,7 +68,7 @@ class ShowTransportFarmer extends Component {
     }
     else{
       return (
-        <div><h3> no data available</h3></div>
+        <div><h3> <LanguageChanger text="no data available"/> </h3></div>
       );
     }
   }
