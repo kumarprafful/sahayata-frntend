@@ -68,6 +68,7 @@ class ShowCrops extends Component {
       .get(apiURLStorage)
       .then(res => {
         this.setState({ storage: res.data, Cstate: 1 });
+        console.log(this.state.storage);
       })
       .catch(error => {
         console.log(error);
@@ -99,7 +100,7 @@ class ShowCrops extends Component {
         <Fragment >
           <Card onClick={()=>{this.setState({Cstate: 2});this.setState({storageId: element._id })}} >
             <h3>
-              <b> name: {element.name}</b>
+              <b> Name: {element.name}</b>
             </h3>
             <CardText>Price/kg: {element.price}</CardText>
             <CardText>Manager: {element.manager}</CardText>
@@ -157,11 +158,12 @@ class ShowCrops extends Component {
             <Card>
               <CardBody>
                 <h3><LanguageChanger text="Crop:  " /> <LanguageChanger text={element.crop} /></h3>
-                <h6><LanguageChanger text="Quantity:  "/> <LanguageChanger text= {element.quantity}/> <LanguageChanger text="  kg"/></h6>
+                <h6><LanguageChanger text="Quantity:  "/> <LanguageChanger text= {element.quantity}/><LanguageChanger text="  kg"/></h6>
 
                 <Button className="" size="sm" onClick={()=>{this.toggle();this.setState({quantity: element.quantity})}}>
                   <i className="iconsmind-Warehouse" />
                 </Button>
+                <Button size="sm">Value addition</Button>
 
               </CardBody>
             </Card>
@@ -182,7 +184,7 @@ class ShowCrops extends Component {
   render() {
     var text ;
     if(this.state.Cstate == 1){
-      text = "Storage"
+      text = "Storage";
     }
     else {
       text = "Vehicles";
@@ -190,7 +192,6 @@ class ShowCrops extends Component {
     return (
       <div>
         <Row>{this.renderCrops()}</Row>
-
         <Modal
           size="lg"
           isOpen={this.state.modal}

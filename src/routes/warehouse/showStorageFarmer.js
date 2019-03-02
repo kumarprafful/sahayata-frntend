@@ -50,9 +50,15 @@ class ShowStorageFarmer extends Component {
           <Colxx xxs="4">
             <Card>
               <CardBody>
-                <h3>{element.type}</h3>
-                <h6>Capacity: {element.capacity}</h6>
-                <h5>Price: {element.price}</h5>
+                <h3><b>{element.name}</b></h3>
+                <h5><b>Price:</b> {element.price} Rs/km</h5>
+                <h6><b>Capacity:</b> {element.quantity} tonnes</h6>
+                <h5><b>Manager:</b> {element.manager}</h5>
+                <h5><b>Address:</b> {element.address}</h5>
+                <h5><b>District:</b> {element.district}</h5>
+                <h5><b>State:</b> {element.state}</h5>
+
+
               </CardBody>
             </Card>
           </Colxx>
