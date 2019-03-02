@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import IntlMessages from "Util/IntlMessages";
 import { connect } from "react-redux";
 import { Colxx, Separator } from "Components/CustomBootstrap";
+import LanguageChanger from "Components/LanguageChanger";
 
 import {
   Row,
@@ -50,9 +51,9 @@ class ShowStorageFarmer extends Component {
           <Colxx xxs="4">
             <Card>
               <CardBody>
-                <h3>{element.type}</h3>
-                <h6>Capacity: {element.capacity}</h6>
-                <h5>Price: {element.price}</h5>
+                <h3><LanguageChanger text ={element.type}/></h3>
+                <h6><LanguageChanger text="Capacity: "/><LanguageChanger text={element.capacity}/></h6>
+                <h5><LanguageChanger text="Price: "/><LanguageChanger text={element.price}/></h5>
               </CardBody>
             </Card>
           </Colxx>
