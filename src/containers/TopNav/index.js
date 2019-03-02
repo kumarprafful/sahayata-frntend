@@ -197,7 +197,7 @@ class TopNav extends Component {
       lang = 'en';
     }
 
-    var username = this.props.authUser.user;
+    var username = this.props.authUser.username;
     return (
       <nav className="navbar fixed-top">
         <NavLink

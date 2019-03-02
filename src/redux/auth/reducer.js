@@ -7,20 +7,26 @@ import {
 } from "Constants/actionTypes";
 
 const INIT_STATE = {
-  user: localStorage.getItem("username"),
+  username: localStorage.getItem("username"),
   loading: false,
-  type: localStorage.getItem("userType"),
+  type: localStorage.getItem("userType")
 };
 
 export default (state = INIT_STATE, action) => {
   switch (action.type) {
     case LOGIN_USER:
       return { ...state, loading: true };
-    case LOGIN_USER_SUCCESS:
+    case LOGIN_USER_SUCCESS: {
       localStorage.setItem("username", action.payload.username);
       localStorage.setItem("userType", action.payload.userType);
       localStorage.setItem("userId", action.payload.userId);
-      return { ...state, loading: false, username: action.payload.username, type: action.payload.userType};
+      return {
+        ...state,
+        loading: false,
+        username: action.payload.username,
+        type: action.payload.userType
+      };
+    }
     case REGISTER_USER:
       return { ...state, loading: true };
 
