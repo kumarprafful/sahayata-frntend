@@ -20,7 +20,7 @@ import {
 } from "reactstrap";
 import axios from "axios";
 
-class ShowTransport extends Component {
+class ShowTransportFarmer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -45,13 +45,17 @@ class ShowTransport extends Component {
     console.log(this.state.data);
     if (this.state.data!=null) {
       return this.state.data.map(element => {
+        console.log(element);
         return (
           <Colxx xxs="4">
             <Card>
               <CardBody>
-                <h3>{element.type}</h3>
-                <h6>Capacity: {element.capacity}</h6>
-                <h5>Price: {element.price}</h5>
+                <h3>{element.firstName}</h3>
+                <h6>Email: <p>{element.email}</p></h6>
+                <h5>Contact: {element.mobileNo}</h5>
+                <h5>District: {element.district}</h5>
+                <h5>State: {element.state}</h5>
+
               </CardBody>
             </Card>
           </Colxx>
@@ -78,4 +82,4 @@ class ShowTransport extends Component {
   }
 }
 
-export default connect(null)(ShowTransport);
+export default connect(null)(ShowTransportFarmer);

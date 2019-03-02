@@ -21,7 +21,7 @@ export default class extends Component {
 
   componentWillMount(){
     var userId =  localStorage.userId;
-    axios.get(`https://sahayata-farmer.herokuapp.com/sahayata/storage/${userId}`).then((res)=>{
+    axios.get(`https://sahayata-farmer.herokuapp.com/sahayata/storageall/${userId}`).then((res)=>{
       this.setState({warehouses: res.data});
     })
   }
@@ -32,8 +32,8 @@ export default class extends Component {
         <div className="loading"/>
       );
     }
-    else if(this.state.warehouses[0] ==  undefined){
-      return <AddWarehouse/>
+    else if(this.state.warehouses[0] ==  undefined && localStorage.userType=="storage"){
+      return <AddWarehouse />
     }
     else {
       return this.state.warehouses.map((element)=>{
