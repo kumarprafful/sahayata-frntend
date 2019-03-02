@@ -23,16 +23,7 @@ class Error404 extends Component {
         <main>
           <div className="container">
             <Row className="h-100">
-              <Colxx xxs="12" md="10" className="mx-auto my-auto">
-                <Card className="auth-card">
-                  <div className="position-relative image-side ">
-                    <p className="text-white h2">MAGIC IS IN THE DETAILS</p>
-                    <p className="white">Yes, it is indeed!</p>
-                  </div>
-                  <div className="form-side">
-                    <NavLink to={`/`} className="white">
-                      <span className="logo-single" />
-                    </NavLink>
+                    <Card style={{'margin':'0 auto', 'width':'50em', 'text-align':'center' }}>
                     <CardTitle className="mb-4">
                       <IntlMessages id="layouts.error-title" />
                     </CardTitle>
@@ -48,9 +39,8 @@ class Error404 extends Component {
                     >
                       <IntlMessages id="layouts.go-back-home" />
                     </Button>
-                  </div>
-                </Card>
-              </Colxx>
+                    </Card>
+
             </Row>
           </div>
         </main>

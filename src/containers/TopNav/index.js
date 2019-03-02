@@ -238,19 +238,6 @@ class TopNav extends Component {
           </svg>
         </NavLink>
 
-    <div className="search" >
-          <Input
-            name="searchKeyword"
-            id="searchKeyword"
-            placeholder={messages["menu.search"]}
-            value={this.state.searchKeyword}
-            onChange={e => this.handleSearchInputChange(e)}
-            onKeyPress ={e=> this.handleSearchInputKeyPress(e)}
-          />
-          <span className="search-icon" onClick={e => this.handleSearchIconClick(e)}>
-            <i className="simple-icon-magnifier" />
-          </span>
-        </div>
 
  <div className="d-inline-block">
           <UncontrolledDropdown className="ml-2">
@@ -266,7 +253,7 @@ class TopNav extends Component {
             {
               Language.map((l)=>{
                 return(
-                  <DropdownItem onClick={() => this.handleChangeLocale(l.id)} key={l.id}>
+                  <DropdownItem onClick={() => this.handleChsangeLocale(l.id)} key={l.id}>
                   {l.name}
                 </DropdownItem>
                 )
@@ -283,90 +270,9 @@ class TopNav extends Component {
 
         <div className="ml-auto">
           <div className="header-icons d-inline-block align-middle">
-            <div className="position-relative d-none d-sm-inline-block">
-              <UncontrolledDropdown className="dropdown-menu-right">
-                <DropdownToggle className="header-icon" color="empty">
-                  <i className="simple-icon-grid" />
-                </DropdownToggle>
-                <DropdownMenu
-                  className="position-absolute mt-3"
-                  right
-                  id="iconMenuDropdown"
-                >
-                  <NavLink to="#" className="icon-menu-item">
-                    <i className="iconsmind-Air-Balloon d-block" />{" "}
-                    <IntlMessages id="menu.first" />
-                  </NavLink>
-                  <NavLink to="#" className="icon-menu-item">
-                    <i className="iconsmind-Pantone d-block" />{" "}
-                    <IntlMessages id="menu.ui" />
-                  </NavLink>
-                  <NavLink to="#" className="icon-menu-item">
-                    <i className="iconsmind-Bar-Chart d-block" />{" "}
-                    <IntlMessages id="menu.charts" />
-                  </NavLink>
-                  <NavLink to="#" className="icon-menu-item">
-                    <i className="iconsmind-Speach-BubbleDialog d-block" />{" "}
-                    <IntlMessages id="menu.chat" />
-                  </NavLink>
-                  <NavLink to="#" className="icon-menu-item">
-                    <i className="iconsmind-Formula d-block" />{" "}
-                    <IntlMessages id="menu.survey" />
-                  </NavLink>
-                  <NavLink to="#" className="icon-menu-item">
-                    <i className="iconsmind-Check d-block" />{" "}
-                    <IntlMessages id="menu.todo" />
-                  </NavLink>
-                </DropdownMenu>
-              </UncontrolledDropdown>
-            </div>
 
-            <div className="position-relative d-inline-block">
-              <UncontrolledDropdown className="dropdown-menu-right">
-                <DropdownToggle
-                  className="header-icon notificationButton"
-                  color="empty"
-                >
-                  <i className="simple-icon-bell" />
-                </DropdownToggle>
-                <DropdownMenu
-                  className="position-absolute mt-3 scroll"
-                  right
-                  id="notificationDropdown"
-                >
-                  <PerfectScrollbar
-                    option={{ suppressScrollX: true, wheelPropagation: false }}
-                  >
-                    {notifications.data.map((n, index) => {
-                      return (
-                        <div
-                          key={index}
-                          className="d-flex flex-row mb-3 pb-3 border-bottom"
-                        >
-                          <a href="/app">
-                            <img
-                              src={n.image}
-                              alt="Notification"
-                              className="img-thumbnail list-thumbnail xsmall border-0 rounded-circle"
-                            />
-                          </a>
-                          <div className="pl-3 pr-2">
-                            <a href="/app">
-                              <p className="font-weight-medium mb-1">
-                                {n.message}
-                              </p>
-                              <p className="text-muted mb-0 text-small">
-                                {n.date}
-                              </p>
-                            </a>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </PerfectScrollbar>
-                </DropdownMenu>
-              </UncontrolledDropdown>
-            </div>
+
+
 
             <button
               className="header-icon btn btn-empty d-none d-sm-inline-block"
@@ -386,14 +292,14 @@ class TopNav extends Component {
               <DropdownToggle className="p-0" color="empty">
                 <span className="name mr-1">{username}</span>
                 <span>
-                  <img alt="Profile" src="/assets/img/profile-pic-l.jpg" />
+                  <img alt="Profile" src="/assets/img/icon/dp.png" />
                 </span>
               </DropdownToggle>
               <DropdownMenu className="mt-3" right>
-                <DropdownItem>Account</DropdownItem>
+              {/*  <DropdownItem>Account</DropdownItem>
                 <DropdownItem>Features</DropdownItem>
                 <DropdownItem>History</DropdownItem>
-                <DropdownItem>Support</DropdownItem>
+                <DropdownItem>Support</DropdownItem>*/}
                 <DropdownItem divider />
                 <DropdownItem onClick={() => this.handleLogout()}>
                   Sign out

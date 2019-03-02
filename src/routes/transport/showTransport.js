@@ -40,8 +40,7 @@ class ShowTransport extends Component {
       console.log(error);
     })
   }
-
-
+  
   renderTransports() {
     console.log(this.state.data);
     if (this.state.data!=null) {
