@@ -9,6 +9,7 @@ import { connect } from "react-redux";
 import { loginUser, loginUserSuccess } from "Redux/actions";
 import axios from "axios";
 
+import LanguageChanger from "Components/LanguageChanger";
 class LoginLayout extends Component {
   constructor(props) {
     super(props);
@@ -98,7 +99,7 @@ class LoginLayout extends Component {
                       </CardTitle>
                     </NavLink>
                     <CardTitle className="mb-4 white">
-                      <IntlMessages id="user.login-title" />
+                      <LanguageChanger text="Login"/>
                     </CardTitle>
                     <Form onSubmit={this.onUserLogin}>
 
@@ -129,11 +130,11 @@ class LoginLayout extends Component {
                           size="lg"
                           type="submit"
                         >
-                          <IntlMessages id="user.login-button" />
+                          <LanguageChanger text="Login"/>
                         </Button>
                       </div>
                     </Form><br /><br />
-                    <div><h3 className="mb-4 white text-center">Don't have an account.<NavLink to="register" style={{'color': 'yellow'}}> Sign up here</NavLink></h3></div>
+                    <div><h3 className="mb-4 white text-center"> <LanguageChanger text="New user?" /><NavLink to="register" style={{'color': 'yellow'}}>  <LanguageChanger text="Sign up here"/> </NavLink></h3></div>
 
                   </div>
                 </Card>
