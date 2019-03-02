@@ -9,6 +9,7 @@ import { connect } from "react-redux";
 import { registerUser, loginUserSuccess } from "Redux/actions";
 
 import axios from 'axios';
+import LanguageChanger from "Components/LanguageChanger";
 
 class RegisterLayout extends Component {
   constructor(props) {
@@ -21,7 +22,9 @@ class RegisterLayout extends Component {
       mobileNo: "",
       sex: "Male",
       district: "",
-      state: ""
+      state: "",
+      loading: false,
+      errorMessage: ""
     };
   }
   onUserRegister() {
@@ -30,15 +33,22 @@ class RegisterLayout extends Component {
       // this.props.history.push("/login");
     }
     else{
+      this.setState({loading:true});
       axios.post("https://sahayata-farmer.herokuapp.com/register", this.state)
       .then(res => {
         console.log(res);
         this.props.loginUserSuccess({...this.state, userType:res.data.type});
         this.props.history.push("/");
+        this.setState({loading:false});
 
       })
       .catch(error =>{
         console.log(error);
+        this.setState({
+          loading:false,
+          errorMessage: "Invalid credentials"
+        });
+
       })
     }
 
@@ -52,6 +62,17 @@ class RegisterLayout extends Component {
     document.body.classList.remove("background");
   }
   render() {
+    var logo = "../../assets/img/icon/output-onlinepngtools.png";
+    let content, error;
+    if (this.state.loading) {
+      content = <div className="loading" />;
+    }
+    else{
+      content = <div></div>;
+    }
+    if(this.state.errorMessage){
+      error = <Alert color="danger"><h1>{this.state.errorMessage}</h1></Alert>
+    }
     return (
       <Fragment>
         <div className="fixed-background" />
@@ -61,23 +82,19 @@ class RegisterLayout extends Component {
               <Colxx xxs="12" md="10" className="mx-auto my-auto">
                 <Card className="auth-card">
                   <div className="position-relative image-side ">
-                    <p className="text-white h2">MAGIC IS IN THE DETAILS</p>
-                    <p className="white">
-                      Please use this form to register. <br />
-                      If you are a member, please{" "}
-                      <NavLink to={`/login`} className="white">
-                        login
-                      </NavLink>
-                      .
-
+                    <p className="" style={{'fontSize':'3em', 'lineHeight': '1em', 'color': 'orange', '-webkit-text-stroke-width': '0.5px', '-webkit-text-stroke-color': 'black'}}>
+                    <LanguageChanger text="A fertile soil alone does not carry agriculture to perfection" />
                     </p>
                   </div>
                   <div className="form-side">
+                  {content}
+                  {error}
                     <NavLink to={`/`} className="white">
-                      <span className="logo-single" />
+                      <span><img src={logo} style={{"marginTop": "-5em", "marginLeft": "-2em"}} /></span>
                     </NavLink>
+                    <br /><br />
                     <CardTitle className="mb-4">
-                      <IntlMessages id="user.register" />
+                      <LanguageChanger text="Register" />
                     </CardTitle>
                     <Form>
                       <Label className="form-group has-float-label mb-4">
@@ -85,14 +102,14 @@ class RegisterLayout extends Component {
                          type="email"
                          onChange={(e) => this.setState({email:e.target.value})}
                        />
-                        <IntlMessages id="user.email" />
+                        <LanguageChanger text="Email address"/>
                       </Label>
                       <Label className="form-group has-float-label mb-4">
                         <Input
                          type="password"
                          onChange={(e) => this.setState({password:e.target.value})}
                         />
-                        <IntlMessages id="user.password" />
+                        <LanguageChanger text="Password"/>
                       </Label>
                       <Label className="form-group has-float-label mb-4">
                         <Input type="select" name="select" onChange={(e) => this.setState({type:e.target.value})}>
@@ -100,21 +117,21 @@ class RegisterLayout extends Component {
                           <option value="transport">Transport</option>
                           <option value="storage">Storage</option>
                         </Input>
-                        <IntlMessages id="user.type" />
+                        <LanguageChanger text = "User type"/>
                       </Label>
                       <Label className="form-group has-float-label mb-4">
                         <Input
                          type="text"
                          onChange={(e) => this.setState({firstName:e.target.value})}
                         />
-                        <IntlMessages id="Full name" />
+                        <LanguageChanger text="Full name" />
                       </Label>
                       <Label className="form-group has-float-label mb-4">
                         <Input
                          type="text"
                          onChange={(e) => this.setState({mobileNo:e.target.value})}
                         />
-                        <IntlMessages id="Mobile number" />
+                        <LanguageChanger text="Mobile number" />
                       </Label>
                       <Label className="form-group has-float-label mb-4">
                       <Input type="select" name="select" onChange={(e) => this.setState({sex:e.target.value})}>
@@ -122,21 +139,21 @@ class RegisterLayout extends Component {
                         <option value="female">Female</option>
                         <option value="others">Others</option>
                       </Input>
-                        <IntlMessages id="Gender" />
+                        <LanguageChanger text="Gender" />
                       </Label>
                       <Label className="form-group has-float-label mb-4">
                         <Input
                          type="text"
                          onChange={(e) => this.setState({district:e.target.value})}
                         />
-                        <IntlMessages id="District" />
+                        <LanguageChanger text="District" />
                       </Label>
                       <Label className="form-group has-float-label mb-4">
                         <Input
                          type="text"
                          onChange={(e) => this.setState({state:e.target.value})}
                         />
-                        <IntlMessages id="State" />
+                        <LanguageChanger text="State" />
                       </Label>
 
 
@@ -147,10 +164,13 @@ class RegisterLayout extends Component {
                           size="lg"
                           onClick={() => this.onUserRegister()}
                         >
-                          <IntlMessages id="user.register-button" />
+                          <LanguageChanger text="Register" />
                         </Button>
                       </div>
+
                     </Form>
+                    <br />
+                    <h4 style={{'textAlign':'center'}}>Already a member. <NavLink to="/login" style={{'color':'blue'}}>Login</NavLink> </h4>
                   </div>
                 </Card>
               </Colxx>

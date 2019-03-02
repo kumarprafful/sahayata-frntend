@@ -15,7 +15,6 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { Colxx, Separator } from "Components/CustomBootstrap";
 import BreadcrumbContainer from "Components/BreadcrumbContainer";
-import AddWarehouse from './addWarehouse';
 
 import {
   setContainerClassnames,
@@ -24,17 +23,19 @@ import {
 } from "Redux/actions";
 
 import axios from "axios";
+import ShowStorage from "./showStorage";
 
 class SellCrop extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: null
-    }
+    };
   }
 
 
   componentDidMount() {
+
     const { containerClassnames, menuClickCount } = this.props;
     this.props.setContainerClassnames(3, containerClassnames);
   }
@@ -48,10 +49,12 @@ class SellCrop extends Component {
               match={this.props.match}
             />
             <Separator className="mb-5" />
-            warehouse here
-            <AddWarehouse />
-
           </Colxx>
+        </Row>
+        <Row>
+          <Colxx xxs="12">
+            <ShowStorage />
+         </Colxx>
         </Row>
       </Fragment>
     );

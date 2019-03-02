@@ -25,20 +25,20 @@ import {
 } from "Redux/actions";
 
 import axios from "axios";
+import ShowTransportFarmer from "./showTransportFarmer";
 
-class SellCrop extends Component {
+class Transport extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: null
     }
   }
-
-
   componentDidMount() {
     const { containerClassnames, menuClickCount } = this.props;
     this.props.setContainerClassnames(3, containerClassnames);
   }
+
   render() {
     return (
       <Fragment>
@@ -49,9 +49,7 @@ class SellCrop extends Component {
               match={this.props.match}
             />
             <Separator className="mb-5" />
-
-            <LanguageChanger text="prince" />
-
+            <ShowTransportFarmer />
           </Colxx>
         </Row>
       </Fragment>
@@ -79,5 +77,5 @@ export default withRouter(
   connect(
     mapStateToProps,
     { setContainerClassnames, addContainerClassname, changeDefaultClassnames }
-  )(SellCrop)
+  )(Transport)
 );

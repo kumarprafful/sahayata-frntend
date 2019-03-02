@@ -382,7 +382,7 @@ class Sidebar extends Component {
             onClick={e => this.openDirectPage(e, "warehouse")}
           >
             <i className="iconsmind-Warehouse" />
-            <LanguageChanger text="Warehouse" />
+            <LanguageChanger text="My Warehouse" />
           </NavLink>
         </NavItem>
         <NavItem
@@ -492,7 +492,7 @@ class Sidebar extends Component {
                 <NavItem>
                   <NavLink to="/app/second-menu/warehouse">
                     <i className="simple-icon-paper-plane" />{" "}
-                    <LanguageChanger text="Warehouse" />
+                    <LanguageChanger text="All Warehouse" />
                   </NavLink>
                 </NavItem>
               </Nav>

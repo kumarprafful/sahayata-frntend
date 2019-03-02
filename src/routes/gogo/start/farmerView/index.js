@@ -9,6 +9,7 @@ import BreadcrumbContainer from "Components/BreadcrumbContainer";
 import LanguageChanger from "Components/LanguageChanger";
 
 import AddCrops from './addCrops';
+import ShowCrops from './showCrops';
 
 export default class extends Component {
   constructor(props) {
@@ -21,12 +22,18 @@ export default class extends Component {
   renderCrops(){
     if(this.state.crops == null) {
       return (
+        <div>
           <AddCrops />
+          <ShowCrops />
+        </div>
+
       );
     }
     else{
       return (
-        <CardBody>crops</CardBody>
+        <div>
+          <CardBody>crops</CardBody>
+        </div>
       );
     }
   }
@@ -34,6 +41,7 @@ export default class extends Component {
   render() {
     return (
       <Fragment>
+
         <Row>
           <Colxx>
           <Card style={{'padding':'1em'}}>
@@ -54,7 +62,7 @@ export default class extends Component {
             </NavLink>
           </Colxx>
         </Row>
-
+        
       </Fragment>
     );
   }
