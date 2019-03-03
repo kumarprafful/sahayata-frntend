@@ -25,7 +25,8 @@ class ShowTransportFarmer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: null
+      data: null,
+      vehicles: null
     };
     this.renderTransports = this.renderTransports.bind(this);
   }
@@ -42,6 +43,20 @@ class ShowTransportFarmer extends Component {
     })
   }
 
+  renderVehicles(vehicles) {
+    if(vehicles != null){
+      this.setState({vehicles});
+    return (
+      <Fragment>vehicles</Fragment>
+    );
+    }
+    else{
+      return (
+        <Fragment>No transport agency selected.</Fragment>
+      );
+    }
+  }
+
   renderTransports() {
     console.log(this.state.data);
     if (this.state.data!=null) {
@@ -49,14 +64,13 @@ class ShowTransportFarmer extends Component {
         console.log(element);
         return (
           <Colxx xxs="4">
-            <Card>
+            <Card onClick={(e)=>this.renderVehicles(element.vehicles)}>
               <CardBody>
                 <h3><LanguageChanger text={element.firstName}/></h3>
                 <h5><LanguageChanger text="Email: "/>{element.email}</h5>
                 <h5><LanguageChanger text="Contact: "/>{element.mobileNo}</h5>
                 <h5><LanguageChanger text="District: "/><LanguageChanger text={element.district}/></h5>
                 <h5><LanguageChanger text="State: "/><LanguageChanger text={element.state}/></h5>
-
               </CardBody>
             </Card>
           </Colxx>
@@ -78,6 +92,8 @@ class ShowTransportFarmer extends Component {
     return (
       <div>
         <Row>{this.renderTransports()}</Row>
+        <Row>{this.renderVehicles()}</Row>
+
       </div>
     );
   }
