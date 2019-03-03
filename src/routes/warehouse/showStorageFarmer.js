@@ -20,7 +20,7 @@ import {
 } from "reactstrap";
 import axios from "axios";
 
-class ShowTransport extends Component {
+class ShowStorageFarmer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -31,7 +31,7 @@ class ShowTransport extends Component {
 
   componentWillMount(){
     const userId = localStorage.userId;
-    const apiURL = `https://sahayata-farmer.herokuapp.com/sahayata/transport/${userId}`;
+    const apiURL = `https://sahayata-farmer.herokuapp.com/sahayata/storageall/${userId}`;
     axios.get(apiURL).then((res)=>{
       console.log(res.data);
       this.setState({data:res.data});
@@ -40,11 +40,12 @@ class ShowTransport extends Component {
       console.log(error);
     })
   }
-  
+
   renderTransports() {
     console.log(this.state.data);
     if (this.state.data!=null) {
       return this.state.data.map(element => {
+        console.log(element);
         return (
           <Colxx xxs="4">
             <Card>

@@ -7,8 +7,11 @@ import IntlMessages from "Util/IntlMessages";
 import { Colxx, Separator } from "Components/CustomBootstrap";
 import BreadcrumbContainer from "Components/BreadcrumbContainer";
 import LanguageChanger from "Components/LanguageChanger";
+
 import axios from "axios";
 import AddCrops from "./addCrops";
+
+import ShowCrops from './showCrops';
 
 export default class extends Component {
   constructor(props) {
@@ -20,11 +23,14 @@ export default class extends Component {
     this.loadProfit = this.loadProfit.bind(this);
   }
 
-  loadProfit() {
-    var profit = this.state.profitData;
-    // console.log(profit);
-    if (profit == null) {
-      return <div className="loading" />;
+  loadProfit(){
+    if(this.state.crops == null) {
+      return (
+        <div>
+          <AddCrops />
+        </div>
+
+      );
     }
     else {
       console.log(profit);
@@ -110,14 +116,19 @@ export default class extends Component {
   }
 
   componentWillMount() {
-    axios.get("http://localhost:3000/profit").then(res => {
+    axios.get("https://sahayata-farmer.herokuapp.com/profit").then(res => {
       this.setState({ profitData: res.data });
     });
   }
 
   renderCrops() {
     if (this.state.crops == null) {
-      return <AddCrops />;
+      return (
+        <Fragment>
+          <AddCrops />
+          <ShowCrops />
+        </Fragment>
+      );
     } else {
       return <CardBody>crops</CardBody>;
     }

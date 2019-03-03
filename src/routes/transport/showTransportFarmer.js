@@ -31,7 +31,7 @@ class ShowTransport extends Component {
 
   componentWillMount(){
     const userId = localStorage.userId;
-    const apiURL = `https://sahayata-farmer.herokuapp.com/sahayata/transport/${userId}`;
+    const apiURL = `https://sahayata-farmer.herokuapp.com/sahayata/transportall/${userId}`;
     axios.get(apiURL).then((res)=>{
       console.log(res.data);
       this.setState({data:res.data});
@@ -40,7 +40,7 @@ class ShowTransport extends Component {
       console.log(error);
     })
   }
-  
+
   renderTransports() {
     console.log(this.state.data);
     if (this.state.data!=null) {

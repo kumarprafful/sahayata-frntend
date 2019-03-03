@@ -15,7 +15,6 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { Colxx, Separator } from "Components/CustomBootstrap";
 import BreadcrumbContainer from "Components/BreadcrumbContainer";
-import RegisterWarehouse from "./registerWarehouse";
 
 import {
   setContainerClassnames,
@@ -24,6 +23,7 @@ import {
 } from "Redux/actions";
 
 import axios from "axios";
+import ShowStorage from "./showStorage";
 
 class SellCrop extends Component {
   constructor(props) {
@@ -53,8 +53,8 @@ class SellCrop extends Component {
         </Row>
         <Row>
           <Colxx xxs="12">
-            <RegisterWarehouse/>
-          </Colxx>
+            <ShowStorage />
+         </Colxx>
         </Row>
       </Fragment>
     );

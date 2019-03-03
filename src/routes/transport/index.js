@@ -25,6 +25,7 @@ import {
 } from "Redux/actions";
 
 import axios from "axios";
+import ShowTransportFarmer from "./showTransportFarmer";
 
 class Transport extends Component {
   constructor(props) {
@@ -33,7 +34,6 @@ class Transport extends Component {
       data: null
     }
   }
-
   componentDidMount() {
     const { containerClassnames, menuClickCount } = this.props;
     this.props.setContainerClassnames(3, containerClassnames);
@@ -49,7 +49,7 @@ class Transport extends Component {
               match={this.props.match}
             />
             <Separator className="mb-5" />
-            <LanguageChanger text="prince" />
+            <ShowTransportFarmer />
           </Colxx>
         </Row>
       </Fragment>
