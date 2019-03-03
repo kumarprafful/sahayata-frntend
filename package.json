@@ -58,6 +58,7 @@
     "react-intl": "2.4.0",
     "react-map-gl": "^4.0.12",
     "react-mapmyindia": "^1.0.3",
+    "react-open-weather": "^0.4.0",
     "react-perfect-scrollbar": "^1.1.1",
     "react-redux": "5.0.7",
     "react-router-dom": "^4.2.2",

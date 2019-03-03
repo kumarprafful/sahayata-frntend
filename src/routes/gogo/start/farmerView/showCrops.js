@@ -32,17 +32,25 @@ class ShowCrops extends Component {
       data: null,
       storage: null,
       modal: false,
+      modal1: false,
       Cstate: 0,
       quantity: "",
-      storageId: ""
+      storageId: "",
+      currentCrop: ""
     };
     this.renderCrops = this.renderCrops.bind(this);
     this.toggle = this.toggle.bind(this);
+    this.toggle1 = this.toggle1.bind(this);
     this.renderNearbyStorage = this.renderNearbyStorage.bind(this);
   }
   toggle() {
     this.setState(prevState => ({
       modal: !prevState.modal
+    }));
+  }
+  toggle1() {
+    this.setState(prevState => ({
+      modal1: !prevState.modal1
     }));
   }
 
@@ -102,7 +110,7 @@ class ShowCrops extends Component {
             <h3>
               <b> <LanguageChanger text="Name:  "/> <LanguageChanger text={element.name}/></b>
             </h3>
-            <CardText><LanguageChanger text="Price:  Rs"/> <LanguageChanger text={element.price}/><LanguageChanger text="/kg"/></CardText>
+            <CardText><LanguageChanger text="Price: Rs"/> <LanguageChanger text={element.price}/><LanguageChanger text="/kg"/></CardText>
             <CardText><LanguageChanger text="Manager:  "/><LanguageChanger text={element.manager}/></CardText>
             <CardText>
               <LanguageChanger text="Address:  "/><LanguageChanger text={element.address}/>, <LanguageChanger text={element.district}/>, <LanguageChanger text={element.state}/>-<LanguageChanger text={element.pincode}/>
@@ -163,7 +171,7 @@ class ShowCrops extends Component {
                 <Button className="" size="sm" onClick={()=>{this.toggle();this.setState({quantity: element.quantity})}}>
                   <i className="iconsmind-Warehouse" />
                 </Button>
-                <Button size="sm">Value addition</Button>
+                <Button size="sm" onClick={()=>{this.toggle1();this.setState({currentCrop:element.crop})}}>Value addition</Button>
 
               </CardBody>
             </Card>
@@ -179,6 +187,31 @@ class ShowCrops extends Component {
         </div>
       );
     }
+
+  }
+
+  renderValueAddition() {
+    console.log(this.state.data);
+    if(this.state.data!=null){
+    return this.state.data.map(element => {
+      if(element.crop == this.state.currentCrop){
+      return (
+      <Fragment>
+        <h2>{element.crop}</h2>
+        <p>{element.uses}</p>
+        <p>{element.quantity} kg</p>
+        <p>{element.piceOfEquipment}></p>
+        <p>{element.processing}></p>
+        <p>{element.costOfFinalProduct}</p>
+
+
+      </Fragment>
+    );}
+    });
+  }
+  else{
+    return <div className="loading" />
+  }
   }
 
   render() {
@@ -200,6 +233,16 @@ class ShowCrops extends Component {
         >
           <ModalHeader toggle={this.toggle}><LanguageChanger text="Nearby"/> <LanguageChanger text={text}/> </ModalHeader>
           <ModalBody>{this.renderNearbyStorage()}</ModalBody>
+        </Modal>
+
+        <Modal
+          size="lg"
+          isOpen={this.state.modal1}
+          toggle={this.toggle1}
+          className={this.props.className}
+        >
+          <ModalHeader toggle={this.toggle1}><LanguageChanger text="Value additions"/></ModalHeader>
+          <ModalBody>{this.renderValueAddition()}</ModalBody>
         </Modal>
       </div>
     );
