@@ -5,6 +5,7 @@ import { Row, Col, Card, CardBody, CardTitle, Button, Modal, ModalHeader, ModalB
 import axios from 'axios';
 
 import LanguageChanger from "Components/LanguageChanger";
+import {  NotificationManager} from "Components/ReactNotifications";
 
 export default class AddCrops extends Component {
   constructor(props) {
@@ -26,16 +27,13 @@ export default class AddCrops extends Component {
  onCropRegister() {
    if(this.state.crop == "" || this.state.quantity == "") {
      alert("All fields are mandatory");
-     console.log(this.state);
 
    }
    else{
-     console.log(this.state);
      const id = localStorage.userId;
      const apiURL = `https://sahayata-farmer.herokuapp.com/sahayata/farmer/${id}`;
      axios.post(apiURL, this.state)
      .then(res => {
-       console.log(res);
        this.setState({crop:""});
        this.setState({quantity:""});
        this.toggle();
@@ -43,6 +41,15 @@ export default class AddCrops extends Component {
      })
      .catch(error => {
        console.log(error);
+       return (
+         <Fragment>
+           <Card onClick={()=>{
+             this.toggle();
+             NotificationManager.danger(<LanguageChanger text="Error."/>,null,5000,null,null,"filled");
+             this.sendOrder(element._id);
+          </Fragment>
+         }}>
+       );
      })
 
    }
