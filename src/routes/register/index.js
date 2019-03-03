@@ -82,7 +82,7 @@ class RegisterLayout extends Component {
               <Colxx xxs="12" md="10" className="mx-auto my-auto">
                 <Card className="auth-card">
                   <div className="position-relative image-side ">
-                    <p className="white">
+                    <p className="" style={{'fontSize':'3em', 'lineHeight': '1em', 'color': 'orange', '-webkit-text-stroke-width': '0.5px', '-webkit-text-stroke-color': 'black'}}>
                     <LanguageChanger text="A fertile soil alone does not carry agriculture to perfection" />
 
                       If you are a member, please{" "}
@@ -95,8 +95,9 @@ class RegisterLayout extends Component {
                   {content}
                   {error}
                     <NavLink to={`/`} className="white">
-                      <span><img src={logo} /></span>
+                      <span><img src={logo} style={{"marginTop": "-5em", "marginLeft": "-2em"}} /></span>
                     </NavLink>
+                    <br /><br />
                     <CardTitle className="mb-4">
                       <LanguageChanger text="Register" />
                     </CardTitle>
@@ -106,7 +107,7 @@ class RegisterLayout extends Component {
                          type="email"
                          onChange={(e) => this.setState({email:e.target.value})}
                        />
-                        <LanguageChanger text="username"/>
+                        <LanguageChanger text="Email address"/>
                       </Label>
                       <Label className="form-group has-float-label mb-4">
                         <Input
@@ -121,21 +122,21 @@ class RegisterLayout extends Component {
                           <option value="transport">Transport</option>
                           <option value="storage">Storage</option>
                         </Input>
-                        <IntlMessages id="user.type" />
+                        <LanguageChanger text = "User type"/>
                       </Label>
                       <Label className="form-group has-float-label mb-4">
                         <Input
                          type="text"
                          onChange={(e) => this.setState({firstName:e.target.value})}
                         />
-                        <IntlMessages id="Full name" />
+                        <LanguageChanger text="Full name" />
                       </Label>
                       <Label className="form-group has-float-label mb-4">
                         <Input
                          type="text"
                          onChange={(e) => this.setState({mobileNo:e.target.value})}
                         />
-                        <IntlMessages id="Mobile number" />
+                        <LanguageChanger text="Mobile number" />
                       </Label>
                       <Label className="form-group has-float-label mb-4">
                       <Input type="select" name="select" onChange={(e) => this.setState({sex:e.target.value})}>
@@ -143,21 +144,21 @@ class RegisterLayout extends Component {
                         <option value="female">Female</option>
                         <option value="others">Others</option>
                       </Input>
-                        <IntlMessages id="Gender" />
+                        <LanguageChanger text="Gender" />
                       </Label>
                       <Label className="form-group has-float-label mb-4">
                         <Input
                          type="text"
                          onChange={(e) => this.setState({district:e.target.value})}
                         />
-                        <IntlMessages id="District" />
+                        <LanguageChanger text="District" />
                       </Label>
                       <Label className="form-group has-float-label mb-4">
                         <Input
                          type="text"
                          onChange={(e) => this.setState({state:e.target.value})}
                         />
-                        <IntlMessages id="State" />
+                        <LanguageChanger text="State" />
                       </Label>
 
 
@@ -168,10 +169,13 @@ class RegisterLayout extends Component {
                           size="lg"
                           onClick={() => this.onUserRegister()}
                         >
-                          <IntlMessages id="user.register-button" />
+                          <LanguageChanger text="Register" />
                         </Button>
                       </div>
+
                     </Form>
+                    <br />
+                    <h4 style={{'textAlign':'center'}}><LanguageChanger text="Already a member."/> <NavLink to="/login" style={{'color':'blue'}}><LanguageChanger text ="Login" /> </NavLink>  </h4>
                   </div>
                 </Card>
               </Colxx>

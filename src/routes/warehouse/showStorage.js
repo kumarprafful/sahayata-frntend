@@ -27,13 +27,15 @@ export default class extends Component {
     console.log(this.state.data);
     if (this.state.data == null) {
       return <div className="loading" />;
-    } else if (this.state.data[0] == undefined) {
+    } else if (this.state.data[0] == undefined && localStorage.userType=="storage") {
       return <AddWarehouse />;
     } else {
       return this.state.data.map(res => {
         // console.log(res);
         return (
           <Fragment>
+          <Row>
+          <Colxx xxs="3">
             <Card style={{ padding: "1em" }}>
               <CardTitle>
                 <b>{res.name}</b>
@@ -46,6 +48,7 @@ export default class extends Component {
                 address: {res.address}
               </CardBody>
             </Card>
+            </Colxx></Row>
             <br />
           </Fragment>
         );

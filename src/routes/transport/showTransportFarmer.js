@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import IntlMessages from "Util/IntlMessages";
 import { connect } from "react-redux";
 import { Colxx, Separator } from "Components/CustomBootstrap";
+import LanguageChanger from "Components/LanguageChanger";
 
 import {
   Row,
@@ -20,11 +21,12 @@ import {
 } from "reactstrap";
 import axios from "axios";
 
-class ShowTransport extends Component {
+class ShowTransportFarmer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: null
+      data: null,
+      vehicles: null
     };
     this.renderTransports = this.renderTransports.bind(this);
   }
@@ -41,17 +43,34 @@ class ShowTransport extends Component {
     })
   }
 
+  renderVehicles(vehicles) {
+    if(vehicles != null){
+      this.setState({vehicles});
+    return (
+      <Fragment>vehicles</Fragment>
+    );
+    }
+    else{
+      return (
+        <Fragment>No transport agency selected.</Fragment>
+      );
+    }
+  }
+
   renderTransports() {
     console.log(this.state.data);
     if (this.state.data!=null) {
       return this.state.data.map(element => {
+        console.log(element);
         return (
           <Colxx xxs="4">
-            <Card>
+            <Card onClick={(e)=>this.renderVehicles(element.vehicles)}>
               <CardBody>
-                <h3>{element.type}</h3>
-                <h6>Capacity: {element.capacity}</h6>
-                <h5>Price: {element.price}</h5>
+                <h3><LanguageChanger text={element.firstName}/></h3>
+                <h5><LanguageChanger text="Email: "/>{element.email}</h5>
+                <h5><LanguageChanger text="Contact: "/>{element.mobileNo}</h5>
+                <h5><LanguageChanger text="District: "/><LanguageChanger text={element.district}/></h5>
+                <h5><LanguageChanger text="State: "/><LanguageChanger text={element.state}/></h5>
               </CardBody>
             </Card>
           </Colxx>
@@ -63,7 +82,7 @@ class ShowTransport extends Component {
     }
     else{
       return (
-        <div><h3> no data available</h3></div>
+        <div><h3> <LanguageChanger text="no data available"/> </h3></div>
       );
     }
   }
@@ -73,9 +92,11 @@ class ShowTransport extends Component {
     return (
       <div>
         <Row>{this.renderTransports()}</Row>
+        <Row>{this.renderVehicles()}</Row>
+
       </div>
     );
   }
 }
 
-export default connect(null)(ShowTransport);
+export default connect(null)(ShowTransportFarmer);

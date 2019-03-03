@@ -21,7 +21,7 @@ export default class extends Component {
 
   componentWillMount(){
     var userId =  localStorage.userId;
-    axios.get(`https://sahayata-farmer.herokuapp.com/sahayata/storage/${userId}`).then((res)=>{
+    axios.get(`https://sahayata-farmer.herokuapp.com/sahayata/storageall/${userId}`).then((res)=>{
       this.setState({warehouses: res.data});
     })
   }
@@ -32,8 +32,8 @@ export default class extends Component {
         <div className="loading"/>
       );
     }
-    else if(this.state.warehouses[0] ==  undefined){
-      return <AddWarehouse/>
+    else if(this.state.warehouses[0] ==  undefined && localStorage.userType=="storage"){
+      return <AddWarehouse />
     }
     else {
       return this.state.warehouses.map((element)=>{
@@ -42,10 +42,10 @@ export default class extends Component {
           <Colxx xxs="4">
             <Card>
               <CardBody >
-                <h2 >{element.name}</h2>
-                <p>Capacity: {element.capacity}</p>
-                <h5>Price: {element.price}</h5>
-                <p>Address: {element.address}</p>
+                <h2 ><b><LanguageChanger text={element.name}/></b></h2>
+                <h5><LanguageChanger text="Capacity:  "/><LanguageChanger text={element.capacity}/><LanguageChanger text="tonnes"/></h5>
+                <h5><LanguageChanger text="Price:  Rs."/><LanguageChanger text={element.price}/><LanguageChanger text="/kg"/></h5>
+                <h5><LanguageChanger text="Address:  "/><LanguageChanger text={element.address}/>, <LanguageChanger text={element.district}/>, <LanguageChanger text={element.state}/>-<LanguageChanger text={element.pincode}/></h5>
               </CardBody>
             </Card>
           </Colxx>

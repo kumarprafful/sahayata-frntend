@@ -137,6 +137,7 @@ export default class extends Component {
   render() {
     return (
       <Fragment>
+
         <Row>
           <Colxx>
             <Card style={{ padding: "1em" }}>
@@ -170,6 +171,26 @@ export default class extends Component {
             </Card>
             <br />
             {this.loadProfit()}
+          </Colxx>
+
+
+          <Colxx xxs="4">
+          <NavLink to="women-schemes">
+            <Card>
+              <CardBody>
+                <h2>Women Schemes</h2>
+              </CardBody>
+            </Card>
+            </NavLink>
+          </Colxx>
+          <Colxx xxs="4">
+          <NavLink to="general-schemes">
+            <Card>
+              <CardBody>
+                <h2>General Schemes</h2>
+              </CardBody>
+            </Card>
+            </NavLink>
           </Colxx>
         </Row>
       </Fragment>

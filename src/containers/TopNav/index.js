@@ -169,7 +169,8 @@ class TopNav extends Component {
   };
 
   handleLogout = () => {
-    this.props.logoutUser(this.props.history);
+    this.props.logoutUser(this.props.history.push('/login'));
+
   };
 
   menuButtonClick(e, menuClickCount, containerClassnames) {
@@ -197,7 +198,8 @@ class TopNav extends Component {
       lang = 'en';
     }
 
-    var username = this.props.authUser.user;
+    var username = this.props.authUser.username;
+    var logo = "../../assets/img/icon/logo.png";
     return (
       <nav className="navbar fixed-top">
         <NavLink
@@ -253,7 +255,7 @@ class TopNav extends Component {
             {
               Language.map((l)=>{
                 return(
-                  <DropdownItem onClick={() => this.handleChsangeLocale(l.id)} key={l.id}>
+                  <DropdownItem onClick={() => this.handleChangeLocale(l.id)} key={l.id}>
                   {l.name}
                 </DropdownItem>
                 )
@@ -265,7 +267,7 @@ class TopNav extends Component {
 
 
         <a className="navbar-logo" href="/">
-          <h1 ><b><IntlMessages id="menu.gogo" /></b></h1>
+          <span><img src={logo} style={{'height': '5em', 'marginTop':'-1em'}} /> </span>
         </a>
 
         <div className="ml-auto">

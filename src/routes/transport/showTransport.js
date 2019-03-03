@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import IntlMessages from "Util/IntlMessages";
 import { connect } from "react-redux";
 import { Colxx, Separator } from "Components/CustomBootstrap";
+import LanguageChanger from "Components/LanguageChanger";
 
 import {
   Row,
@@ -40,7 +41,7 @@ class ShowTransport extends Component {
       console.log(error);
     })
   }
-  
+
   renderTransports() {
     console.log(this.state.data);
     if (this.state.data!=null) {

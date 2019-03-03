@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+` import React, { Component, Fragment } from "react";
 import { Row } from "reactstrap";
 
 import IntlMessages from "Util/IntlMessages";
