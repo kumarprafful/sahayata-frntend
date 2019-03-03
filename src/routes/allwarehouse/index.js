@@ -45,7 +45,9 @@ class SellCrop extends Component {
         console.log(element);
         return (
           <Fragment>
+          <Row>
             <ShowStorage />
+            </Row>
           <br />
           </Fragment>
         );
@@ -63,7 +65,9 @@ class SellCrop extends Component {
         console.log(element);
         return (
           <Fragment>
+          <Row>
             <ShowStorage />
+          </Row>
           <br />
           </Fragment>
         );

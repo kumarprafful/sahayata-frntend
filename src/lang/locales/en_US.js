@@ -31,7 +31,7 @@ module.exports = {
   "menu.gogo": "Sahayata",
   "menu.first": "Home",
   "menu.start": "Start",
-  "menu.second": "God view",
+  "menu.second": "Sahayata",
   "menu.ui": "UI",
   "menu.charts": "Charts",
   "menu.chat": "Chat",

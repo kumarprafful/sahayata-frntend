@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import IntlMessages from "Util/IntlMessages";
+import LanguageChanger from "Components/LanguageChanger";
 import {
   Row,
   Card,
@@ -52,10 +53,7 @@ class SellCrop extends Component {
           </Colxx>
         </Row>
         <Row>
-          <Colxx xxs="12">
             <ShowStorage />
-
-         </Colxx>
         </Row>
       </Fragment>
     );
