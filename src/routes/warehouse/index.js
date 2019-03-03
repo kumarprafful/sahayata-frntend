@@ -23,7 +23,7 @@ import {
 } from "Redux/actions";
 
 import axios from "axios";
-import ShowStorageFarmer from "./showStorageFarmer";
+import ShowStorage from "./showStorage";
 
 class SellCrop extends Component {
   constructor(props) {
@@ -53,8 +53,8 @@ class SellCrop extends Component {
         </Row>
         <Row>
           <Colxx xxs="12">
-            <ShowStorageFarmer />
-            
+            <ShowStorage />
+
          </Colxx>
         </Row>
       </Fragment>
