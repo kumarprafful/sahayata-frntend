@@ -58,10 +58,10 @@ class SellCrop extends Component {
             <Separator className="mb-5" />
           </Colxx>
         </Row>
+        
         <Row>
           <Colxx xxs="12">
             {this.manageRenderingStorage()}
-
          </Colxx>
         </Row>
       </Fragment>

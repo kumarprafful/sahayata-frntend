@@ -35,6 +35,26 @@ class SellCrop extends Component {
     this.loadAllWarehouse = this.loadAllWarehouse.bind(this);
   }
 
+  loadAllWarehouse() {
+    if (this.state.data == null) {
+      <div className="loading" />;
+    } else if (this.state.data[0] == undefined) {
+      return <div>no avalible warehouse</div>;
+    } else {
+      return this.state.data.map(element => {
+        console.log(element);
+        return (
+          <Fragment>
+          <Row>
+            <ShowStorage />
+            </Row>
+          <br />
+          </Fragment>
+        );
+      });
+    }
+  }
+
   componentWillMount() {
     if (this.state.data == null) {
       <div className="loading" />;
@@ -45,7 +65,9 @@ class SellCrop extends Component {
         console.log(element);
         return (
           <Fragment>
+          <Row>
             <ShowStorage />
+          </Row>
           <br />
           </Fragment>
         );
