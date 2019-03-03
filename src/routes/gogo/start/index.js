@@ -61,7 +61,7 @@ class Home extends Component {
       <Row>
         <Colxx xxs="12">
           <BreadcrumbContainer
-            heading={<LanguageChanger text="God view" />}
+            heading={"Sahayata"}
             match={this.props.match}
           />
           <Separator className="mb-5" />

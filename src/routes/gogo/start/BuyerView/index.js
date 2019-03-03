@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { Row, Col, Card, CardBody, CardTitle } from "reactstrap";
+import { Row, Col, Card, CardBody, CardTitle, Button } from "reactstrap";
 
 import IntlMessages from "Util/IntlMessages";
 
@@ -53,12 +53,15 @@ export default class extends Component {
     }
     else{
       return this.state.useData.map((element)=>{
+        console.log(element);
+
         return (
           <Fragment>
             <Card>
                 <h4><b>CROP : {element.crop}</b></h4>
                 <br/>
-                Quantity :{element.quantity}
+                Quantity :{element.quantity} kg
+                <Button size="sm">Request for price</Button>
             </Card>
             <br/>
           </Fragment>
