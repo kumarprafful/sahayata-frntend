@@ -23,7 +23,8 @@ import {
 import axios from "axios";
 import BookStorageLevel from "./BookStorageLevel";
 import {  NotificationManager} from "Components/ReactNotifications";
-
+import Profit from "./profit.js"
+import ValueAdd from "./valueaddition.js"
 
 class ShowCrops extends Component {
   constructor(props) {
@@ -36,13 +37,17 @@ class ShowCrops extends Component {
       Cstate: 0,
       quantity: "",
       storageId: "",
+      modal1: null,
+      crop: null,
       currentCrop: ""
     };
     this.renderCrops = this.renderCrops.bind(this);
     this.toggle = this.toggle.bind(this);
     this.toggle1 = this.toggle1.bind(this);
+    this.toggle2 = this.toggle2.bind(this);
     this.renderNearbyStorage = this.renderNearbyStorage.bind(this);
   }
+
   toggle() {
     this.setState(prevState => ({
       modal: !prevState.modal
@@ -53,6 +58,14 @@ class ShowCrops extends Component {
       modal1: !prevState.modal1
     }));
   }
+
+  toggle2() {
+    this.setState(prevState => ({
+      modal2: !prevState.modal2
+    }));
+  }
+
+
 
   componentWillMount() {
     const userId = localStorage.userId;
@@ -159,6 +172,7 @@ class ShowCrops extends Component {
   }
 
   renderCrops() {
+    console.log(".dsa",this.state.data);
     if (this.state.data != null) {
       return this.state.data.map(element => {
         return (
@@ -171,7 +185,9 @@ class ShowCrops extends Component {
                 <Button className="" size="sm" onClick={()=>{this.toggle();this.setState({quantity: element.quantity})}}>
                   <i className="iconsmind-Warehouse" />
                 </Button>
-                <Button size="sm" onClick={()=>{this.toggle1();this.setState({currentCrop:element.crop})}}>Value addition</Button>
+
+                <Button size="sm" onClick={()=>{this.toggle2();this.setState({ crop: element.crop });}}>Value addition</Button>
+                <Button size="sm" onClick={()=>{this.toggle1();this.setState({quantity: element.quantity, crop: element.crop });}}>Estimate</Button>
 
               </CardBody>
             </Card>
@@ -190,29 +206,7 @@ class ShowCrops extends Component {
 
   }
 
-  renderValueAddition() {
-    console.log(this.state.data);
-    if(this.state.data!=null){
-    return this.state.data.map(element => {
-      if(element.crop == this.state.currentCrop){
-      return (
-      <Fragment>
-        <h2>{element.crop}</h2>
-        <p>{element.uses}</p>
-        <p>{element.quantity} kg</p>
-        <p>{element.piceOfEquipment}></p>
-        <p>{element.processing}></p>
-        <p>{element.costOfFinalProduct}</p>
 
-
-      </Fragment>
-    );}
-    });
-  }
-  else{
-    return <div className="loading" />
-  }
-  }
 
   render() {
     var text ;
@@ -241,9 +235,25 @@ class ShowCrops extends Component {
           toggle={this.toggle1}
           className={this.props.className}
         >
-          <ModalHeader toggle={this.toggle1}><LanguageChanger text="Value additions"/></ModalHeader>
-          <ModalBody>{this.renderValueAddition()}</ModalBody>
+          <ModalHeader toggle={this.toggle1}></ModalHeader>
+          <ModalBody>
+            {" "}
+            <Profit quantity={this.state.quantity} crop={this.state.crop}/>{" "}
+          </ModalBody>
         </Modal>
+
+        <Modal
+          size="lg"
+          isOpen={this.state.modal2}
+          toggle={this.toggle2}
+          className={this.props.className}
+        >
+          <ModalHeader toggle={this.toggle2}>{this.state.crop}</ModalHeader>
+          <ModalBody>
+            <ValueAdd crop={this.state.crop}/>{" "}
+          </ModalBody>
+        </Modal>
+
       </div>
     );
   }

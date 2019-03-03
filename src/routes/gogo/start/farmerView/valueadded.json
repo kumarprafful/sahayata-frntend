@@ -1,0 +1,71 @@
+[
+  {
+    "data": {
+      "Banana": {
+        "uses":
+          "The primary product of banana in market is fried chips and candy which constitute around 31 %,rest as banana puree 9%, banana pulp 3%, banana beer 3%, banana wafers 3%, banana powder 6% and others.",
+        "processing":
+          "Dry the sliced bananas for a short time (5-6 hours in a cabinet dryer or up to 2 days in a solardryer) until they have a soft rubbery texture. The length of time taken for drying depends on thethickness of the banana slices, the temperature of the dryer and the drying conditions.Heat good clean vegetable oil to 180-200°C. Use a thermometer to check the temperature of the oil because if it is too hot, the chips will burn and the oil will deteriorate more rapidly (see the box on quality of oil and frying). If the oil is not hot enough, the chips will soak up too much oil before they fry. A thermostatically controlled deep fat fryer is useful if you have one available. The oil should not be used for frying more than three to four times as it deteriorates each time it is heated and this will spoil the flavour of the chips.",
+        "processingEquipment":
+          "Banana Wafer Machine, Capacity upto 200 Kg/ Hour Automatic Banana Chips Line, Capacity 300 - 600 Kg/ Hour",
+        "price": "Plant & machinery: 5 Lakhs Working capital: 14 Lakhs",
+        "cost": "Banana chips: 160 rs/kg"
+      },
+      "Coffee": {
+        "uses":
+          "Coffee silverskin and spent coffee grounds are the main coffee industry residues, obtained during the beans roasting, and the process to prepare instant coffee, respectively. Recently, some attempts have been made to use these residues for energy or value-added compounds production, as strategies to reduce their toxicity levels, while adding value to them.",
+        "processing":
+          "Irrespective of the harvesting method, green coffee beans and overripe coffee cherries inevitably end up mixed with the perfectly ripe cherries and must be separated during coffee processing.   Overripe coffee cherries, undeveloped coffee cherries, sticks and leaves float in water.  Ripe coffee beans and green coffee cherries are dense and sink.  Therefore, the first step in coffee production consists of separating the floaters from the sinkers.  The coffee floaters are usually sent directly to the patio to be dried and are often slated for internal consumption.  The ripe and green cherries can be sent to the patios to be dried using the natural process of preparing coffee or can be sent to the coffee pulping machines.",
+        "processingEquipment":
+          "The first stage of coffee pulping is used to remove the green coffee cherries from the ripe cherries. In the coffee pulping machinery, the internal pressure is monitored to push the coffee against a screen with holes only large enough for a coffee bean (not cherry) to pass through. Since the ripe cherries are soft, they break and the coffee seed is released through the screen.",
+        "price": "15000-20000 rs/kg",
+        "cost":
+          "Cost of coffee powder varies from 2000 to 4000 rs/kg depending on the quality of the product."
+      },
+      "Roses": {
+        "uses":
+          "The most popular uses of roses are manufacturing of essential oils and perfumes from it.",
+        "processing":
+          "There are many plants from which essential oils are produced and rose is the most popular one. Rose oil is steam distilled from the flowers of the Rose damascena. ... Rose oil is a very expensive essential oil, partly due to the lack of quality natural and synthetic substitutes.Rose water is a by-product obtained during the distillation of rose flowers. It is natural rose smelling water which is obtained by mixing pure, clean hot water with oil water in the ratio of one to one during the production of rose oil. Then it is filtered several times and bottled. It is used as an aroma for some foods and sweets, and also to clean make-up and the body since it is natural and pure. Oils are extracted from plant substances by several methods: steam distillation, solvent extraction, enfleurage, maceration, and expression.",
+        "processingEquipment":
+          "Rose oil distillation unit is manufactured from stainless steel and glass. It is simple in design, convenient to operate and above all it is portable and can be very easily taken away from one place to the other. In other words the rose oil distillation unit is ideal for the r production of natural essential oils and Hydrosols like rose water, ajowain water from fresh and dried plant materials like leaves, flowers, petals, roots and rhizomes. This is done by process of distillation (water & steam). Steam distillation can also be performed at the normal and slightly higher & lower atmospheric pressure.",
+        "price":
+          "Rs.1,50,000 for stainless steel essential oil extraction plant",
+        "cost": "cost of rose oil is 2000/- per kg"
+      },
+      "Tulips": {
+        "uses":
+          "Tulip medicinal uses are Have diuretic properties, It has anti-septic properties. Best remedy for Cough & Cold, Reduces risk of cancer, Used for sinus pain, hay fever and headache are some of the Tulip health benefits. Cosmetic use of plant : Benefits of Tulip also comprise of cosmetic uses.",
+        "processing":
+          "Many scientists work on natural product synthesis: producing compounds found in nature in the laboratory. These natural products can have very complex structures and sometimes over twenty chemical reactions are needed before an exact copy of the natural product is made successfully. There is a wide body of literature on various methods of synthesis.",
+        "processingEquipment":
+          "Personal protective equipment as recommended by the cleaning agent supplier (minimum overalls, gloves, face/eye shield.), the automated cleaning equipment manufacturer or as prescribed by the doctor, clinic or hospital setting, when required. Staff should use suitable protective gear and/or clothing and equipment at all times.Syringes with a volume of 60ml. Tap water and basin(s) large enough to accommodate rinsing the devices.Clean soft non-shedding cloth. Filtered pressurized air at < 40.Miltex Surgical Instrument Cleaner or equivalent. Automated cleaner large enough to hold the cannula(s) and accessories.",
+        "price": "Rs. 97000 per herbal extractor component set",
+        "cost": "For medicines- 92 Rs/piece."
+      },
+      "Tomatoes": {
+        "uses":
+          "Tomato processing industry, comprised primarily of tomato pastes, sauces and canned tomato products, is distinctly separate from the fresh-market industry.",
+        "processing":
+          "Mixing apparatus must be capable of dispersing powdered ingredients into water to form an agglomerate-free product. If the product is made from whole peeled tomatoes, these require chopping and pulping before addition to the mix. Insoluble particles in the tomatoes need to be fully dispersed and milled to obtain a smooth texture and even dispersion of the pigment (carotin) to give depth of color. Fibrous strands in the tomatoes must be fibrillated (frayed) to raise capacity for water retention, which increases viscosity. Once mixed, the product may be passed through a high pressure homogenizer or colloid mill to obtain the required consistency.",
+        "processingEquipment":
+          "Silverson Flashmix & High Shear In-Line Mixers are used to produce sauces on large scale and for small scale usage sauces can easily be produced at homes.",
+        "price":
+          "Automatic And Semi-Automatic Tomato Puree Plant 10kW - Rs. 1,50,000 per plant",
+        "cost": "rupees 100/- per kg."
+      },
+      "Turmeric": {
+        "uses":
+          "Turmeric has the potential to prevent heart disease, Alzheimer's and cancer. It's a potent anti-inflammatory and antioxidant and may also help improve symptoms of depression and arthritis.",
+        "processing":
+          "The processing of turmeric is to be done 2 or 3 days after harvesting. If there is delay in processing, the rhizomes should be stored under shade or covered with sawdust or coir dust. Use turmeric boiler TNAU model 100 kg capacity especially for commercial growers and steam boil for 60 minutes.",
+        "processingEquipment":
+          "Turmeric processing plants are used to manufacture turmeric based medicines.This plant includes belt conveyors, Rotary Screen, Impect Pulverizers ,Screw Conveyors ,Storage Silos,Ribbon Blenders ,Gyro Screen/Vibrating Machine.",
+        "price":
+          "Automatic And Semi-Automatic Standard Turmeric Processing Plant, Capacity: 20kg to 500kg - Rs. 1,00,000 per set",
+        "cost":
+          "For medicines- 950 per bottle(90 capsules). Turmeric powder- Rs. 300/kg"
+      }
+    }
+  }
+]

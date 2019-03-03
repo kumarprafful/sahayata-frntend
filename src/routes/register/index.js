@@ -116,6 +116,7 @@ class RegisterLayout extends Component {
                           <option selected value="farmer">Farmer</option>
                           <option value="transport">Transport</option>
                           <option value="storage">Storage</option>
+                          <option value="buyer">Buyer</option>
                         </Input>
                         <LanguageChanger text = "User type"/>
                       </Label>

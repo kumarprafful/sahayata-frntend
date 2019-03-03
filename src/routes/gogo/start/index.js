@@ -11,6 +11,7 @@ import FarmerView from "./farmerView"
 import StorageView from "./storageView"
 import TransportView from "./transportView"
 import LanguageChanger from "Components/LanguageChanger";
+import Buyer from "./BuyerView";
 
 import {
   setContainerClassnames,
@@ -46,6 +47,11 @@ class Home extends Component {
       return (
         <div><StorageView/></div>
       )
+    }
+    else if(type == "buyer"){
+      return (
+        <div><Buyer/></div>
+      );
     }
   }
 
