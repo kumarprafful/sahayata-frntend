@@ -7,9 +7,9 @@ import { Colxx } from "Components/CustomBootstrap";
 
 import { connect } from "react-redux";
 import { registerUser, loginUserSuccess } from "Redux/actions";
+import LanguageChanger from "Components/LanguageChanger";
 
 import axios from 'axios';
-import LanguageChanger from "Components/LanguageChanger";
 
 class RegisterLayout extends Component {
   constructor(props) {
@@ -84,6 +84,11 @@ class RegisterLayout extends Component {
                   <div className="position-relative image-side ">
                     <p className="" style={{'fontSize':'3em', 'lineHeight': '1em', 'color': 'orange', '-webkit-text-stroke-width': '0.5px', '-webkit-text-stroke-color': 'black'}}>
                     <LanguageChanger text="A fertile soil alone does not carry agriculture to perfection" />
+
+                      If you are a member, please{" "}
+                      <NavLink to={`/login`} className="yellow" >
+                        login
+                      </NavLink>
                     </p>
                   </div>
                   <div className="form-side">
