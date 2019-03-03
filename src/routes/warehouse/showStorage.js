@@ -36,14 +36,12 @@ export default class extends Component {
           <Colxx xxs="3">
             <Card style={{ padding: "1em" }}>
               <CardTitle>
-                <b>{res.name}</b>
+                <b><h4><LanguageChanger text={res.name}/></h4></b>
               </CardTitle>
               <CardBody>
-                <b>Manager:</b> {res.manager}
-                <br />
-                <b>Price:</b> {res.price}
-                <br />
-                <b>Address:</b> {res.address}
+                <h5><LanguageChanger text="manager:  "/>{res.manager}</h5>
+                <h5><LanguageChanger text="price:  Rs."/>{res.price}<LanguageChanger text="kg"/></h5>
+                <h5><LanguageChanger text="address:  "/><LanguageChanger text={res.address}/> , <LanguageChanger text={res.district}/>, <LanguageChanger text={res.state}/></h5>
               </CardBody>
             </Card>
             </Colxx>

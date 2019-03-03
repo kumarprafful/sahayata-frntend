@@ -54,6 +54,7 @@
     "google-maps-react": "^2.0.2",
     "mapbox-gl": "^0.53.0",
     "react": "^16.4.1",
+    "react-autosuggest": "^9.4.3",
     "react-dom": "^16.4.1",
     "react-geolocation": "^1.0.4",
     "react-intl": "2.4.0",
