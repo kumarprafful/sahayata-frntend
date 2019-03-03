@@ -60,11 +60,24 @@ export default class extends Component {
         </Row>
         <br />
         <Row>
+        <Colxx xxs="4">
+          <NavLink to="past-orders">
+            <Card>
+              <CardBody>
+                <h2><LanguageChanger text="Previous booking" /></h2>
+              </CardBody>
+            </Card>
+          </NavLink>
+        </Colxx>
+        </Row>
+        <br />
+
+        <Row>
           <Colxx xxs="4">
             <NavLink to="home-storage">
               <Card>
                 <CardBody>
-                  <h2>Home storage ideas</h2>
+                  <h2><LanguageChanger text="Home storage ideas" /></h2>
                 </CardBody>
               </Card>
             </NavLink>
@@ -74,7 +87,7 @@ export default class extends Component {
           <NavLink to="women-schemes">
             <Card>
               <CardBody>
-                <h2>Women Schemes</h2>
+                <h2><LanguageChanger text="Women Schemes" /></h2>
               </CardBody>
             </Card>
             </NavLink>
@@ -83,7 +96,7 @@ export default class extends Component {
           <NavLink to="general-schemes">
             <Card>
               <CardBody>
-                <h2>General Schemes</h2>
+                <h2><LanguageChanger text="General Schemes" /></h2>
               </CardBody>
             </Card>
             </NavLink>

@@ -145,7 +145,7 @@ export default class extends Component {
             <Colxx xxs="4">
               <Card>
                 <h4>
-                  <b>{profit.type1ans} km</b>
+                  <b>{profit.type1ans} ₹</b>
                 </h4>
               </Card>
             </Colxx>
@@ -159,7 +159,7 @@ export default class extends Component {
             <Colxx xxs="4">
               <Card>
                 <h4>
-                  <b>{profit.type2ans} km</b>
+                  <b>{profit.type2ans} ₹</b>
                 </h4>
               </Card>
             </Colxx>

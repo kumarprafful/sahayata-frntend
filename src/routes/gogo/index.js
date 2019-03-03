@@ -8,6 +8,7 @@ import FVegies from './start/farmerView/fVegies';
 import Capacity from './start/farmerView/capacity';
 import WomenSchemes from './start/farmerView/WomenSchemes';
 import GeneralSchemes from './start/farmerView/GeneralSchemes';
+import PastOrders from './start/farmerView/PastOrders';
 
 
 export default ({ match }) => (
@@ -20,6 +21,8 @@ export default ({ match }) => (
         <Route path={`${match.url}/fruits-vegetables`} component={FVegies} />
         <Route path={`${match.url}/women-schemes`} component={WomenSchemes} />
         <Route path={`${match.url}/general-schemes`} component={GeneralSchemes} />
+        <Route path={`${match.url}/past-orders`} component={PastOrders} />
+
 
 
         <Redirect to="/error" />
