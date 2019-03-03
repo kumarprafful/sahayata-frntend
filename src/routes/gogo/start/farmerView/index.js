@@ -161,18 +161,6 @@ export default class extends Component {
               </Card>
             </NavLink>
           </Colxx>
-          <Colxx xxs="8">
-            <Card>
-              <CardBody>
-                <h3 className="center-align">
-                  <b>What can you do with your crop</b>
-                </h3>
-              </CardBody>
-            </Card>
-            <br />
-            {this.loadProfit()}
-          </Colxx>
-
 
           <Colxx xxs="4">
           <NavLink to="women-schemes">
