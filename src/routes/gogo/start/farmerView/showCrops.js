@@ -23,7 +23,7 @@ import {
 import axios from "axios";
 import BookStorageLevel from "./BookStorageLevel";
 import {  NotificationManager} from "Components/ReactNotifications";
-
+import Profit from "./profit.js"
 
 class ShowCrops extends Component {
   constructor(props) {
@@ -34,17 +34,26 @@ class ShowCrops extends Component {
       modal: false,
       Cstate: 0,
       quantity: "",
-      storageId: ""
+      storageId: "",
+      modal1: null,
+      crop: null
     };
     this.renderCrops = this.renderCrops.bind(this);
     this.toggle = this.toggle.bind(this);
+    this.toggle1 = this.toggle1.bind(this);
     this.renderNearbyStorage = this.renderNearbyStorage.bind(this);
   }
+
   toggle() {
     this.setState(prevState => ({
       modal: !prevState.modal
     }));
   }
+
+  toggle1() {
+      this.setState({ modal1: !this.state.modal1 });
+  }
+
 
   componentWillMount() {
     const userId = localStorage.userId;
@@ -151,6 +160,7 @@ class ShowCrops extends Component {
   }
 
   renderCrops() {
+    console.log(".dsa",this.state.data);
     if (this.state.data != null) {
       return this.state.data.map(element => {
         return (
@@ -163,7 +173,8 @@ class ShowCrops extends Component {
                 <Button className="" size="sm" onClick={()=>{this.toggle();this.setState({quantity: element.quantity})}}>
                   <i className="iconsmind-Warehouse" />
                 </Button>
-                <Button size="sm">Value addition</Button>
+
+                <Button size="sm" onClick={()=>{this.toggle1();this.setState({quantity: element.quantity, crop: element.crop });}}>Value addition</Button>
 
               </CardBody>
             </Card>
@@ -200,6 +211,19 @@ class ShowCrops extends Component {
         >
           <ModalHeader toggle={this.toggle}><LanguageChanger text="Nearby"/> <LanguageChanger text={text}/> </ModalHeader>
           <ModalBody>{this.renderNearbyStorage()}</ModalBody>
+        </Modal>
+
+        <Modal
+          size="lg"
+          isOpen={this.state.modal1}
+          toggle={this.toggle1}
+          className={this.props.className}
+        >
+          <ModalHeader toggle={this.toggle1}></ModalHeader>
+          <ModalBody>
+            {" "}
+            <Profit quantity={this.state.quantity} crop={this.state.crop}/>{" "}
+          </ModalBody>
         </Modal>
       </div>
     );
