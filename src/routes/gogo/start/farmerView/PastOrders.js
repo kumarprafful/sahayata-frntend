@@ -30,7 +30,7 @@ export default class PastOrders extends Component {
     }
     else{
       return (
-        <div>hey</div>
+        <div>No previous orders</div>
 
       );
     }
@@ -39,7 +39,7 @@ export default class PastOrders extends Component {
   render() {
     return (
       <Fragment>
-        Past Orders.
+        <h2>No previous orders.</h2>
       </Fragment>
     );
   }
