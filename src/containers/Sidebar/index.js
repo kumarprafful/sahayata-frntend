@@ -256,185 +256,221 @@ class Sidebar extends Component {
 
   view() {
     var type = this.props.authUser.type;
-    if(type == "farmer"){
+    if (type == "farmer") {
       return (
         <Fragment>
-        <NavItem
-          className={classnames({
-            active:
-              (this.state.selectedParentMenu == "second-menu" &&
-                this.state.viewingParentMenu == "") ||
-              this.state.viewingParentMenu == "second-menu"
-          })}
-        >
-          <NavLink
-            to="/app/second-menu"
-            onClick={e => this.openSubMenu(e, "second-menu")}
+          <NavItem
+            className={classnames({
+              active:
+                (this.state.selectedParentMenu == "second-menu" &&
+                  this.state.viewingParentMenu == "") ||
+                this.state.viewingParentMenu == "second-menu"
+            })}
           >
-            <i className="simple-icon-map" /> <LanguageChanger text="God view" />
-          </NavLink>
-        </NavItem>
-        <NavItem
-          className={classnames({
-            active:
-              (this.state.selectedParentMenu == "sellCrop" &&
-                this.state.viewingParentMenu == "") ||
-              this.state.viewingParentMenu == "sellCrop"
-          })}
-        >
-          <NavLink
-            to="/app/sellCrop"
-            onClick={e => this.openDirectPage(e, "sellCrop")}
+            <NavLink
+              to="/app/second-menu"
+              onClick={e => this.openSubMenu(e, "second-menu")}
+            >
+              <i className="simple-icon-map" />{" "}
+              <LanguageChanger text="God view" />
+            </NavLink>
+          </NavItem>
+          <NavItem
+            className={classnames({
+              active:
+                (this.state.selectedParentMenu == "sellCrop" &&
+                  this.state.viewingParentMenu == "") ||
+                this.state.viewingParentMenu == "sellCrop"
+            })}
           >
-            <i className="simple-icon-action-redo" />{" "}
-            <LanguageChanger text="Market" />
-          </NavLink>
-        </NavItem>
-        <NavItem
-          className={classnames({
-            active:
-              (this.state.selectedParentMenu == "transport" &&
-                this.state.viewingParentMenu == "") ||
-              this.state.viewingParentMenu == "transport"
-          })}
-        >
-          <NavLink
-            to="/app/transport"
-            onClick={e => this.openDirectPage(e, "transport")}
+            <NavLink
+              to="/app/sellCrop"
+              onClick={e => this.openDirectPage(e, "sellCrop")}
+            >
+              <i className="simple-icon-action-redo" />{" "}
+              <LanguageChanger text="Market" />
+            </NavLink>
+          </NavItem>
+          <NavItem
+            className={classnames({
+              active:
+                (this.state.selectedParentMenu == "transport" &&
+                  this.state.viewingParentMenu == "") ||
+                this.state.viewingParentMenu == "transport"
+            })}
           >
-            <i className="simple-icon-compass" />
-            <LanguageChanger text="Transport" />
-          </NavLink>
-        </NavItem>
-        <NavItem
-          className={classnames({
-            active:
-              (this.state.selectedParentMenu == "warehouse" &&
-                this.state.viewingParentMenu == "") ||
-              this.state.viewingParentMenu == "warehouse"
-          })}
-        >
-          <NavLink
-            to="/app/warehouse"
-            onClick={e => this.openDirectPage(e, "warehouse")}
+            <NavLink
+              to="/app/transport"
+              onClick={e => this.openDirectPage(e, "transport")}
+            >
+              <i className="simple-icon-compass" />
+              <LanguageChanger text="Transport" />
+            </NavLink>
+          </NavItem>
+          <NavItem
+            className={classnames({
+              active:
+                (this.state.selectedParentMenu == "warehouse" &&
+                  this.state.viewingParentMenu == "") ||
+                this.state.viewingParentMenu == "warehouse"
+            })}
           >
-            <i className="iconsmind-Warehouse" />
-            <LanguageChanger text="Warehouse" />
-          </NavLink>
-        </NavItem>
+            <NavLink
+              to="/app/warehouse"
+              onClick={e => this.openDirectPage(e, "warehouse")}
+            >
+              <i className="iconsmind-Warehouse" />
+              <LanguageChanger text="Warehouse" />
+            </NavLink>
+          </NavItem>
 
-        <NavItem
-          className={classnames({
-            active:
-              (this.state.selectedParentMenu == "weather" &&
-                this.state.viewingParentMenu == "") ||
-              this.state.viewingParentMenu == "weather"
-          })}
-        >
-          <NavLink
-            to="/app/weather"
-            onClick={e => this.openDirectPage(e, "weather")}
+          <NavItem
+            className={classnames({
+              active:
+                (this.state.selectedParentMenu == "weather" &&
+                  this.state.viewingParentMenu == "") ||
+                this.state.viewingParentMenu == "weather"
+            })}
           >
-            <i className="iconsmind-Weather" />
-            <LanguageChanger text="Weather" />
-          </NavLink>
-        </NavItem>
+            <NavLink
+              to="/app/weather"
+              onClick={e => this.openDirectPage(e, "weather")}
+            >
+              <i className="iconsmind-Weather" />
+              <LanguageChanger text="Weather" />
+            </NavLink>
+          </NavItem>
         </Fragment>
       );
-    }
-    else if(type == "transport"){
+    } else if (type == "transport") {
       return (
         <Fragment>
-
-            <NavItem
-              className={classnames({
-                active:
-                  (this.state.selectedParentMenu == "alltrasport" &&
-                    this.state.viewingParentMenu == "") ||
-                  this.state.viewingParentMenu == "alltrasport"
-              })}
+          <NavItem
+            className={classnames({
+              active:
+                (this.state.selectedParentMenu == "alltrasport" &&
+                  this.state.viewingParentMenu == "") ||
+                this.state.viewingParentMenu == "alltrasport"
+            })}
+          >
+            <NavLink
+              to="/app/alltransport"
+              onClick={e => this.openDirectPage(e, "alltrasport")}
             >
-              <NavLink
-                to="/app/alltransport"
-                onClick={e => this.openDirectPage(e, "alltrasport")}
-              >
-                <i className="iconsmind-Truck" />
-                <LanguageChanger text="All transport" />
-              </NavLink>
-            </NavItem>
+              <i className="iconsmind-Truck" />
+              <LanguageChanger text="All transport" />
+            </NavLink>
+          </NavItem>
 
-            <NavItem
-                  className={classnames({
-                    active:
-                      (this.state.selectedParentMenu == "alltransaction" &&
-                        this.state.viewingParentMenu == "") ||
-                      this.state.viewingParentMenu == "alltransaction"
-                  })}
-                >
-                  <NavLink
-                    to="/app/alltransaction"
-                    onClick={e => this.openDirectPage(e, "alltransaction")}
-                  >
-                    <i className="iconsmind-Mail-Money" />
-                    <LanguageChanger text="All transaction" />
-                  </NavLink>
-                </NavItem>
-
+          <NavItem
+            className={classnames({
+              active:
+                (this.state.selectedParentMenu == "alltransaction" &&
+                  this.state.viewingParentMenu == "") ||
+                this.state.viewingParentMenu == "alltransaction"
+            })}
+          >
+            <NavLink
+              to="/app/alltransaction"
+              onClick={e => this.openDirectPage(e, "alltransaction")}
+            >
+              <i className="iconsmind-Mail-Money" />
+              <LanguageChanger text="All transaction" />
+            </NavLink>
+          </NavItem>
         </Fragment>
       );
-    }
-    else if(type == "storage"){
+    } else if (type == "storage") {
       return (
         <Fragment>
-        <NavItem
-          className={classnames({
-            active:
-              (this.state.selectedParentMenu == "mywarehouse" &&
-                this.state.viewingParentMenu == "") ||
-              this.state.viewingParentMenu == "mywarehouse"
-          })}
-        >
-          <NavLink
-            to="/app/mywarehouse"
-            onClick={e => this.openDirectPage(e, "mywarehouse")}
+          <NavItem
+            className={classnames({
+              active:
+                (this.state.selectedParentMenu == "mywarehouse" &&
+                  this.state.viewingParentMenu == "") ||
+                this.state.viewingParentMenu == "mywarehouse"
+            })}
           >
-            <i className="iconsmind-Warehouse" />
-            <LanguageChanger text="My Warehouse" />
-          </NavLink>
-        </NavItem>
-        <NavItem
-              className={classnames({
-                active:
-                  (this.state.selectedParentMenu == "allwarehouse" &&
-                    this.state.viewingParentMenu == "") ||
-                  this.state.viewingParentMenu == "allwarehouse"
-              })}
+            <NavLink
+              to="/app/mywarehouse"
+              onClick={e => this.openDirectPage(e, "mywarehouse")}
             >
-              <NavLink
-                to="/app/allwarehouse"
-                onClick={e => this.openDirectPage(e, "allwarehouse")}
-              >
-                <i className="iconsmind-The-WhiteHouse" />
-                <LanguageChanger text="All warehouse" />
-              </NavLink>
-            </NavItem>
+              <i className="iconsmind-Warehouse" />
+              <LanguageChanger text="My Warehouse" />
+            </NavLink>
+          </NavItem>
 
-            <NavItem
-                  className={classnames({
-                    active:
-                      (this.state.selectedParentMenu == "alltransaction" &&
-                        this.state.viewingParentMenu == "") ||
-                      this.state.viewingParentMenu == "alltransaction"
-                  })}
-                >
-                  <NavLink
-                    to="/app/alltransaction"
-                    onClick={e => this.openDirectPage(e, "alltransaction")}
-                  >
-                    <i className="iconsmind-Mail-Money" />
-                    <LanguageChanger text="All transaction" />
-                  </NavLink>
-                </NavItem>
+          <NavItem
+            className={classnames({
+              active:
+                (this.state.selectedParentMenu == "allwarehouse" &&
+                  this.state.viewingParentMenu == "") ||
+                this.state.viewingParentMenu == "allwarehouse"
+            })}
+          >
+            <NavLink
+              to="/app/allwarehouse"
+              onClick={e => this.openDirectPage(e, "allwarehouse")}
+            >
+              <i className="iconsmind-The-WhiteHouse" />
+              <LanguageChanger text="All warehouse" />
+            </NavLink>
+          </NavItem>
+
+          <NavItem
+            className={classnames({
+              active:
+                (this.state.selectedParentMenu == "alltransaction" &&
+                  this.state.viewingParentMenu == "") ||
+                this.state.viewingParentMenu == "alltransaction"
+            })}
+          >
+            <NavLink
+              to="/app/alltransaction"
+              onClick={e => this.openDirectPage(e, "alltransaction")}
+            >
+              <i className="iconsmind-Mail-Money" />
+              <LanguageChanger text="All transaction" />
+            </NavLink>
+          </NavItem>
+        </Fragment>
+      );
+    } else if (type == "buyer") {
+      return (
+        <Fragment>
+          <NavItem
+            className={classnames({
+              active:
+                (this.state.selectedParentMenu == "allwarehouse" &&
+                  this.state.viewingParentMenu == "") ||
+                this.state.viewingParentMenu == "allwarehouse"
+            })}
+          >
+            <NavLink
+              to="/app/allwarehouse"
+              onClick={e => this.openDirectPage(e, "allwarehouse")}
+            >
+              <i className="iconsmind-The-WhiteHouse" />
+              <LanguageChanger text="All warehouse" />
+            </NavLink>
+          </NavItem>
+
+          <NavItem
+            className={classnames({
+              active:
+                (this.state.selectedParentMenu == "alltrasport" &&
+                  this.state.viewingParentMenu == "") ||
+                this.state.viewingParentMenu == "alltrasport"
+            })}
+          >
+            <NavLink
+              to="/app/alltransport"
+              onClick={e => this.openDirectPage(e, "alltrasport")}
+            >
+              <i className="iconsmind-Truck" />
+              <LanguageChanger text="All transport" />
+            </NavLink>
+          </NavItem>
 
         </Fragment>
       );
@@ -557,7 +593,7 @@ class Sidebar extends Component {
   }
 }
 
-const mapStateToProps = ({ menu ,authUser}) => {
+const mapStateToProps = ({ menu, authUser }) => {
   const {
     containerClassnames,
     subHiddenBreakpoint,
