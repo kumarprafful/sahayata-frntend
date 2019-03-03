@@ -100,12 +100,12 @@ class ShowCrops extends Component {
         <Fragment >
           <Card onClick={()=>{this.setState({Cstate: 2});this.setState({storageId: element._id })}} >
             <h3>
-              <b> Name: {element.name}</b>
+              <b> <LanguageChanger text="Name:  "/> <LanguageChanger text={element.name}/></b>
             </h3>
-            <CardText>Price/kg: {element.price}</CardText>
-            <CardText>Manager: {element.manager}</CardText>
+            <CardText><LanguageChanger text="Price:  Rs"/> <LanguageChanger text={element.price}/><LanguageChanger text="/kg"/></CardText>
+            <CardText><LanguageChanger text="Manager:  "/><LanguageChanger text={element.manager}/></CardText>
             <CardText>
-              Address: {element.address} {element.district} {element.pincode}
+              <LanguageChanger text="Address:  "/><LanguageChanger text={element.address}/>, <LanguageChanger text={element.district}/>, <LanguageChanger text={element.state}/>-<LanguageChanger text={element.pincode}/>
             </CardText>
           </Card>
           <br />
@@ -121,13 +121,13 @@ class ShowCrops extends Component {
         <Fragment>
           <Card onClick={()=>{
             this.toggle();
-            NotificationManager.success("Your order has been Succesfully booked",null,5000,null,null,"filled");
+            NotificationManager.success(<LanguageChanger text="Your order has been succesfully placed."/>,null,5000,null,null,"filled");
             this.sendOrder(element._id);
           }}>
-            <CardText><h3><b>Full name: {element.firstName}</b></h3></CardText>
-            <CardText><h3>Vehicle type: {element.type}</h3></CardText>
-            <CardText><h3>Contact: {element.mobileNo}</h3></CardText>
-            <CardText><h3>District: {element.district} {element.state}</h3></CardText>
+            <CardText><h3><b><LanguageChanger text="Full name:  "/><LanguageChanger text={element.firstName}/></b></h3></CardText>
+            <CardText><h3><LanguageChanger text="Vehicle type:  "/><LanguageChanger text={element.type}/></h3></CardText>
+            <CardText><h3><LanguageChanger text="Contact:  "/><LanguageChanger text={element.mobileNo}/></h3></CardText>
+            <CardText><h3><LanguageChanger text="District:  "/><LanguageChanger text={element.district}/> <LanguageChanger text={element.state}/></h3></CardText>
           </Card>
         </Fragment>
       )
