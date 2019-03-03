@@ -31,7 +31,7 @@ export default class AddCrops extends Component {
    }
    else{
      const id = localStorage.userId;
-     const apiURL = `https://sahayata-farmer.herokuapp.com/sahayata/farmer/${id}`;
+     const apiURL = `https://sahayata-farmer.herokuapp.com/sahayata/farmer/${id}/order`;
      axios.post(apiURL, this.state)
      .then(res => {
        this.setState({crop:""});
@@ -47,8 +47,9 @@ export default class AddCrops extends Component {
              this.toggle();
              NotificationManager.danger(<LanguageChanger text="Error."/>,null,5000,null,null,"filled");
              this.sendOrder(element._id);
+           }} />
           </Fragment>
-         }}>
+
        );
      })
 

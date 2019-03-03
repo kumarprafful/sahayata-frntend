@@ -39,7 +39,7 @@ export default class PastOrders extends Component {
   render() {
     return (
       <Fragment>
-      Past Orders.
+        Past Orders.
       </Fragment>
     );
   }
