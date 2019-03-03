@@ -389,14 +389,14 @@ class Sidebar extends Component {
         <NavItem
           className={classnames({
             active:
-              (this.state.selectedParentMenu == "warehouse" &&
+              (this.state.selectedParentMenu == "mywarehouse" &&
                 this.state.viewingParentMenu == "") ||
-              this.state.viewingParentMenu == "warehouse"
+              this.state.viewingParentMenu == "mywarehouse"
           })}
         >
           <NavLink
-            to="/app/warehouse"
-            onClick={e => this.openDirectPage(e, "warehouse")}
+            to="/app/mywarehouse"
+            onClick={e => this.openDirectPage(e, "mywarehouse")}
           >
             <i className="iconsmind-Warehouse" />
             <LanguageChanger text="My Warehouse" />

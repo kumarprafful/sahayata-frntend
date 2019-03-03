@@ -15,8 +15,6 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { Colxx, Separator } from "Components/CustomBootstrap";
 import BreadcrumbContainer from "Components/BreadcrumbContainer";
-import LanguageChanger from "Components/LanguageChanger";
-import ShowStorage from '../warehouse/showStorage.js';
 
 import {
   setContainerClassnames,
@@ -25,6 +23,7 @@ import {
 } from "Redux/actions";
 
 import axios from "axios";
+import ShowStorage from "../warehouse/showStorage";
 
 class SellCrop extends Component {
   constructor(props) {
@@ -32,36 +31,10 @@ class SellCrop extends Component {
     this.state = {
       data: null
     };
-    this.loadAllWarehouse = this.loadAllWarehouse.bind(this);
   }
 
-  componentWillMount() {
-    if (this.state.data == null) {
-      <div className="loading" />;
-    } else if (this.state.data[0] == undefined) {
-      return <div>no avalible warehouse</div>;
-    } else {
-      return this.state.data.map(element => {
-        console.log(element);
-        return (
-          <Fragment>
-            <ShowStorage />
-          <br />
-          </Fragment>
-        );
-      });
-    }
-  }
 
   componentDidMount() {
-    var userId = localStorage.userId;
-    axios
-      .get(
-        `https://sahayata-farmer.herokuapp.com/sahayata/storageall/${userId}`
-      )
-      .then(res => {
-        this.setState({ data: res.data });
-      });
 
     const { containerClassnames, menuClickCount } = this.props;
     this.props.setContainerClassnames(3, containerClassnames);
@@ -76,8 +49,13 @@ class SellCrop extends Component {
               match={this.props.match}
             />
             <Separator className="mb-5" />
-            {this.loadAllWarehouse()}
           </Colxx>
+        </Row>
+        <Row>
+          <Colxx xxs="12">
+            <ShowStorage />
+
+         </Colxx>
         </Row>
       </Fragment>
     );
