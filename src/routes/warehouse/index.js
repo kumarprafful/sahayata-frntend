@@ -23,7 +23,7 @@ import {
 } from "Redux/actions";
 
 import axios from "axios";
-import ShowStorage from "./showStorage";
+import ShowStorageFarmer from "./showStorageFarmer";
 
 class SellCrop extends Component {
   constructor(props) {
@@ -32,7 +32,14 @@ class SellCrop extends Component {
       data: null
     };
   }
-
+  manageRenderingStorage(){
+  if(localStorage.userType=="storage"){
+    return <ShowStorage />;
+  }
+  else if(localStorage.userType="farmer"){
+    return <ShowStorageFarmer />;
+  }
+}
 
   componentDidMount() {
 
@@ -53,7 +60,7 @@ class SellCrop extends Component {
         </Row>
         <Row>
           <Colxx xxs="12">
-            <ShowStorage />
+            {this.manageRenderingStorage()}
 
          </Colxx>
         </Row>

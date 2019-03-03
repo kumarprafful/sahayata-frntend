@@ -322,6 +322,23 @@ class Sidebar extends Component {
             <LanguageChanger text="Warehouse" />
           </NavLink>
         </NavItem>
+
+        <NavItem
+          className={classnames({
+            active:
+              (this.state.selectedParentMenu == "weather" &&
+                this.state.viewingParentMenu == "") ||
+              this.state.viewingParentMenu == "weather"
+          })}
+        >
+          <NavLink
+            to="/app/weather"
+            onClick={e => this.openDirectPage(e, "weather")}
+          >
+            <i className="iconsmind-Weather" />
+            <LanguageChanger text="Weather" />
+          </NavLink>
+        </NavItem>
         </Fragment>
       );
     }
@@ -372,14 +389,14 @@ class Sidebar extends Component {
         <NavItem
           className={classnames({
             active:
-              (this.state.selectedParentMenu == "warehouse" &&
+              (this.state.selectedParentMenu == "mywarehouse" &&
                 this.state.viewingParentMenu == "") ||
-              this.state.viewingParentMenu == "warehouse"
+              this.state.viewingParentMenu == "mywarehouse"
           })}
         >
           <NavLink
-            to="/app/warehouse"
-            onClick={e => this.openDirectPage(e, "warehouse")}
+            to="/app/mywarehouse"
+            onClick={e => this.openDirectPage(e, "mywarehouse")}
           >
             <i className="iconsmind-Warehouse" />
             <LanguageChanger text="My Warehouse" />
