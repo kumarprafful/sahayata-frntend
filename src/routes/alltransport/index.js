@@ -29,6 +29,7 @@ import ShowTransport from '../transport/showTransport';
 class SellCrop extends Component {
   constructor(props) {
     super(props);
+    // console.log("dsahdbjsj");
     this.state = {
       data: null
     }
@@ -39,6 +40,17 @@ class SellCrop extends Component {
     const { containerClassnames, menuClickCount } = this.props;
     this.props.setContainerClassnames(3, containerClassnames);
   }
+
+  loadTransport(){
+    var userType  = localStorage.userType;
+    if(userType !== "transport"){
+      return <div />
+    }
+    else{
+      return <AddTransport />
+    }
+  }
+
   render() {
     return (
       <Fragment>
@@ -49,7 +61,7 @@ class SellCrop extends Component {
               match={this.props.match}
             />
             <Separator className="mb-5" />
-              <AddTransport />
+              {this.loadTransport()}
               <ShowTransport />
           </Colxx>
         </Row>
