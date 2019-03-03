@@ -50,9 +50,10 @@ class ShowTransport extends Component {
           <Colxx xxs="4">
             <Card>
               <CardBody>
-                <h3>{element.type}</h3>
-                <h6>Capacity: {element.capacity}</h6>
-                <h5>Price: {element.price}</h5>
+                <h3><b><LanguageChanger text={element.type}/></b></h3>
+                <h5><LanguageChanger text="Capacity:  "/>{element.capacity}<LanguageChanger text="tonnes"/></h5>
+                <h5><LanguageChanger text="Fare:  Rs."/>{element.price}<LanguageChanger text="km"/></h5>
+                <h5><LanguageChanger text="Vehicle no.:  "/>{element.vehicleNumber}</h5>
               </CardBody>
             </Card>
           </Colxx>

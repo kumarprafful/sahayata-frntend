@@ -24,6 +24,7 @@ import axios from "axios";
 import BookStorageLevel from "./BookStorageLevel";
 import {  NotificationManager} from "Components/ReactNotifications";
 import Profit from "./profit.js"
+import ValueAdd from "./valueaddition.js"
 
 class ShowCrops extends Component {
   constructor(props) {
@@ -32,15 +33,18 @@ class ShowCrops extends Component {
       data: null,
       storage: null,
       modal: false,
+      modal1: false,
       Cstate: 0,
       quantity: "",
       storageId: "",
       modal1: null,
-      crop: null
+      crop: null,
+      currentCrop: ""
     };
     this.renderCrops = this.renderCrops.bind(this);
     this.toggle = this.toggle.bind(this);
     this.toggle1 = this.toggle1.bind(this);
+    this.toggle2 = this.toggle2.bind(this);
     this.renderNearbyStorage = this.renderNearbyStorage.bind(this);
   }
 
@@ -49,10 +53,18 @@ class ShowCrops extends Component {
       modal: !prevState.modal
     }));
   }
-
   toggle1() {
-      this.setState({ modal1: !this.state.modal1 });
+    this.setState(prevState => ({
+      modal1: !prevState.modal1
+    }));
   }
+
+  toggle2() {
+    this.setState(prevState => ({
+      modal2: !prevState.modal2
+    }));
+  }
+
 
 
   componentWillMount() {
@@ -111,7 +123,7 @@ class ShowCrops extends Component {
             <h3>
               <b> <LanguageChanger text="Name:  "/> <LanguageChanger text={element.name}/></b>
             </h3>
-            <CardText><LanguageChanger text="Price:  Rs"/> <LanguageChanger text={element.price}/><LanguageChanger text="/kg"/></CardText>
+            <CardText><LanguageChanger text="Price: Rs"/> <LanguageChanger text={element.price}/><LanguageChanger text="/kg"/></CardText>
             <CardText><LanguageChanger text="Manager:  "/><LanguageChanger text={element.manager}/></CardText>
             <CardText>
               <LanguageChanger text="Address:  "/><LanguageChanger text={element.address}/>, <LanguageChanger text={element.district}/>, <LanguageChanger text={element.state}/>-<LanguageChanger text={element.pincode}/>
@@ -174,7 +186,8 @@ class ShowCrops extends Component {
                   <i className="iconsmind-Warehouse" />
                 </Button>
 
-                <Button size="sm" onClick={()=>{this.toggle1();this.setState({quantity: element.quantity, crop: element.crop });}}>Value addition</Button>
+                <Button size="sm" onClick={()=>{this.toggle2();this.setState({ crop: element.crop });}}>Value addition</Button>
+                <Button size="sm" onClick={()=>{this.toggle1();this.setState({quantity: element.quantity, crop: element.crop });}}>Estimate</Button>
 
               </CardBody>
             </Card>
@@ -190,7 +203,10 @@ class ShowCrops extends Component {
         </div>
       );
     }
+
   }
+
+
 
   render() {
     var text ;
@@ -225,6 +241,19 @@ class ShowCrops extends Component {
             <Profit quantity={this.state.quantity} crop={this.state.crop}/>{" "}
           </ModalBody>
         </Modal>
+
+        <Modal
+          size="lg"
+          isOpen={this.state.modal2}
+          toggle={this.toggle2}
+          className={this.props.className}
+        >
+          <ModalHeader toggle={this.toggle2}>{this.state.crop}</ModalHeader>
+          <ModalBody>
+            <ValueAdd crop={this.state.crop}/>{" "}
+          </ModalBody>
+        </Modal>
+
       </div>
     );
   }

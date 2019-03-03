@@ -43,19 +43,23 @@ class ShowTransportFarmer extends Component {
     })
   }
 
-  renderVehicles(vehicles) {
-    if(vehicles != null){
-      this.setState({vehicles});
-    return (
-      <Fragment>vehicles</Fragment>
-    );
-    }
-    else{
-      return (
-        <Fragment>No transport agency selected.</Fragment>
-      );
-    }
-  }
+  // renderVehicles(vehicles) {
+  //   if(vehicles == null){
+  //     <Fragment>No transport agency selected.</Fragment>
+  //
+  //   }
+  //   else{
+  //     return (
+  //       this.setState({vehicles});
+  //       console.log(this.state);
+  //     return this.state.vehicles.map(v =>{
+  //       return (
+  //       <Fragment>{v.type}</Fragment>
+  //         )
+  //     });
+  //     );
+  //   }
+  // }
 
   renderTransports() {
     console.log(this.state.data);
@@ -64,13 +68,14 @@ class ShowTransportFarmer extends Component {
         console.log(element);
         return (
           <Colxx xxs="4">
-            <Card onClick={(e)=>this.renderVehicles(element.vehicles)}>
+            <Card onClick={()=>this.renderVehicles(element.vehicles)}>
               <CardBody>
                 <h3><LanguageChanger text={element.firstName}/></h3>
                 <h5><LanguageChanger text="Email: "/>{element.email}</h5>
                 <h5><LanguageChanger text="Contact: "/>{element.mobileNo}</h5>
                 <h5><LanguageChanger text="District: "/><LanguageChanger text={element.district}/></h5>
                 <h5><LanguageChanger text="State: "/><LanguageChanger text={element.state}/></h5>
+                <Button size="sm">Book</Button>
               </CardBody>
             </Card>
           </Colxx>
@@ -92,7 +97,7 @@ class ShowTransportFarmer extends Component {
     return (
       <div>
         <Row>{this.renderTransports()}</Row>
-        <Row>{this.renderVehicles()}</Row>
+        {/*<Row>{this.renderVehicles(this.state.data.vehicles)}</Row>*/}
 
       </div>
     );

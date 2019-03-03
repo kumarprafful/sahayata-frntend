@@ -58,6 +58,7 @@ class ShowStorageFarmer extends Component {
                 <h5><b><LanguageChanger text="Address: "/></b> <LanguageChanger text={element.address}/></h5>
                 <h5><b><LanguageChanger text="District: " /></b> <LanguageChanger text={element.district}/></h5>
                 <h5><b><LanguageChanger text="State: "/></b> <LanguageChanger text={element.state}/></h5>
+                <Button size="sm">Book</Button>
 
 
               </CardBody>
