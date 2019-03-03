@@ -28,7 +28,12 @@ class Home extends Component {
 
   componentDidMount() {
     const { containerClassnames, menuClickCount } = this.props;
-    this.props.setContainerClassnames(3, containerClassnames);
+    if(window.navigator.userAgent.match(/Android/i)) {
+      this.props.setContainerClassnames(2,containerClassnames);
+    }else{
+      // console.log("dnsjbfkhdsvkhajkdjs");
+      this.props.setContainerClassnames(3, containerClassnames);
+    }
   }
 
   homeLoader(){

@@ -204,9 +204,20 @@ class Sidebar extends Component {
   }
 
   openDirectPage(e, selectedParent) {
+    // e.preventDefault();
     const { containerClassnames, menuClickCount } = this.props;
-    this.props.setContainerClassnames(3, containerClassnames);
-
+    const currentClasses = containerClassnames
+      ? containerClassnames.split(" ").filter(x => x != "")
+      : "";
+    if (currentClasses.includes("menu-mobile")) {
+      this.props.setContainerClassnames(3, containerClassnames);
+    } else {
+      // console.log("mobile hai");
+      this.props.addContainerClassname(
+        "sub-show-temporary",
+        containerClassnames
+      );
+    }
     this.setState({
       viewingParentMenu: selectedParent
     });
@@ -336,7 +347,7 @@ class Sidebar extends Component {
               to="/app/weather"
               onClick={e => this.openDirectPage(e, "weather")}
             >
-              <i className="iconsmind-Weather" />
+              <i className="simple-icon-cloud-download" />
               <LanguageChanger text="Weather" />
             </NavLink>
           </NavItem>
@@ -471,7 +482,6 @@ class Sidebar extends Component {
               <LanguageChanger text="All transport" />
             </NavLink>
           </NavItem>
-
         </Fragment>
       );
     }
