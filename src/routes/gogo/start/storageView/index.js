@@ -42,10 +42,10 @@ export default class extends Component {
           <Colxx xxs="4">
             <Card>
               <CardBody >
-                <h2 >{element.name}</h2>
-                <p>Capacity: {element.capacity}</p>
-                <h5>Price: {element.price}</h5>
-                <p>Address: {element.address}</p>
+                <h2 ><b><LanguageChanger text={element.name}/></b></h2>
+                <h5><LanguageChanger text="Capacity:  "/><LanguageChanger text={element.capacity}/><LanguageChanger text="tonnes"/></h5>
+                <h5><LanguageChanger text="Price:  Rs."/><LanguageChanger text={element.price}/><LanguageChanger text="/kg"/></h5>
+                <h5><LanguageChanger text="Address:  "/><LanguageChanger text={element.address}/>, <LanguageChanger text={element.district}/>, <LanguageChanger text={element.state}/>-<LanguageChanger text={element.pincode}/></h5>
               </CardBody>
             </Card>
           </Colxx>
