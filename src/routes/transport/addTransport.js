@@ -33,7 +33,7 @@ export default class AddTransport extends Component {
    else{
      console.log(this.state);
      const id = localStorage.userId;
-     const apiURL = `https://sahayata-farmer.herokuapp.com/sahayata/transport/${id}`
+     const apiURL = `http://sahayataapp.herokuapp.com/sahayata/transport/${id}`
      axios.post(apiURL, this.state)
      .then(res => {
        console.log(res);

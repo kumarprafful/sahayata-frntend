@@ -27,7 +27,7 @@ class LoginLayout extends Component {
   onUserLogin(e) {
     this.setState({loading:true})
     e.preventDefault();
-    axios.post("https://sahayata-farmer.herokuapp.com/login", this.state)
+    axios.post("http://sahayataapp.herokuapp.com/login", this.state)
     .then(res => {
       if(res.status == 200){
         this.props.loginUserSuccess({...this.state, username: res.data.email ,userType:res.data.type, userId: res.data.userId });

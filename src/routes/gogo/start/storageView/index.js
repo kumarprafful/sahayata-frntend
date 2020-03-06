@@ -21,7 +21,7 @@ export default class extends Component {
 
   componentWillMount(){
     var userId =  localStorage.userId;
-    axios.get(`https://sahayata-farmer.herokuapp.com/sahayata/storageall/${userId}`).then((res)=>{
+    axios.get(`http://sahayataapp.herokuapp.com/sahayata/storageall/${userId}`).then((res)=>{
       this.setState({warehouses: res.data});
     })
   }

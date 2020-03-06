@@ -13,7 +13,7 @@ export default class extends Component {
 
   componentWillMount(){
     const userId = localStorage.userId;
-    const apiURL = `https://sahayata-farmer.herokuapp.com/sahayata/storage/${userId}`;
+    const apiURL = `http://sahayataapp.herokuapp.com/sahayata/storage/${userId}`;
     axios.get(apiURL).then((res)=>{
       this.setState({data:res.data});
     })

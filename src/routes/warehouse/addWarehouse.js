@@ -36,7 +36,7 @@ export default class AddWarehouse extends Component {
    }
    else{
      const id = localStorage.userId;
-     const apiURL = `https://sahayata-farmer.herokuapp.com/sahayata/storage/${id}`;
+     const apiURL = `http://sahayataapp.herokuapp.com/sahayata/storage/${id}`;
      axios.post(apiURL, this.state)
      .then(res => {
        console.log(res);

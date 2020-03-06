@@ -81,7 +81,7 @@ export default class extends Component {
   }
 
   componentWillMount(){
-    axios.get("https://sahayata-farmer.herokuapp.com/sahayata/buyer").then((res)=>{
+    axios.get("http://sahayataapp.herokuapp.com/sahayata/buyer").then((res)=>{
       this.setState({data: res.data});
     });
   }

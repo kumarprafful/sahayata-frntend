@@ -34,7 +34,7 @@ class RegisterLayout extends Component {
     }
     else{
       this.setState({loading:true});
-      axios.post("https://sahayata-farmer.herokuapp.com/register", this.state)
+      axios.post("http://sahayataapp.herokuapp.com/register", this.state)
       .then(res => {
         console.log(res);
         this.props.loginUserSuccess({...this.state, userType:res.data.type});

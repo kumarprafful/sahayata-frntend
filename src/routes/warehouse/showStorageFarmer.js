@@ -32,7 +32,7 @@ class ShowStorageFarmer extends Component {
 
   componentWillMount(){
     const userId = localStorage.userId;
-    const apiURL = `https://sahayata-farmer.herokuapp.com/sahayata/storageall/${userId}`;
+    const apiURL = `http://sahayataapp.herokuapp.com/sahayata/storageall/${userId}`;
     axios.get(apiURL).then((res)=>{
       console.log(res.data);
       this.setState({data:res.data});

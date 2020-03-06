@@ -31,7 +31,7 @@ export default class AddCrops extends Component {
    }
    else{
      const id = localStorage.userId;
-     const apiURL = `https://sahayata-farmer.herokuapp.com/sahayata/farmer/${id}/order`;
+     const apiURL = `http://sahayataapp.herokuapp.com/sahayata/farmer/${id}/order`;
      axios.post(apiURL, this.state)
      .then(res => {
        this.setState({crop:""});

@@ -79,7 +79,7 @@ class SellCrop extends Component {
     var userId = localStorage.userId;
     axios
       .get(
-        `https://sahayata-farmer.herokuapp.com/sahayata/storageall/${userId}`
+        `http://sahayataapp.herokuapp.com/sahayata/storageall/${userId}`
       )
       .then(res => {
         this.setState({ data: res.data });

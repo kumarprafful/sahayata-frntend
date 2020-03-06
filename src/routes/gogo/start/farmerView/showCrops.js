@@ -69,7 +69,7 @@ class ShowCrops extends Component {
 
   componentWillMount() {
     const userId = localStorage.userId;
-    const apiURL = `https://sahayata-farmer.herokuapp.com/sahayata/farmer/${userId}`;
+    const apiURL = `http://sahayataapp.herokuapp.com/sahayata/farmer/${userId}`;
     axios
       .get(apiURL)
       .then(res => {
@@ -83,8 +83,8 @@ class ShowCrops extends Component {
 
   componentDidMount() {
     const userId = localStorage.userId;
-    const apiURLStorage = `https://sahayata-farmer.herokuapp.com/sahayata/storageall/${userId}`;
-    const apiURLTransport = `https://sahayata-farmer.herokuapp.com/sahayata/transportall/${userId}`;
+    const apiURLStorage = `http://sahayataapp.herokuapp.com/sahayata/storageall/${userId}`;
+    const apiURLTransport = `http://sahayataapp.herokuapp.com/sahayata/transportall/${userId}`;
     axios
       .get(apiURLStorage)
       .then(res => {
@@ -106,10 +106,10 @@ class ShowCrops extends Component {
     var userId = localStorage.userId;
     var quantity = this.state.quantity;
     var storageId = this.state.storageId;
-    axios.post(`https://sahayata-farmer.herokuapp.com/order/${userId}/storage/${storageId}`, {quantity: quantity}).then((res)=>{
+    axios.post(`http://sahayataapp.herokuapp.com/order/${userId}/storage/${storageId}`, {quantity: quantity}).then((res)=>{
       console.log(res);
     })
-    axios.post(`https://sahayata-farmer.herokuapp.com/order/${userId}/transport/${transportId}`, {quantity: quantity}).then((res)=>{
+    axios.post(`http://sahayataapp.herokuapp.com/order/${userId}/transport/${transportId}`, {quantity: quantity}).then((res)=>{
       console.log(res);
     })
   }

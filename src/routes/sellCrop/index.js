@@ -31,7 +31,7 @@ import {
 import axios from "axios";
 
 function getData(){
-  axios.get("https://sahayata-farmer.herokuapp.com/search/crop").then(res => {
+  axios.get("http://sahayataapp.herokuapp.com/search/crop").then(res => {
     return res.data;
   });
 }
@@ -52,7 +52,7 @@ class SellCrop extends Component {
   }
 
   componentWillMount() {
-    axios.get("https://sahayata-farmer.herokuapp.com/search/crop").then(res => {
+    axios.get("http://sahayataapp.herokuapp.com/search/crop").then(res => {
       this.setState({ data: res.data });
     });
   }
@@ -66,7 +66,7 @@ class SellCrop extends Component {
     console.log(element);
     var a = [];
 
-    axios.get("https://sahayata-farmer.herokuapp.com/search/crop").then(res => {
+    axios.get("http://sahayataapp.herokuapp.com/search/crop").then(res => {
       res.data.map((e)=>{
         if(e.crop == element){
           a.push(e);

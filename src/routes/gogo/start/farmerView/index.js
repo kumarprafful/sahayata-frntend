@@ -24,7 +24,7 @@ export default class extends Component {
   }
 
   componentWillMount() {
-    axios.get("https://sahayata-farmer.herokuapp.com/profit").then(res => {
+    axios.get("http://sahayataapp.herokuapp.com/profit").then(res => {
       this.setState({ profitData: res.data });
     });
   }
